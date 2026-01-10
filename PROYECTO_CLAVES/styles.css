@@ -1,90 +1,197 @@
 /* Reset básico */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-
-/* CAMBIO: Fondo blanco y texto oscuro */
-body { background-color: #ffffff; color: #333333; }
-
-/* Header */
-header { 
-    display: flex; 
-    justify-content: space-between; 
-    padding: 20px 50px; 
-    align-items: center; 
-    background-color: black;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave para separar el menú */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-.logo { font-weight: bold; font-size: 1.5rem; color: #00d4ff; }
+/* CAMBIO: Fondo blanco y texto oscuro */
+body {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    /* Degradado Azul-Violeta visible para resaltar el cristal */
+    background-attachment: fixed;
+    /* Para que el fondo no se mueva al hacer scroll */
+    color: #333333;
+    min-height: 100vh;
+}
+
+/* Fondo específico para la página de Crunchyroll (Naranja y Blanco) */
+body.crunchyroll-page {
+    /* Usamos el naranja de la marca (#f47521) pero en degradado con blanco para no saturar */
+    background: linear-gradient(135deg, #ffffff 20%, #f47521 120%);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
+    /* Fondo blanco semitransparente */
+    background: rgba(255, 255, 255, 0.8); 
+    /* Efecto de desenfoque del fondo */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Se queda fijo al bajar con el ratón */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #00d4ff;
+}
 
 /* CAMBIO: Enlaces del menú en gris oscuro */
-nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
-nav a:hover { color: #00d4ff; }
+nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #00d4ff;
+}
+
+
+/* Efecto al pasar el ratón */
 
 /* Hero */
-.hero { text-align: center; padding: 100px 20px; background-color: #ffffff; }
-.hero h1 { font-size: 3rem; margin-bottom: 10px; color: #111; } /* Texto casi negro */
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: transparent;
+    /* Para ver el degradado del body */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+/* Texto casi negro */
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    color: #666; /* Gris medio para el subtítulo */
+    color: #666;
+    /* Gris medio para el subtítulo */
 }
 
-.btn-primary { 
-    background: #00d4ff; 
-    color: #fff; /* Texto blanco en el botón principal */
-    padding: 12px 25px; 
-    text-decoration: none; 
-    border-radius: 5px; 
+.btn-primary {
+    background: #00d4ff;
+    color: #fff;
+    /* Texto blanco en el botón principal */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.3); /* Sombra brillante */
+    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.3);
+    /* Sombra brillante */
 }
-.btn-primary:hover { opacity: 0.9; }
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
 
 /* Pricing Cards */
-.pricing-container { display: flex; justify-content: center; gap: 30px; padding: 50px 20px; flex-wrap: wrap; }
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
 
 
 /* CAMBIO: Tarjetas más anchas (de 300px a 360px) */
-.card { 
-    background: #ffffff; 
-    padding: 30px; 
-    border-radius: 12px; 
-    
+.card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 30px;
+    border-radius: 24px;
+
+    /* Importante para que el brillo no se salga de la tarjeta */
+    overflow: hidden;
+
     /* AQUÍ ESTÁ EL CAMBIO */
-    width: 360px;       /* Antes era 300px */
-    max-width: 100%;    /* Esto evita que se salga de la pantalla en móviles muy pequeños */
-    
-    text-align: center; 
-    border: 1px solid #e0e0e0; 
-    position: relative; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 360px;
+    max-width: 100%;
+
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
+
+/* Efecto de Brillo (Shine) */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    /* Empieza fuera */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+    z-index: 1;
+    pointer-events: none;
+    /* Para que no interfiera con clicks */
+}
+
 /* Estilo para las imágenes de los productos */
 .card img {
-    width: 170px;           /* Un tamaño ideal, ni muy grande ni muy pequeño */
-    height: auto;           /* Mantiene la proporción original para no deformar */
-    display: block;         /* Comportamiento de bloque para centrar */
-    margin: 15px auto;      /* 15px de espacio arriba/abajo y centrado automático a los lados */
-    object-fit: contain;    /* Asegura que la imagen se vea completa */
-    border-radius: 4px;     /* Un ligero borde redondeado si la imagen es cuadrada */
+    width: 170px;
+    /* Un tamaño ideal, ni muy grande ni muy pequeño */
+    height: auto;
+    /* Mantiene la proporción original para no deformar */
+    display: block;
+    /* Comportamiento de bloque para centrar */
+    margin: 15px auto;
+    /* 15px de espacio arriba/abajo y centrado automático a los lados */
+    object-fit: contain;
+    /* Asegura que la imagen se vea completa */
+    border-radius: 4px;
+    /* Un ligero borde redondeado si la imagen es cuadrada */
 }
+
 /* Efecto Hover mejorado para fondo blanco */
+/* Efecto Hover mejorado estilo cristal */
+/* Efecto Hover mejorado estilo cristal */
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
-    border-color: #00d4ff;
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+/* Al pasar el ratón, el brillo cruza la tarjeta */
+.card:hover::before {
+    left: 125%;
 }
 
 /* Tarjeta destacada */
-.card.popular { 
-    border: 2px solid #00d4ff; 
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.15); 
+.card.popular {
+    border: 2px solid #00d4ff;
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.15);
 }
 
 .tag {
     background: #eee;
-    color: #555;
+    color: #2c2c2c;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -92,71 +199,116 @@ nav a:hover { color: #00d4ff; }
     margin-bottom: 10px;
 }
 
-.card h2 { color: #222; }
+.card h2 {
+    color: #222;
+}
 
-.price { font-size: 2.5rem; margin: 20px 0; font-weight: bold; color: #00d4ff; }
+.price {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #00d4ff;
+}
+
 .sub-title {
-    color: #555;            /* Texto gris oscuro */
-    background-color: #f0f0f0; /* Fondo gris muy clarito */
-    display: inline-block;  /* Para que el fondo se ajuste al texto */
-    padding: 4px 12px;      /* Espacio interior para que respire */
-    border-radius: 15px;    /* Bordes redondeados */
-    margin-top: 10px;       /* CAMBIO CLAVE: Espacio positivo hacia arriba */
-    margin-bottom: 10px;    /* Espacio hacia abajo antes del precio */
-    font-size: 0.85rem;     
-    font-weight: 600;       /* Un poco más gordita la letra */
+    color: #555;
+    /* Texto gris oscuro */
+    background-color: #f0f0f0;
+    /* Fondo gris muy clarito */
+    display: inline-block;
+    /* Para que el fondo se ajuste al texto */
+    padding: 4px 12px;
+    /* Espacio interior para que respire */
+    border-radius: 15px;
+    /* Bordes redondeados */
+    margin-top: 10px;
+    /* CAMBIO CLAVE: Espacio positivo hacia arriba */
+    margin-bottom: 10px;
+    /* Espacio hacia abajo antes del precio */
+    font-size: 0.85rem;
+    font-weight: 600;
+    /* Un poco más gordita la letra */
 }
 
-ul { list-style: none; text-align: left; margin-bottom: 30px; color: #555; }
-ul li { margin-bottom: 10px; }
+ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
 
 /* Botón de compra */
 /* Botón de compra */
-.btn-buy { 
-    display: block; 
-    width: 100%; 
-    padding: 15px; 
-    background: #333; 
-    color: #fff; 
-    text-decoration: none; 
-    border-radius: 5px; 
-    transition: 0.3s; 
-    
+.btn-buy {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+
     /* AGREGA ESTA LÍNEA: */
-    margin-bottom: 10px; /* Esto separa los botones entre sí y del texto de abajo */
+    margin-bottom: 10px;
+    /* Esto separa los botones entre sí y del texto de abajo */
 }
-.btn-buy:hover { background: #00d4ff; color: #fff; }
+
+.btn-buy:hover {
+    background: #00d4ff;
+    color: #fff;
+}
 
 /* Sección de Soporte (Fondo gris muy suave para diferenciar) */
 .support-section {
     padding: 80px 20px;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
     text-align: center;
 }
 
-.support-container { max-width: 800px; margin: 0 auto; }
-.support-section h2 { font-size: 2.5rem; margin-bottom: 10px; color: #333; }
-.support-intro { color: #666; margin-bottom: 40px; }
+.support-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.support-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.support-intro {
+    color: #666;
+    margin-bottom: 40px;
+}
 
 /* Estilo del Acordeón (FAQ) */
 details {
     background: #ffffff;
     margin-bottom: 15px;
     border-radius: 8px;
-    border: 1px solid #ddd; /* Borde gris claro */
+    border: 1px solid #ddd;
+    /* Borde gris claro */
     text-align: left;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
 
-details[open] { border-color: #00d4ff; }
+details[open] {
+    border-color: #00d4ff;
+}
 
 summary {
     padding: 20px;
     cursor: pointer;
     font-weight: bold;
-    color: #333; /* Texto oscuro */
+    color: #333;
+    /* Texto oscuro */
     list-style: none;
     position: relative;
     padding-right: 40px;
@@ -171,11 +323,14 @@ summary::after {
     transition: transform 0.3s;
 }
 
-details[open] summary::after { transform: rotate(45deg); }
+details[open] summary::after {
+    transform: rotate(45deg);
+}
 
 details p {
     padding: 0 20px 20px 20px;
-    color: #555; /* Texto gris medio para lectura fácil */
+    color: #555;
+    /* Texto gris medio para lectura fácil */
     line-height: 1.6;
     margin: 0;
     border-top: 1px solid #eee;
@@ -189,11 +344,17 @@ details p {
     background: #ffffff;
     border-radius: 15px;
     border: 1px solid #ddd;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.contact-box h3 { color: #333; margin-bottom: 10px;}
-.contact-box p { color: #666; }
+.contact-box h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-box p {
+    color: #666;
+}
 
 .btn-email {
     display: inline-block;
@@ -208,17 +369,25 @@ details p {
     transition: 0.3s;
 }
 
-.btn-email:hover { background-color: #00d4ff; color: #fff; }
+.btn-email:hover {
+    background-color: #00d4ff;
+    color: #fff;
+}
 
-.small-text { margin-top: 15px; font-size: 0.9rem; color: #999; }
+.small-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #999;
+}
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 40px 20px;
-    background: #fff;
-    border-top: 1px solid #eee;
-    color: #666;
+    padding: 60px 20px;
+    background: transparent; /* ANTES: #fff */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea sutil sobre el azul */
+    color: #444; /* Un gris más oscuro para que se lea sobre el azul */
+    margin-top: auto;
 }
 
 
@@ -226,31 +395,36 @@ footer {
 
 .blog-section {
     padding: 50px 20px;
-    background-color: #ffffff;
+    background-color: transparent; /* ANTES: #ffffff */
     display: flex;
     justify-content: center;
+    align-items: flex-start; /* Evita que los divs se estiren */
+    min-height: 70vh; /* Asegura que el azul se vea hasta abajo */
 }
 
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Se adapta a móviles y PC */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Se adapta a móviles y PC */
     gap: 30px;
     max-width: 1000px;
     width: 100%;
 }
 
 .blog-card {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: rgba(255, 255, 255, 0.7); /* Blanco semitransparente */
+    backdrop-filter: blur(10px); /* Desenfoque estilo cristal */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 12px;
-    overflow: hidden; /* Para que la imagen no se salga de las esquinas */
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left; /* En el blog se lee mejor alineado a la izquierda */
+    text-align: left;
 }
 
 .blog-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     border-color: #00d4ff;
 }
 
@@ -269,8 +443,10 @@ footer {
 .blog-card img {
     width: 100%;
     height: 180px;
-    object-fit: cover; /* Recorta la imagen para que llene el hueco */
-    margin: 0; /* Reseteamos el margen que pusimos para productos */
+    object-fit: cover;
+    /* Recorta la imagen para que llene el hueco */
+    margin: 0;
+    /* Reseteamos el margen que pusimos para productos */
     border-radius: 0;
 }
 
@@ -318,8 +494,8 @@ footer {
 .tutorial-hero {
     text-align: center;
     padding: 60px 20px 40px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #eee;
+    background-color: transparent; /* ANTES: #f9f9f9 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil para el azul */
 }
 
 .tutorial-hero h1 {
@@ -332,12 +508,17 @@ footer {
     max-width: 900px;
     margin: 0 auto;
     padding: 50px 20px;
+    background-color: transparent; /* Asegura que sea transparente */
 }
 
 .step {
-    margin-bottom: 60px; /* Espacio entre pasos */
+    margin-bottom: 60px;
     position: relative;
-    padding-left: 60px; /* Espacio para el número */
+    padding: 30px 30px 30px 70px; /* Añadimos un poco de aire */
+    background: rgba(255, 255, 255, 0.4); /* Fondo blanco muy clarito */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* El círculo con el número */
@@ -376,14 +557,17 @@ footer {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    border: 1px solid #ddd; /* Borde gris para que no se mezcle con el fondo */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra suave */
+    border: 1px solid #ddd;
+    /* Borde gris para que no se mezcle con el fondo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    /* Sombra suave */
     display: block;
 }
 
 /* Caja final de "Comprar" */
 .tutorial-cta {
-    background-color: #eafbff; /* Fondo azul muy clarito */
+    background-color: #eafbff;
+    /* Fondo azul muy clarito */
     padding: 40px;
     border-radius: 12px;
     text-align: center;
@@ -400,12 +584,18 @@ footer {
     margin-bottom: 20px;
     color: #555;
 }
+
 #planes .btn-buy:hover {
-    background-color: #f47521 !important; /* Naranja Crunchyroll */
-    border-color: #f47521 !important;     /* Borde Naranja */
-    color: white !important;              /* Texto Blanco */
-    transform: scale(1.05);               /* Pequeño efecto de zoom "pop" */
-    transition: all 0.3s ease;            /* Suavidad en el cambio */
+    background-color: #f47521 !important;
+    /* Naranja Crunchyroll */
+    border-color: #f47521 !important;
+    /* Borde Naranja */
+    color: white !important;
+    /* Texto Blanco */
+    transform: scale(1.05);
+    /* Pequeño efecto de zoom "pop" */
+    transition: all 0.3s ease;
+    /* Suavidad en el cambio */
 }
 
 /* --- ANIMACIÓN DE BORDE NARANJA AL PASAR EL RATÓN --- */
@@ -418,8 +608,10 @@ footer {
 /* 2. Al pasar el ratón (:hover), el borde se pone naranja */
 #planes .card:hover {
     border-color: #f47521 !important;
-    transform: translateY(-5px); /* Opcional: Levanta un poco la tarjeta para efecto 3D */
+    transform: translateY(-5px);
+    /* Opcional: Levanta un poco la tarjeta para efecto 3D */
 }
+
 /* --- FAQ ESTILO CRUNCHYROLL (NARANJA) --- */
 
 /* 1. Cambia el borde a naranja al pasar el ratón o al abrir */
@@ -440,14 +632,31 @@ footer {
 .product-page-container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px;
-    background-color: #fff;
+    padding: 40px; /* Un poco más de aire interno */
+    background-color: #ffffff !important; /* Fuerza el fondo blanco de nuevo */
+    border-radius: 20px; /* Bordes elegantes */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra para que "flote" sobre el fondo */
+}
+/* El fondo exterior de la web será naranja */
+body.crunchyroll-product-page {
+    background: linear-gradient(135deg, #ffffff 20%, #f47521 120%);
+    background-attachment: fixed;
 }
 
+/* Pero el cuadro de información interna será blanco */
+body.crunchyroll-product-page .product-page-container {
+    background-color: #ffffff !important;
+}
+
+/* Asegura que la galería y las listas también tengan su fondo original */
+.product-gallery, .features-list {
+    background-color: #ffffff;
+}
 /* Layout de 2 columnas (Izquierda Imagen | Derecha Info) */
 .product-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 50% para cada lado */
+    grid-template-columns: 1fr 1fr;
+    /* 50% para cada lado */
     gap: 50px;
     align-items: start;
 }
@@ -465,21 +674,24 @@ footer {
 
 .main-product-image {
     width: 100%;
-    max-width: 400px; /* Que no se haga gigante */
+    max-width: 400px;
+    /* Que no se haga gigante */
     height: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .main-product-image:hover {
-    transform: scale(1.05); /* Pequeño zoom al pasar el ratón */
+    transform: scale(1.05);
+    /* Pequeño zoom al pasar el ratón */
 }
 
 /* Botón Compartir (Icono corazón/share en la esquina) */
 .btn-share {
     position: absolute;
     top: 15px;
-    right: 15px; /* Lo pongo a la derecha como en muchas tiendas, o left si prefieres */
+    right: 15px;
+    /* Lo pongo a la derecha como en muchas tiendas, o left si prefieres */
     background: white;
     border: 1px solid #ddd;
     border-radius: 50%;
@@ -540,7 +752,8 @@ footer {
 .current-price {
     font-size: 2.8rem;
     font-weight: 800;
-    color: #222; /* O usa #f47521 si quieres el precio naranja */
+    color: #222;
+    /* O usa #f47521 si quieres el precio naranja */
 }
 
 .old-price {
@@ -569,7 +782,8 @@ footer {
 .btn-buy-big {
     display: block;
     width: 100%;
-    background-color: #00d4ff; /* Naranja tipo Amazon/PcComp */
+    background-color: #00d4ff;
+    /* Naranja tipo Amazon/PcComp */
     color: white;
     text-align: center;
     padding: 18px;
@@ -615,17 +829,19 @@ footer {
     gap: 10px;
 }
 
+
 /* --- RESPONSIVE (Móvil) --- */
 @media (max-width: 768px) {
     .product-layout {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
+        /* Una sola columna */
         gap: 30px;
     }
-    
+
     .product-header h1 {
         font-size: 1.6rem;
     }
-    
+
     .current-price {
         font-size: 2.2rem;
     }
@@ -633,12 +849,15 @@ footer {
 
 /* --- Estilo exclusivo para botones Crunchyroll --- */
 .btn-crunchy {
-    background-color: #f47521 !important; /* Color Naranja */
-    box-shadow: 0 4px 15px rgba(244, 117, 33, 0.4) !important; /* Sombra naranja */
+    background-color: #f47521 !important;
+    /* Color Naranja */
+    box-shadow: 0 4px 15px rgba(244, 117, 33, 0.4) !important;
+    /* Sombra naranja */
 }
 
 .btn-crunchy:hover {
-    background-color: #d65f12 !important; /* Naranja más oscuro al pasar el ratón */
+    background-color: #d65f12 !important;
+    /* Naranja más oscuro al pasar el ratón */
     box-shadow: 0 6px 20px rgba(244, 117, 33, 0.6) !important;
 }
 
@@ -649,31 +868,44 @@ footer {
     height: 60px;
     bottom: 25px;
     right: 25px;
-    background-color: #25d366; /* Verde oficial WhatsApp */
+    background-color: #25d366;
+    /* Verde oficial WhatsApp */
     color: #FFF;
     border-radius: 50%;
     text-align: center;
     font-size: 30px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    z-index: 1000; /* Para que quede siempre encima de todo */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    /* Para que quede siempre encima de todo */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    animation: pulse 2s infinite; /* Animación de latido */
+    animation: pulse 2s infinite;
+    /* Animación de latido */
 }
 
 .btn-whatsapp:hover {
-    background-color: #128c7e; /* Verde más oscuro al pasar ratón */
-    transform: scale(1.1); /* Crece un poquito */
+    background-color: #128c7e;
+    /* Verde más oscuro al pasar ratón */
+    transform: scale(1.1);
+    /* Crece un poquito */
     text-decoration: none;
 }
 
 /* Animación de latido suave */
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 
 /* Ajuste para móvil (un poco más pequeño para no molestar) */
@@ -685,29 +917,38 @@ footer {
         right: 15px;
     }
 }
+
 /* --- ESTILOS PARA MÓVIL (RESPONSIVE) --- */
 @media (max-width: 768px) {
-    
+
     /* 1. Reducimos el espacio a los lados del encabezado */
     header {
-        padding: 15px 20px; /* Antes era 50px, ocupaba mucho espacio */
+        padding: 15px 20px;
+        /* Antes era 50px, ocupaba mucho espacio */
     }
 
     /* 2. Alineamos el menú a la derecha en columna */
     nav {
         display: flex;
-        flex-direction: column; /* Pone los enlaces uno debajo de otro */
-        align-items: flex-end;  /* EMPUJA todo a la derecha */
-        gap: 7px;               /* Espacio pequeño entre cada palabra */
+        flex-direction: column;
+        /* Pone los enlaces uno debajo de otro */
+        align-items: flex-end;
+        /* EMPUJA todo a la derecha */
+        gap: 7px;
+        /* Espacio pequeño entre cada palabra */
     }
 
     /* 3. Ajustamos el texto de los enlaces */
     nav a {
-        margin-left: 0;         /* Quitamos el margen izquierdo que tenías en PC */
-        font-size: 0.9rem;      /* Letra un poco más pequeña para que encaje bien */
-        padding: 2px 0;         /* Un poco de aire vertical */
+        margin-left: 0;
+        /* Quitamos el margen izquierdo que tenías en PC */
+        font-size: 0.9rem;
+        /* Letra un poco más pequeña para que encaje bien */
+        padding: 2px 0;
+        /* Un poco de aire vertical */
     }
 }
+
 /* =========================================
    AJUSTES PARA MÓVIL (Márgenes laterales)
    ========================================= */
@@ -718,15 +959,18 @@ footer {
     section#productos,
     .support-container,
     footer,
-    .legal-container,     /* Para la página legal */
-    .product-page-container /* Para las páginas de producto */
-    {
+    .legal-container,
+    /* Para la página legal */
+    .product-page-container
+
+    /* Para las páginas de producto */
+        {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
 
     /* Ajuste extra para que las tarjetas de producto no se peguen entre sí al reducirse */
     .pricing-container {
-        padding: 15px 10px ;
+        padding: 15px 10px;
     }
 }
