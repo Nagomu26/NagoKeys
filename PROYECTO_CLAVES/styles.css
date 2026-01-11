@@ -20,6 +20,12 @@ body {
 body.crunchyroll-page {
     /* Usamos el naranja de la marca (#f47521) pero en degradado con blanco para no saturar */
     background: linear-gradient(135deg, #ffffff 20%, #f47521 120%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+body.crunchyroll-page .product-page-container {
+    background-color: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
@@ -845,6 +851,29 @@ body.crunchyroll-product-page .product-page-container {
     .current-price {
         font-size: 2.2rem;
     }
+    header {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between; /* Logo a un lado, menú al otro */
+        align-items: center;
+        flex-direction: row !important; /* Mantiene logo y menú en la misma línea */
+    }
+
+    nav {
+        display: grid !important;
+        /* Crea dos columnas de igual tamaño */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 5px 15px; /* 5px de separación vertical, 15px horizontal */
+        text-align: right;
+    }
+
+    nav a {
+        margin-left: 0 !important;
+        font-size: 0.85rem; /* Un poco más pequeña para que quepa bien */
+        white-space: nowrap; /* Evita que las palabras se corten */
+        padding: 2px 0;
+    }
+   
 }
 
 /* --- Estilo exclusivo para botones Crunchyroll --- */
