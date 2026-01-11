@@ -58,8 +58,26 @@
       }
     }
     </script>
+ <script>
+    function shareProduct() {
+        // Detecta automáticamente el título de la página actual
+        const shareData = {
+            title: document.title, 
+            text: '¡Mira este producto en NagoKeys!',
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData)
+                .catch((error) => console.log('Error:', error));
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert('¡Enlace copiado! Ya puedes pegarlo donde quieras.');
+        }
+    }
+    </script>
 </head>
-<body>
+<body class="crunchyroll-page">
 
     <header>
         <a href="../index.html" class="logo" style="text-decoration: none;"> Nago<span style="color: #f47521;">Keys</span></a>
@@ -76,8 +94,14 @@
             
             <div class="product-gallery">
                 <div class="image-wrapper">
-                    <button class="btn-share" onclick="navigator.clipboard.writeText(window.location.href); alert('¡Enlace copiado al portapapeles!');" aria-label="Compartir">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                     <button class="btn-share" onclick="shareProduct()" aria-label="Compartir">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
                     </button>
                     <img src="../images/mes_megafan.webp" alt="Crunchyroll Mega Fan 1 Mes" class="main-product-image">
                 </div>
@@ -139,7 +163,7 @@
         </div>
         
         <p style="font-size: 0.9em; margin-bottom: 10px;">Pago seguro vía Stripe: 💳 Visa | Mastercard | Apple Pay</p>
-        <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Microsoft.</p>
+        <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Crunchyroll.</p>
     </footer>
      <a href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20tengo%20una%20duda%20sobre%20una%20cuenta%20de%20Crunchyroll." class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
     <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
