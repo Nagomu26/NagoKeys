@@ -23,6 +23,7 @@ body.crunchyroll-page {
     background-attachment: fixed;
     min-height: 100vh;
 }
+
 body.crunchyroll-page .product-page-container {
     background-color: #ffffff !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -35,7 +36,7 @@ header {
     padding: 15px 50px;
     align-items: center;
     /* Fondo blanco semitransparente */
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.8);
     /* Efecto de desenfoque del fondo */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -390,9 +391,12 @@ details p {
 footer {
     text-align: center;
     padding: 60px 20px;
-    background: transparent; /* ANTES: #fff */
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea sutil sobre el azul */
-    color: #444; /* Un gris más oscuro para que se lea sobre el azul */
+    background: transparent;
+    /* ANTES: #fff */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Línea sutil sobre el azul */
+    color: #444;
+    /* Un gris más oscuro para que se lea sobre el azul */
     margin-top: auto;
 }
 
@@ -401,11 +405,14 @@ footer {
 
 .blog-section {
     padding: 50px 20px;
-    background-color: transparent; /* ANTES: #ffffff */
+    background-color: transparent;
+    /* ANTES: #ffffff */
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Evita que los divs se estiren */
-    min-height: 70vh; /* Asegura que el azul se vea hasta abajo */
+    align-items: flex-start;
+    /* Evita que los divs se estiren */
+    min-height: 70vh;
+    /* Asegura que el azul se vea hasta abajo */
 }
 
 .blog-grid {
@@ -418,8 +425,10 @@ footer {
 }
 
 .blog-card {
-    background: rgba(255, 255, 255, 0.7); /* Blanco semitransparente */
-    backdrop-filter: blur(10px); /* Desenfoque estilo cristal */
+    background: rgba(255, 255, 255, 0.7);
+    /* Blanco semitransparente */
+    backdrop-filter: blur(10px);
+    /* Desenfoque estilo cristal */
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 12px;
@@ -500,8 +509,10 @@ footer {
 .tutorial-hero {
     text-align: center;
     padding: 60px 20px 40px;
-    background-color: transparent; /* ANTES: #f9f9f9 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil para el azul */
+    background-color: transparent;
+    /* ANTES: #f9f9f9 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borde más sutil para el azul */
 }
 
 .tutorial-hero h1 {
@@ -514,14 +525,17 @@ footer {
     max-width: 900px;
     margin: 0 auto;
     padding: 50px 20px;
-    background-color: transparent; /* Asegura que sea transparente */
+    background-color: transparent;
+    /* Asegura que sea transparente */
 }
 
 .step {
     margin-bottom: 60px;
     position: relative;
-    padding: 30px 30px 30px 70px; /* Añadimos un poco de aire */
-    background: rgba(255, 255, 255, 0.4); /* Fondo blanco muy clarito */
+    padding: 30px 30px 30px 70px;
+    /* Añadimos un poco de aire */
+    background: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco muy clarito */
     backdrop-filter: blur(10px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -638,11 +652,16 @@ footer {
 .product-page-container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 40px; /* Un poco más de aire interno */
-    background-color: #ffffff !important; /* Fuerza el fondo blanco de nuevo */
-    border-radius: 20px; /* Bordes elegantes */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra para que "flote" sobre el fondo */
+    padding: 40px;
+    /* Un poco más de aire interno */
+    background-color: #ffffff !important;
+    /* Fuerza el fondo blanco de nuevo */
+    border-radius: 20px;
+    /* Bordes elegantes */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Sombra para que "flote" sobre el fondo */
 }
+
 /* El fondo exterior de la web será naranja */
 body.crunchyroll-product-page {
     background: linear-gradient(135deg, #ffffff 20%, #f47521 120%);
@@ -655,9 +674,11 @@ body.crunchyroll-product-page .product-page-container {
 }
 
 /* Asegura que la galería y las listas también tengan su fondo original */
-.product-gallery, .features-list {
+.product-gallery,
+.features-list {
     background-color: #ffffff;
 }
+
 /* Layout de 2 columnas (Izquierda Imagen | Derecha Info) */
 .product-layout {
     display: grid;
@@ -851,29 +872,35 @@ body.crunchyroll-product-page .product-page-container {
     .current-price {
         font-size: 2.2rem;
     }
+
     header {
         padding: 10px 20px;
         display: flex;
-        justify-content: space-between; /* Logo a un lado, menú al otro */
+        justify-content: space-between;
+        /* Logo a un lado, menú al otro */
         align-items: center;
-        flex-direction: row !important; /* Mantiene logo y menú en la misma línea */
+        flex-direction: row !important;
+        /* Mantiene logo y menú en la misma línea */
     }
 
     nav {
         display: grid !important;
         /* Crea dos columnas de igual tamaño */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 5px 15px; /* 5px de separación vertical, 15px horizontal */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px 15px;
+        /* 5px de separación vertical, 15px horizontal */
         text-align: right;
     }
 
     nav a {
         margin-left: 0 !important;
-        font-size: 0.85rem; /* Un poco más pequeña para que quepa bien */
-        white-space: nowrap; /* Evita que las palabras se corten */
+        font-size: 0.85rem;
+        /* Un poco más pequeña para que quepa bien */
+        white-space: nowrap;
+        /* Evita que las palabras se corten */
         padding: 2px 0;
     }
-   
+
 }
 
 /* --- Estilo exclusivo para botones Crunchyroll --- */
@@ -921,54 +948,56 @@ body.crunchyroll-product-page .product-page-container {
     /* Crece un poquito */
     text-decoration: none;
 }
- #cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #1a1a1a;
-            /* Fondo oscuro elegante */
-            color: #ffffff;
-            padding: 15px 20px;
-            text-align: center;
-            z-index: 10000;
-            /* Para que quede por encima de todo */
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-            font-family: Arial, sans-serif;
-            display: none;
-            /* Oculto por defecto hasta que cargue el script */
-            border-top: 3px solid #f47521;
-            /* Línea naranja marca NagoKeys */
-        }
 
-        #cookie-banner p {
-            margin: 0;
-            display: inline-block;
-            font-size: 0.9em;
-            line-height: 1.5;
-            margin-right: 15px;
-        }
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    /* Fondo oscuro elegante */
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    z-index: 10000;
+    /* Para que quede por encima de todo */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    display: none;
+    /* Oculto por defecto hasta que cargue el script */
+    border-top: 3px solid #f47521;
+    /* Línea naranja marca NagoKeys */
+}
 
-        #cookie-banner a {
-            color: #f47521;
-            text-decoration: underline;
-        }
+#cookie-banner p {
+    margin: 0;
+    display: inline-block;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-right: 15px;
+}
 
-        #cookie-btn {
-            background-color: #f47521;
-            color: white;
-            border: none;
-            padding: 8px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9em;
-            transition: background 0.3s;
-        }
+#cookie-banner a {
+    color: #f47521;
+    text-decoration: underline;
+}
 
-        #cookie-btn:hover {
-            background-color: #d66010;
-        }
+#cookie-btn {
+    background-color: #f47521;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background 0.3s;
+}
+
+#cookie-btn:hover {
+    background-color: #d66010;
+}
+
 /*WALLAPOP*/
 /* --- Sección de Reviews Wallapop --- */
 .reviews-section {
@@ -983,7 +1012,8 @@ body.crunchyroll-product-page .product-page-container {
 }
 
 .walla-highlight {
-    color: #13C1AC; /* Color Verde Wallapop */
+    color: #13C1AC;
+    /* Color Verde Wallapop */
 }
 
 .reviews-container {
@@ -991,19 +1021,21 @@ body.crunchyroll-product-page .product-page-container {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    align-items: stretch; /* Hace que todas las cajas tengan la misma altura */
+    align-items: stretch;
+    /* Hace que todas las cajas tengan la misma altura */
 }
 
 .review-card {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empuja el autor hacia abajo */
+    justify-content: space-between;
+    /* Empuja el autor hacia abajo */
 }
 
 .review-stars {
@@ -1017,7 +1049,7 @@ body.crunchyroll-product-page .product-page-container {
     color: #555;
     margin: 0;
     /* ESTO ES LA CLAVE: Reserva espacio para 2 líneas mínimo */
-    min-height: 48px; 
+    min-height: 48px;
     line-height: 1.5;
 }
 
@@ -1046,15 +1078,19 @@ body.crunchyroll-product-page .product-page-container {
     background-color: #13C1AC;
     color: white;
 }
+
 /*DESCRIPCION*/
 /* --- Caja de Descripción del Producto --- */
 .product-description-box {
     grid-column: 1 / -1;
-    background-color: #f8f9fa; /* Un gris muy suave */
+    background-color: #f8f9fa;
+    /* Un gris muy suave */
     border: 1px solid #e9ecef;
-    border-radius: 12px; /* Bordes redondeados */
+    border-radius: 12px;
+    /* Bordes redondeados */
     padding: 20px;
-    margin-top: 20px; /* Separación de la caja de arriba */
+    margin-top: 20px;
+    /* Separación de la caja de arriba */
     color: #444;
     font-size: 0.95em;
     line-height: 1.6;
@@ -1064,15 +1100,18 @@ body.crunchyroll-product-page .product-page-container {
     color: #333;
     font-size: 1.1em;
     margin-bottom: 15px;
-    border-bottom: 2px solid #f47521; /* Línea naranja corporativa */
+    border-bottom: 2px solid #f47521;
+    /* Línea naranja corporativa */
     display: inline-block;
     padding-bottom: 5px;
 }
 
 /* Caja amarilla para la advertencia OEM */
 .highlight-warning {
-    background-color: #fff8e1; /* Amarillo muy suave */
-    border-left: 4px solid #ffc107; /* Borde amarillo más fuerte */
+    background-color: #fff8e1;
+    /* Amarillo muy suave */
+    border-left: 4px solid #ffc107;
+    /* Borde amarillo más fuerte */
     padding: 10px 15px;
     margin: 15px 0;
     border-radius: 4px;
@@ -1082,6 +1121,7 @@ body.crunchyroll-product-page .product-page-container {
 .highlight-warning p {
     margin: 5px 0;
 }
+
 /*REVIEWS*/
 /* --- ESTILOS DE LA SECCIÓN DE REVIEWS (NUEVO) --- */
 
@@ -1091,15 +1131,17 @@ body.crunchyroll-product-page .product-page-container {
     --review-card-bg: #ffffff;
     --review-text: #333;
     --review-text-light: #666;
-    --review-accent: #f47521; /* Tu Naranja */
-    --review-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --review-accent: #f47521;
+    /* Tu Naranja */
+    --review-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .reviews-container {
     position: relative;
     display: flex;
     align-items: center;
-    max-width: 1000px; /* Ancho máximo del carrusel */
+    max-width: 1000px;
+    /* Ancho máximo del carrusel */
     margin: 0 auto;
 }
 
@@ -1108,24 +1150,29 @@ body.crunchyroll-product-page .product-page-container {
     display: flex;
     overflow-x: auto;
     gap: 20px;
-    padding: 20px 5px; /* Espacio para la sombra */
+    padding: 20px 5px;
+    /* Espacio para la sombra */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     width: 100%;
     /* Ocultar barra de scroll */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE */
 }
 
 .reviews-grid::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
+    /* Chrome/Safari */
 }
 
 /* Tarjeta Individual */
 .review-card {
     min-width: 300px;
     max-width: 300px;
-    flex: 0 0 auto; /* No encoger ni estirar */
+    flex: 0 0 auto;
+    /* No encoger ni estirar */
     background: var(--review-card-bg);
     border-radius: 16px;
     padding: 25px;
@@ -1152,7 +1199,8 @@ body.crunchyroll-product-page .product-page-container {
 }
 
 .review-stars {
-    color: #FFB74D; /* Color Dorado/Amarillo Estrellas */
+    color: #FFB74D;
+    /* Color Dorado/Amarillo Estrellas */
     margin-bottom: 15px;
     font-size: 0.9rem;
 }
@@ -1162,17 +1210,19 @@ body.crunchyroll-product-page .product-page-container {
     line-height: 1.6;
     color: #444;
     margin-bottom: 10px;
-    
+
     /* Truncar texto largo */
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* Muestra máx 4 líneas */
+    -webkit-line-clamp: 4;
+    /* Muestra máx 4 líneas */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .review-text.expanded {
-    -webkit-line-clamp: unset; /* Mostrar todo */
+    -webkit-line-clamp: unset;
+    /* Mostrar todo */
 }
 
 /* Botón "Leer más" */
@@ -1202,7 +1252,7 @@ body.crunchyroll-product-page .product-page-container {
     background: white;
     color: #333;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1217,8 +1267,13 @@ body.crunchyroll-product-page .product-page-container {
     border-color: var(--review-accent);
 }
 
-.reviews-nav-btn.prev { left: -20px; }
-.reviews-nav-btn.next { right: -20px; }
+.reviews-nav-btn.prev {
+    left: -20px;
+}
+
+.reviews-nav-btn.next {
+    right: -20px;
+}
 
 /* Botón enlace externo */
 .btn-review-link {
@@ -1279,7 +1334,7 @@ body.crunchyroll-product-page .product-page-container {
     max-width: 90%;
     max-height: 90%;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-close {
@@ -1291,6 +1346,7 @@ body.crunchyroll-product-page .product-page-container {
     font-weight: bold;
     cursor: pointer;
 }
+
 /* --- ESTILOS REVIEWS TIPO EVAPORA (ADAPTADO A NAGOKEYS) --- */
 
 .reviews-section {
@@ -1302,7 +1358,7 @@ body.crunchyroll-product-page .product-page-container {
     --nago-blue: #00d4ff;
     --nago-green: #29b162;
 
-    --card-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .reviews-wrapper {
@@ -1335,12 +1391,13 @@ body.crunchyroll-product-page .product-page-container {
     display: flex;
     overflow-x: auto;
     gap: 25px;
-    padding: 20px 10px; /* Espacio para que se vea la sombra */
+    padding: 20px 10px;
+    /* Espacio para que se vea la sombra */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     width: 100%;
     /* Ocultar barra de scroll */
-    scrollbar-width: none; 
+    scrollbar-width: none;
     -ms-overflow-style: none;
 }
 
@@ -1355,15 +1412,18 @@ body.crunchyroll-product-page .product-page-container {
     background: #fff;
     border-radius: 16px;
     padding: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border: 1px solid #eee;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    
+
     /* ESTO HACE QUE SE VEAN IGUALES: */
     display: flex;
-    flex-direction: column; /* Pone los elementos uno debajo de otro */
-    justify-content: space-between; /* Empuja la imagen al final */
-    height: auto; /* Se estira para igualar a la más alta de la fila */
+    flex-direction: column;
+    /* Pone los elementos uno debajo de otro */
+    justify-content: space-between;
+    /* Empuja la imagen al final */
+    height: auto;
+    /* Se estira para igualar a la más alta de la fila */
 }
 
 /* Efecto al pasar el ratón */
@@ -1393,7 +1453,8 @@ body.crunchyroll-product-page .product-page-container {
 }
 
 .review-stars {
-    color: #FFB74D; /* Color Dorado */
+    color: #FFB74D;
+    /* Color Dorado */
     margin-bottom: 15px;
     font-size: 0.9rem;
 }
@@ -1412,7 +1473,8 @@ body.crunchyroll-product-page .product-page-container {
 
 /* Imágenes dentro de la review */
 .review-images {
-    margin-top: auto; /* IMPORTANTE: Esto empuja la imagen al fondo de la tarjeta */
+    margin-top: auto;
+    /* IMPORTANTE: Esto empuja la imagen al fondo de la tarjeta */
     padding-top: 10px;
     border-top: 1px dashed #eee;
 }
@@ -1442,7 +1504,7 @@ body.crunchyroll-product-page .product-page-container {
     background: white;
     color: #333;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1458,14 +1520,20 @@ body.crunchyroll-product-page .product-page-container {
     transform: translateY(-50%) scale(1.1);
 }
 
-.reviews-nav-btn.prev { left: -25px; }
-.reviews-nav-btn.next { right: -25px; }
+.reviews-nav-btn.prev {
+    left: -25px;
+}
+
+.reviews-nav-btn.next {
+    right: -25px;
+}
 
 /* Botón enlace Wallapop */
 .btn-review-link {
     display: inline-block;
     padding: 12px 30px;
-    background: var(--nago-green); /* Fondo Naranja */
+    background: var(--nago-green);
+    /* Fondo Naranja */
     color: white;
     border-radius: 50px;
     font-weight: bold;
@@ -1493,13 +1561,15 @@ body.crunchyroll-product-page .product-page-container {
     align-items: center;
 }
 
-.lightbox.active { display: flex; }
+.lightbox.active {
+    display: flex;
+}
 
 .lightbox-content {
     max-width: 90%;
     max-height: 90%;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-close {
@@ -1511,57 +1581,77 @@ body.crunchyroll-product-page .product-page-container {
     font-weight: bold;
     cursor: pointer;
 }
+
 /* Botón enlace Wallapop (COLOR VERDE) */
 .btn-review-link {
     display: inline-block;
     padding: 12px 30px;
-    
+
     /* CAMBIO: Color Verde Wallapop */
-    background: #13C1AC; 
+    background: #13C1AC;
     border: 2px solid #13C1AC;
-    
+
     color: white;
     border-radius: 50px;
     font-weight: bold;
     text-decoration: none;
-    
+
     /* Sombra verde suave */
     box-shadow: 0 4px 15px rgba(19, 193, 172, 0.3);
-    
+
     transition: all 0.3s ease;
 }
 
 .btn-review-link:hover {
     transform: translateY(-2px);
     /* Un verde un poco más oscuro al pasar el ratón */
-    background: #0ea895; 
+    background: #0ea895;
     border-color: #0ea895;
     box-shadow: 0 6px 20px rgba(19, 193, 172, 0.5);
 }
+
 /* Responsive Móvil */
 @media (max-width: 768px) {
-    .reviews-nav-btn { display: none; } /* Ocultar flechas en móvil, usar dedo */
-    .reviews-grid { padding-left: 20px; padding-right: 20px; }
+    .reviews-nav-btn {
+        display: none;
+    }
+
+    /* Ocultar flechas en móvil, usar dedo */
+    .reviews-grid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
+
 /* Ajuste móvil para flechas */
 @media (max-width: 768px) {
-    .reviews-nav-btn { display: none; } /* Ocultar flechas en móvil, usar dedo */
-    .reviews-grid { padding-left: 20px; padding-right: 20px; }
+    .reviews-nav-btn {
+        display: none;
+    }
+
+    /* Ocultar flechas en móvil, usar dedo */
+    .reviews-grid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
+
 /* Ajuste para móvil: que se pongan uno debajo de otro o en cuadrícula de 2 */
 @media (max-width: 600px) {
     .related-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 columnas en móvil */
+        grid-template-columns: 1fr 1fr;
+        /* 2 columnas en móvil */
     }
 }
-        @media (max-width: 600px) {
-            #cookie-banner p {
-                display: block;
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-        }
+
+@media (max-width: 600px) {
+    #cookie-banner p {
+        display: block;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
 
 /* Animación de latido suave */
 @keyframes pulse {
@@ -1642,5 +1732,97 @@ body.crunchyroll-product-page .product-page-container {
     /* Ajuste extra para que las tarjetas de producto no se peguen entre sí al reducirse */
     .pricing-container {
         padding: 15px 10px;
+    }
+}
+
+/* =========================================
+   SECCIÓN PRODUCTOS RELACIONADOS (NUEVO)
+   ========================================= */
+
+/* =========================================
+   SECCIÓN PRODUCTOS RELACIONADOS (IZQUIERDA)
+   ========================================= */
+
+.related-products-box {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #eee;
+}
+
+.related-products-box h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #444;
+    border-left: 3px solid #f47521;
+    padding-left: 10px;
+}
+
+/* En columna ahora para que quepan bien */
+.related-grid {
+    display: flex;
+    flex-direction: column;
+    /* Pila vertical */
+    gap: 15px;
+}
+
+/* Tarjeta estilo "Lista" para ahorrar espacio */
+.related-card {
+    display: flex;
+    flex-direction: row;
+    /* Imagen a la izq, texto a la dcha */
+    align-items: center;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%;
+}
+
+.related-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-color: #f47521;
+}
+
+.related-card img {
+    width: 60px;
+    /* Más pequeño */
+    height: 60px;
+    object-fit: contain;
+    padding: 5px;
+    background: #fff;
+    border-right: 1px solid #f9f9f9;
+    margin-right: 15px;
+}
+
+.related-info {
+    padding: 0;
+    text-align: left;
+    border-top: none;
+    flex: 1;
+}
+
+.related-info h4 {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.related-price {
+    color: #f47521;
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+}
+
+/* Responsive: en móvil puede que queramos volver a horizontal si hay espacio, o dejarlo así */
+@media (max-width: 768px) {
+    .left-column-wrapper {
+        order: -1;
+        /* Asegurar que la imagen salga primero en móvil también */
     }
 }
