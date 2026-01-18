@@ -969,7 +969,592 @@ body.crunchyroll-product-page .product-page-container {
         #cookie-btn:hover {
             background-color: #d66010;
         }
+/*WALLAPOP*/
+/* --- Sección de Reviews Wallapop --- */
+.reviews-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
 
+.reviews-title {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.walla-highlight {
+    color: #13C1AC; /* Color Verde Wallapop */
+}
+
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: stretch; /* Hace que todas las cajas tengan la misma altura */
+}
+
+.review-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el autor hacia abajo */
+}
+
+.review-stars {
+    color: #ffc107;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-style: italic;
+    color: #555;
+    margin: 0;
+    /* ESTO ES LA CLAVE: Reserva espacio para 2 líneas mínimo */
+    min-height: 48px; 
+    line-height: 1.5;
+}
+
+.review-author {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+.wallapop-btn-container {
+    margin-top: 30px;
+}
+
+.btn-wallapop {
+    text-decoration: none;
+    color: #13C1AC;
+    font-weight: bold;
+    border: 2px solid #13C1AC;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-wallapop:hover {
+    background-color: #13C1AC;
+    color: white;
+}
+/*DESCRIPCION*/
+/* --- Caja de Descripción del Producto --- */
+.product-description-box {
+    grid-column: 1 / -1;
+    background-color: #f8f9fa; /* Un gris muy suave */
+    border: 1px solid #e9ecef;
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 20px;
+    margin-top: 20px; /* Separación de la caja de arriba */
+    color: #444;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.product-description-box h3 {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f47521; /* Línea naranja corporativa */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Caja amarilla para la advertencia OEM */
+.highlight-warning {
+    background-color: #fff8e1; /* Amarillo muy suave */
+    border-left: 4px solid #ffc107; /* Borde amarillo más fuerte */
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.highlight-warning p {
+    margin: 5px 0;
+}
+/*REVIEWS*/
+/* --- ESTILOS DE LA SECCIÓN DE REVIEWS (NUEVO) --- */
+
+.reviews-section {
+    position: relative;
+    /* Variables locales para esta sección */
+    --review-card-bg: #ffffff;
+    --review-text: #333;
+    --review-text-light: #666;
+    --review-accent: #f47521; /* Tu Naranja */
+    --review-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.reviews-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1000px; /* Ancho máximo del carrusel */
+    margin: 0 auto;
+}
+
+/* El contenedor que se desliza */
+.reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 5px; /* Espacio para la sombra */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    /* Ocultar barra de scroll */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+}
+
+.reviews-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Tarjeta Individual */
+.review-card {
+    min-width: 300px;
+    max-width: 300px;
+    flex: 0 0 auto; /* No encoger ni estirar */
+    background: var(--review-card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: var(--review-shadow);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--review-accent);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--review-text-light);
+}
+
+.review-header strong {
+    color: var(--review-text);
+}
+
+.review-stars {
+    color: #FFB74D; /* Color Dorado/Amarillo Estrellas */
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+    
+    /* Truncar texto largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Muestra máx 4 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-text.expanded {
+    -webkit-line-clamp: unset; /* Mostrar todo */
+}
+
+/* Botón "Leer más" */
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--review-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    display: inline-block;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* Flechas de Navegación */
+.reviews-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.reviews-nav-btn:hover {
+    background: var(--review-accent);
+    color: white;
+    border-color: var(--review-accent);
+}
+
+.reviews-nav-btn.prev { left: -20px; }
+.reviews-nav-btn.next { right: -20px; }
+
+/* Botón enlace externo */
+.btn-review-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: white;
+    color: var(--review-accent);
+    border: 2px solid var(--review-accent);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-review-link:hover {
+    background-color: var(--review-accent);
+    color: white;
+}
+
+/* Estilos para las imágenes en reviews */
+.review-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.review-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+
+/* --- LIGHTBOX (Para ver fotos grandes) --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* --- ESTILOS REVIEWS TIPO EVAPORA (ADAPTADO A NAGOKEYS) --- */
+
+.reviews-section {
+    padding: 60px 0;
+    background-color: #fafafa;
+    position: relative;
+    /* Variables locales para facilitar cambios */
+    --nago-orange: #f47521;
+    --nago-blue: #00d4ff;
+    --nago-green: #29b162;
+
+    --card-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.reviews-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviews-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.reviews-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Contenedor del Carrusel */
+.reviews-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 20px 10px; /* Espacio para que se vea la sombra */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    /* Ocultar barra de scroll */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+.reviews-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- TARJETA INDIVIDUAL (LA CLAVE) --- */
+.review-card {
+    min-width: 300px;
+    max-width: 300px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* ESTO HACE QUE SE VEAN IGUALES: */
+    display: flex;
+    flex-direction: column; /* Pone los elementos uno debajo de otro */
+    justify-content: space-between; /* Empuja la imagen al final */
+    height: auto; /* Se estira para igualar a la más alta de la fila */
+}
+
+/* Efecto al pasar el ratón */
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--nago-orange);
+}
+
+/* Agrupamos Header + Estrellas + Texto para que siempre estén arriba */
+.review-content-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.review-header strong {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.review-stars {
+    color: #FFB74D; /* Color Dorado */
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    /* Para que no sean demasiado largos */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Imágenes dentro de la review */
+.review-images {
+    margin-top: auto; /* IMPORTANTE: Esto empuja la imagen al fondo de la tarjeta */
+    padding-top: 10px;
+    border-top: 1px dashed #eee;
+}
+
+.review-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #eee;
+    transition: transform 0.2s;
+}
+
+.review-img:hover {
+    transform: scale(1.1);
+}
+
+/* --- BOTONES DE NAVEGACIÓN --- */
+.reviews-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.reviews-nav-btn:hover {
+    background: var(--nago-orange);
+    color: white;
+    border-color: var(--nago-orange);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.reviews-nav-btn.prev { left: -25px; }
+.reviews-nav-btn.next { right: -25px; }
+
+/* Botón enlace Wallapop */
+.btn-review-link {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--nago-green); /* Fondo Naranja */
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(244, 117, 33, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-review-link:hover {
+    transform: translateY(-2px);
+    background: #d66010;
+}
+
+/* --- LIGHTBOX (Ventana Modal) --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Botón enlace Wallapop (COLOR VERDE) */
+.btn-review-link {
+    display: inline-block;
+    padding: 12px 30px;
+    
+    /* CAMBIO: Color Verde Wallapop */
+    background: #13C1AC; 
+    border: 2px solid #13C1AC;
+    
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    
+    /* Sombra verde suave */
+    box-shadow: 0 4px 15px rgba(19, 193, 172, 0.3);
+    
+    transition: all 0.3s ease;
+}
+
+.btn-review-link:hover {
+    transform: translateY(-2px);
+    /* Un verde un poco más oscuro al pasar el ratón */
+    background: #0ea895; 
+    border-color: #0ea895;
+    box-shadow: 0 6px 20px rgba(19, 193, 172, 0.5);
+}
+/* Responsive Móvil */
+@media (max-width: 768px) {
+    .reviews-nav-btn { display: none; } /* Ocultar flechas en móvil, usar dedo */
+    .reviews-grid { padding-left: 20px; padding-right: 20px; }
+}
+/* Ajuste móvil para flechas */
+@media (max-width: 768px) {
+    .reviews-nav-btn { display: none; } /* Ocultar flechas en móvil, usar dedo */
+    .reviews-grid { padding-left: 20px; padding-right: 20px; }
+}
+/* Ajuste para móvil: que se pongan uno debajo de otro o en cuadrícula de 2 */
+@media (max-width: 600px) {
+    .related-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columnas en móvil */
+    }
+}
         @media (max-width: 600px) {
             #cookie-banner p {
                 display: block;
