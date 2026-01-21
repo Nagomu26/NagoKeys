@@ -1609,6 +1609,20 @@ body.crunchyroll-product-page .product-page-container {
     border-color: #0ea895;
     box-shadow: 0 6px 20px rgba(19, 193, 172, 0.5);
 }
+/* Estilo del contador de ventas */
+.sales-counter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff0e6; /* Fondo naranja muy suave */
+    color: #d35400; /* Texto naranja oscuro */
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    font-weight: 500;
+    border: 1px solid #ffccb3;
+}
 
 /* Responsive Móvil */
 @media (max-width: 768px) {
