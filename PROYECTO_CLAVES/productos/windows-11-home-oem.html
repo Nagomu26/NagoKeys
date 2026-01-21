@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Licencia Windows 11 Home OEM barata. Activación permanente para 1 PC. La opción más económica.">
+    <meta name="description" content="Licencia Windows 11 Home OEM barata. Activación permanente para 1 PC. La opción más económica.">
+    <meta name="theme-color" content="#f47521">
+    
     <title>Comprar Licencia Windows 11 Home OEM | NagoKeys</title>
 
     <link rel="stylesheet" href="../styles.css">
@@ -13,18 +14,18 @@
 
     <meta property="og:title" content="Windows 11 Home OEM - 3,99€ | NagoKeys">
     <meta property="og:description" content="Licencia económica y permanente. Entrega inmediata.">
-    <meta property="og:image" content="https://nagokeys-tienda.pages.dev/images/home.webp">
-    <meta property="og:url" content="https://nagokeys-tienda.pages.dev/productos/windows-11-home-oem.html">
+    <meta property="og:image" content="https://nagokeys.com/images/home.webp">
+    <meta property="og:url" content="https://nagokeys.com/productos/windows-11-home-oem.html">
     <meta property="og:type" content="product">
 
-    <link rel="canonical" href="https://nagokeys-tienda.pages.dev/productos/windows-11-home-oem.html">
+    <link rel="canonical" href="https://nagokeys.com/productos/windows-11-home-oem.html">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": "Licencia Windows 11 Home OEM",
-      "image": "https://nagokeys-tienda.pages.dev/images/home.webp",
+      "image": "https://nagokeys.com/images/home.webp",
       "description": "Clave de Windows 11 Home versión OEM. Se vincula a la placa base. Ideal para instalaciones nuevas.",
       "brand": { "@type": "Brand", "name": "Microsoft" },
       "sku": "WIN11-HOME-OEM",
@@ -33,7 +34,7 @@
       },
       "offers": {
         "@type": "Offer",
-        "url": "https://nagokeys-tienda.pages.dev/productos/windows-11-home-oem.html",
+        "url": "https://nagokeys.com/productos/windows-11-home-oem.html",
         "priceCurrency": "EUR",
         "price": "3.99",
         "availability": "https://schema.org/InStock",
@@ -60,22 +61,21 @@
     </script>
 
     <script>
-        function shareProduct() {
-            // Detecta automáticamente el título de la página actual
-            const shareData = {
-                title: document.title,
-                text: '¡Mira este producto en NagoKeys!',
-                url: window.location.href
-            };
+    function shareProduct() {
+        const shareData = {
+            title: document.title, 
+            text: '¡Mira este producto en NagoKeys!',
+            url: window.location.href
+        };
 
-            if (navigator.share) {
-                navigator.share(shareData)
-                    .catch((error) => console.log('Error:', error));
-            } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert('¡Enlace copiado! Ya puedes pegarlo donde quieras.');
-            }
+        if (navigator.share) {
+            navigator.share(shareData)
+                .catch((error) => console.log('Error:', error));
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert('¡Enlace copiado! Ya puedes pegarlo donde quieras.');
         }
+    }
     </script>
 </head>
 
@@ -145,6 +145,10 @@
                     <span class="stock-badge">Oferta Flash</span>
                     <h1>Windows 11 Home OEM</h1>
                     <p class="sku-ref">Ref: WIN11-HOME-OEM | Licencia Económica</p>
+                    <div class="sales-counter-badge">
+                        <i class="fa-solid fa-fire-flame-curved"></i> 
+                        <span>Más de <strong>37</strong> unidades vendidas</span>
+                    </div>
                 </div>
 
                 <div class="price-section">
@@ -154,7 +158,7 @@
                 </div>
 
                 <div class="delivery-info">
-                    <p>⚡ <strong>Entrega inmediata:</strong> Recíbela en tu email en menos de una hora.</p>
+                    <p>⚡ <strong>Entrega inmediata:</strong> Recíbela en tu correo electronico al momento.</p>
                     <p>⚠️ <strong>Nota:</strong> Licencia vinculada al hardware (Placa Base).</p>
                 </div>
 
