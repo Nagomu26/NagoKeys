@@ -1869,6 +1869,25 @@ body.crunchyroll-product-page .product-page-container {
 @media (max-width: 768px) {
     .left-column-wrapper {
         order: -1;
-        /* Asegurar que la imagen salga primero en móvil también */
+        display: contents;
+        /* Allows reordering of children */
+    }
+
+    /* Define order on mobile: Image -> Details -> Description -> Related */
+    .product-gallery {
+        order: 1;
+    }
+
+    .product-details-panel {
+        order: 2;
+    }
+
+    .product-description-box {
+        order: 3;
+    }
+
+    .related-products-box {
+        order: 4;
+        margin-top: 20px;
     }
 }
