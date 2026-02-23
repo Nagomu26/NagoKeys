@@ -8,7 +8,7 @@
         content="Licencia Windows 11 Pro OEM. Funciones completas de Windows 11 Pro al mejor precio. Clave digital con entrega inmediata.">
     <meta name="theme-color" content="#f47521">
 
-    <title>Comprar Licencia Windows 11 Pro OEM | NagoKeys</title>
+    <title>Comprar Licencia Windows 11 Pro OEM Barata | NagoKeys</title>
 
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -78,13 +78,48 @@
             }
         }
     </script>
+
+    <script>
+        // 1. Scroll Horizontal
+        function scrollReviews(direction) {
+            const grid = document.getElementById('reviewsGrid');
+            const scrollAmount = 320 * direction; // Mueve 320px (ancho tarjeta + hueco)
+            grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+
+        // 2. Leer más / Leer menos
+        function toggleReview(btn) {
+            const text = btn.previousElementSibling; // El párrafo anterior
+            text.classList.toggle('expanded');
+            if (text.classList.contains('expanded')) {
+                btn.textContent = 'Leer menos';
+            } else {
+                btn.textContent = 'Leer más';
+            }
+        }
+
+        // 3. Lightbox (Abrir imagen grande)
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.style.display = 'flex';
+            // Pequeño timeout para la animación de opacidad
+            setTimeout(() => lightbox.classList.add('active'), 10);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            setTimeout(() => lightbox.style.display = 'none', 300);
+        }
+    </script>
 </head>
 
 <body>
 
     <header>
-        <a href="../" class="logo" style="text-decoration: none;"> Nago<span
-                style="color: #f47521;">Keys</span></a>
+        <a href="../" class="logo" style="text-decoration: none;"> Nago<span style="color: #f47521;">Keys</span></a>
         <nav>
             <a href="../">Windows</a>
             <a href="../crunchyroll.html">Crunchyroll</a>
@@ -118,9 +153,9 @@
                     <div class="related-grid">
 
                         <a href="windows-11-pro-retail.html" class="related-card">
-                            <img src="../images/pro.jpg" alt="Windows 11 Pro">
+                            <img src="../images/pro.jpg" alt="Licencia Original Windows 11 Pro Retail">
                             <div class="related-info">
-                                <h4>Win 11 Pro Retail</h4>
+                                <h4>Licencia Original Windows 11 Pro Retail</h4>
                                 <span class="related-price">9,99€</span>
                             </div>
                         </a>
@@ -140,10 +175,10 @@
             <div class="product-details-panel">
                 <div class="product-header">
                     <span class="stock-badge">Super Ventas</span>
-                    <h1>Windows 11 Pro OEM</h1>
+                    <h1 class="titulo_producto">Licencia Original Windows 11 Pro OEM</h1>
                     <p class="sku-ref">Ref: WIN11-PRO-OEM | Licencia Económica</p>
-                      <div class="sales-counter-badge">
-                        <i class="fa-solid fa-fire-flame-curved"></i> 
+                    <div class="sales-counter-badge">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
                         <span>Más de <strong>62</strong> unidades vendidas</span>
                     </div>
                 </div>
@@ -201,8 +236,8 @@
                         original, legal y activada para siempre</strong>.
                 </p>
                 <p>
-                    Si no sabes como introducir la clave para activar tu Windows 11 en nuestra seccion de <strong><a
-                            href="../tutorial-activar.html">Tutoriales</a></strong> tienes una guia muy facil y
+                    Si no sabes cómo introducir la clave para activar tu Windows 11 en nuestra sección de <strong><a
+                            href="../tutorial-activar.html">Tutoriales</a></strong> tienes una guia muy fácil y
                     sencilla.
                 </p>
 
@@ -215,13 +250,107 @@
 
                 <p style="margin-top: 15px;">
                     <strong>¿Qué consigo al activar?</strong> Eliminarás la marca de agua de "Activar Windows", podrás
-                    personalizar el fondo de pantalla y colores, ademas de recibir las actualizaciones de seguridad y
+                    personalizar el fondo de pantalla y colores, además de recibir las actualizaciones de seguridad y
                     funcionalidades asegurando así un sistema estable y legal.
                 </p>
             </div>
         </div>
     </main>
+    <!-- Reviews Section -->
+    <section class="section reviews-section">
+        <div class="reviews-wrapper">
+            <h2 class="reviews-title">Valoraciones de clientes <i class="fa-solid fa-star" style="color: #FFB74D;"></i>
+            </h2>
+            <p class="reviews-subtitle">4.9 estrellas en Wallapop</p>
 
+            <div class="reviews-container">
+                <button class="reviews-nav-btn prev" onclick="scrollReviews(-1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="reviews-grid" id="reviewsGrid">
+
+                    <div class="review-card">
+                        <div class="review-content-top">
+                            <div class="review-header">
+                                <strong>Andra M.</strong>
+                                <span>Hace 2 semanas</span>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="review-text">"Todo genial y muy rápido. Gracias por la compra!"</p>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-content-top">
+                            <div class="review-header">
+                                <strong>Jose Alfredo M.</strong>
+                                <span>Hace 1 mes</span>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="review-text">"Serio y responsable. Todo perfecto."</p>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-content-top">
+                            <div class="review-header">
+                                <strong>Francisco L.</strong>
+                                <span>Hace 1 mes</span>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="review-text">"Todo ok. Recomendable."</p>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-content-top">
+                            <div class="review-header">
+                                <strong>Usuario Wallapop</strong>
+                                <span>Hace 2 meses</span>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="review-text">"Vendedor de 10. Contestó rápido y me ayudó con las dudas."</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="reviews-nav-btn next" onclick="scrollReviews(1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://es.wallapop.com/user/victors-375177119/reviews" target="_blank"
+                    class="btn-review-link">
+                    Ver todas las reseñas en Wallapop <i class="fa-solid fa-arrow-up-right-from-square"
+                        style="margin-left:5px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
     <footer>
         <div style="text-align: center; margin-bottom: 20px;">
             <a href="../legal.html"
