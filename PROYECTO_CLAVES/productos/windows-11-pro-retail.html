@@ -18,10 +18,10 @@
     <meta property="og:description"
         content="Licencia transferible profesional. BitLocker y Escritorio Remoto incluidos.">
     <meta property="og:image" content="https://nagokeys.com/images/pro.jpg">
-    <meta property="og:url" content="https://nagokeys.com/productos/windows-11-pro-retail.html">
+    <meta property="og:url" content="https://nagokeys.com/productos/windows-11-pro-retail">
     <meta property="og:type" content="product">
 
-    <link rel="canonical" href="https://nagokeys.com/productos/windows-11-pro-retail.html">
+    <link rel="canonical" href="https://nagokeys.com/productos/windows-11-pro-retail">
 
     <script type="application/ld+json">
     {
@@ -37,7 +37,7 @@
       },
       "offers": {
         "@type": "Offer",
-        "url": "https://nagokeys.com/productos/windows-11-pro-retail.html",
+        "url": "https://nagokeys.com/productos/windows-11-pro-retail",
         "priceCurrency": "EUR",
         "price": "9.99",
         "availability": "https://schema.org/InStock",
@@ -80,41 +80,6 @@
         }
     </script>
 
-    <script>
-        // 1. Scroll Horizontal
-        function scrollReviews(direction) {
-            const grid = document.getElementById('reviewsGrid');
-            const scrollAmount = 320 * direction; // Mueve 320px (ancho tarjeta + hueco)
-            grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-
-        // 2. Leer más / Leer menos
-        function toggleReview(btn) {
-            const text = btn.previousElementSibling; // El párrafo anterior
-            text.classList.toggle('expanded');
-            if (text.classList.contains('expanded')) {
-                btn.textContent = 'Leer menos';
-            } else {
-                btn.textContent = 'Leer más';
-            }
-        }
-
-        // 3. Lightbox (Abrir imagen grande)
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.style.display = 'flex';
-            // Pequeño timeout para la animación de opacidad
-            setTimeout(() => lightbox.classList.add('active'), 10);
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            setTimeout(() => lightbox.style.display = 'none', 300);
-        }
-    </script>
 </head>
 
 <body>
@@ -123,8 +88,8 @@
         <a href="../" class="logo" style="text-decoration: none;"> Nago<span style="color: #f47521;">Keys</span></a>
         <nav>
             <a href="../">Windows</a>
-            <a href="../crunchyroll.html">Crunchyroll</a>
-            <a href="../blog.html">Tutoriales</a>
+            <a href="../crunchyroll">Crunchyroll</a>
+            <a href="../blog">Tutoriales</a>
             <a href="../#contacto">Soporte</a>
         </nav>
     </header>
@@ -153,7 +118,7 @@
                     <h3>Te puede interesar</h3>
                     <div class="related-grid">
 
-                        <a href="windows-11-pro-oem.html" class="related-card">
+                        <a href="windows-11-pro-oem" class="related-card">
                             <img src="../images/pro.jpg" alt="Licencia Original Windows 11 Pro OEM">
                             <div class="related-info">
                                 <h4>Licencia Original Windows 11 Pro OEM</h4>
@@ -161,7 +126,7 @@
                             </div>
                         </a>
 
-                        <a href="crunchyroll-fan-12-meses.html" class="related-card">
+                        <a href="crunchyroll-fan-12-meses" class="related-card">
                             <img src="../images/fa_mes.webp" alt="Crunchyroll Fan 12 MEses">
                             <div class="related-info">
                                 <h4>Crunchyroll Fan 12 Meses</h4>
@@ -239,7 +204,7 @@
                 </p>
                 <p>
                     Si no sabes cómo introducir la clave para activar tu Windows 11 en nuestra sección de <strong><a
-                            href="../tutorial-activar.html">Tutoriales</a></strong> tienes una guia muy fácil y
+                            href="../tutorial-activar">Tutoriales</a></strong> tienes una guia muy fácil y
                     sencilla.
                 </p>
 
@@ -258,97 +223,6 @@
             </div>
         </div>
     </main>
-    <!-- Reviews Section -->
-    <section class="section reviews-section">
-        <div class="reviews-wrapper">
-            <h2 class="reviews-title">Valoraciones de clientes <i class="fa-solid fa-star" style="color: #FFB74D;"></i>
-            </h2>
-            <p class="reviews-subtitle">4.9 estrellas en Wallapop</p>
-
-            <div class="reviews-container">
-                <button class="reviews-nav-btn prev" onclick="scrollReviews(-1)">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-
-                <div class="reviews-grid" id="reviewsGrid">
-
-                    <div class="review-card">
-                        <div class="review-content-top">
-                            <div class="review-header">
-                                <strong>Andra M.</strong>
-                                <span>Hace 2 semanas</span>
-                            </div>
-                            <div class="review-stars">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="review-text">"Todo genial y muy rápido. Gracias por la compra!"</p>
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-content-top">
-                            <div class="review-header">
-                                <strong>Jose Alfredo M.</strong>
-                                <span>Hace 1 mes</span>
-                            </div>
-                            <div class="review-stars">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="review-text">"Serio y responsable. Todo perfecto."</p>
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-content-top">
-                            <div class="review-header">
-                                <strong>Francisco L.</strong>
-                                <span>Hace 1 mes</span>
-                            </div>
-                            <div class="review-stars">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="review-text">"Todo ok. Recomendable."</p>
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-content-top">
-                            <div class="review-header">
-                                <strong>Usuario Wallapop</strong>
-                                <span>Hace 2 meses</span>
-                            </div>
-                            <div class="review-stars">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="review-text">"Vendedor de 10. Contestó rápido y me ayudó con las dudas."</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <button class="reviews-nav-btn next" onclick="scrollReviews(1)">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://es.wallapop.com/user/victors-375177119/reviews" target="_blank"
-                    class="btn-review-link">
-                    Ver todas las reseñas en Wallapop <i class="fa-solid fa-arrow-up-right-from-square"
-                        style="margin-left:5px;"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img">
@@ -356,13 +230,13 @@
 
     <footer>
         <div style="text-align: center; margin-bottom: 20px;">
-            <a href="../legal.html"
+            <a href="../legal"
                 style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Términos del Servicio</a>
             |
-            <a href="../legal.html"
+            <a href="../legal"
                 style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de
                 Privacidad</a> |
-            <a href="../legal.html"
+            <a href="../legal"
                 style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Reembolso</a>
         </div>
 
