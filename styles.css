@@ -6,6 +6,11 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 /* CAMBIO: Fondo blanco y texto oscuro */
 body {
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -14,6 +19,8 @@ body {
     /* Para que el fondo no se mueva al hacer scroll */
     color: #333333;
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Fondo específico para la página de Crunchyroll (Naranja y Blanco) */
@@ -717,6 +724,14 @@ body.crunchyroll-product-page .product-page-container {
     align-items: start;
 }
 
+/* Fix clave de Grid: sin esto, un hijo cuyo contenido es más ancho que su
+   columna se sale del contenedor en vez de encogerse/envolver el texto.
+   Esto es lo que empujaba el bundle-box (y podría empujar otros bloques)
+   hacia la derecha. */
+.product-layout > * {
+    min-width: 0;
+}
+
 /* --- Columna Izquierda: Imagen --- */
 .product-gallery {
     position: relative;
@@ -894,6 +909,17 @@ body.crunchyroll-product-page .product-page-container {
         gap: 30px;
     }
 
+    .hero h1 {
+        font-size: 1.9rem;
+        line-height: 1.25;
+        padding: 0 5px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
     .product-header h1 {
         font-size: 1.6rem;
     }
@@ -913,11 +939,10 @@ body.crunchyroll-product-page .product-page-container {
     }
 
     nav {
-        display: grid !important;
-        /* Crea dos columnas de igual tamaño */
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px 15px;
-        /* 5px de separación vertical, 15px horizontal */
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px 15px;
         text-align: right;
     }
 
@@ -1778,11 +1803,12 @@ a.card:hover {
         /* Antes era 50px, ocupaba mucho espacio */
     }
 
-    /* 2. Alineamos el menú a la derecha en columna */
+    /* 2. Alineamos el menú a la derecha, en 2 filas si no cabe en una */
     nav {
         display: flex;
-        flex-direction: column;
-        /* Pone los enlaces uno debajo de otro */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         align-items: flex-end;
         /* EMPUJA todo a la derecha */
         gap: 7px;
@@ -1918,21 +1944,71 @@ a.card:hover {
         /* Allows reordering of children */
     }
 
-    /* Define order on mobile: Image -> Details -> Description -> Related */
+    /* Define order on mobile: Image -> Details -> Pack -> Description -> Related */
     .product-gallery {
         order: 1;
+        min-width: 0;
     }
 
     .product-details-panel {
         order: 2;
     }
 
-    .product-description-box {
+    .bundle-box {
         order: 3;
     }
 
-    .related-products-box {
+    .product-description-box {
         order: 4;
+    }
+
+    .related-products-box {
+        order: 5;
         margin-top: 20px;
+        min-width: 0;
+    }
+}
+
+/* Evita que el botón "Comprar Pack" (min-width:280px en el HTML) desborde
+   en móviles estrechos y descentre el contenido */
+@media (max-width: 600px) {
+    .bundle-box {
+        padding: 20px 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .bundle-box a.btn-buy-big {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    /* La fila blanca que envuelve imágenes + precio/botón: la ponemos en
+       columna y centrada, para que todo su contenido quede alineado igual */
+    .bundle-box > div[style*="justify-content: space-evenly"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* El grupo de imágenes (Windows + "+" + McAfee): apilado en columna
+       (producto 1 -> símbolo + -> producto 2) en vez de en fila */
+    .bundle-box > div[style*="justify-content: space-evenly"] > div[style*="flex-wrap: wrap"] {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .bundle-box > div[style*="text-align: right"] {
+        width: 100% !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 }
