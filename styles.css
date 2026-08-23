@@ -946,6 +946,38 @@ body.crunchyroll-product-page .product-page-container {
     box-shadow: 0 6px 20px rgba(244, 117, 33, 0.6) !important;
 }
 
+/* Botón de Suscripción Stripe (recurrente) */
+.btn-subscribe {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid #f47521;
+    color: #f47521;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin: -15px 0 25px 0;
+    transition: 0.2s;
+}
+
+.btn-subscribe:hover {
+    background-color: #f47521;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-subscribe .small {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
 /* --- Botón Flotante WhatsApp --- */
 .btn-whatsapp {
     position: fixed;
