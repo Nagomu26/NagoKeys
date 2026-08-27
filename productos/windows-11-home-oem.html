@@ -152,10 +152,16 @@
                     <p>⚠️ <strong>Nota:</strong> Licencia vinculada al hardware (Placa Base).</p>
                 </div>
 
-                <a href="https://payment-links.mollie.com/payment/3CWCFkJPQCnVC3uogiaDo" class="btn-buy-big">
-                    Comprar Ahora
-                    <span class="small">Pago seguro con tarjeta</span>
-                </a>
+                <div class="checkout-box" style="margin-bottom: 15px;">
+                    <input type="email" id="email-home-oem" placeholder="Tu email para recibir la clave" required
+                        style="width:100%; box-sizing:border-box; padding:12px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px; font-size:1em;">
+                    <button type="button" class="btn-buy-big"
+                        onclick="comprarProducto('Windows 11 Home OEM', 'email-home-oem', this)">
+                        Comprar Ahora
+                        <span class="small">Pago seguro con tarjeta</span>
+                    </button>
+                    <p id="error-email-home-oem" style="color:#e74c3c; display:none; font-size:0.85em; margin-top:8px;"></p>
+                </div>
 
                 <div class="features-list">
                     <h3>Características Destacadas:</h3>
@@ -273,6 +279,8 @@
         <p style="font-size: 0.9em; margin-bottom: 10px;">Pago seguro vía Stripe: 💳 Visa | Mastercard | Apple Pay</p>
         <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Microsoft.</p>
     </footer>
+
+    <script src="../checkout.js"></script>
 
     <a href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20tengo%20una%20duda%20sobre%20Windows%2011%20Home."
         class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
