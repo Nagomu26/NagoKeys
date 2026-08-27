@@ -2011,4 +2011,21 @@ a.card:hover {
         align-items: center !important;
         text-align: center !important;
     }
+
+    /* El botón de WhatsApp es fixed y flota siempre encima del contenido;
+       si el pack (u otro bloque) termina justo en la esquina inferior derecha,
+       se monta encima del texto. Le damos aire abajo para que nunca lo tape. */
+    .bundle-box {
+        margin-bottom: 90px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-whatsapp {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 24px !important;
+        bottom: 15px !important;
+        right: 15px !important;
+    }
 }

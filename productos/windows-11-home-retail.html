@@ -129,11 +129,11 @@
                             </div>
                         </a>
 
-                        <a href="crunchyroll-fan-12-meses" class="related-card">
-                            <img src="../images/fa_mes.webp" alt="Crunchyroll Fan 12 MEses">
+                        <a href="mcafee-antivirus-1-ano" class="related-card">
+                            <img src="../images/mcafee.jpg" alt="McAfee Antivirus 1 Año">
                             <div class="related-info">
-                                <h4>Crunchyroll Fan 12 Meses</h4>
-                                <span class="related-price">19,99€</span>
+                                <h4>McAfee Antivirus 1 Año</h4>
+                                <span class="related-price">6,99€</span>
                             </div>
                         </a>
 
@@ -227,10 +227,15 @@
                         <span style="font-size: 2.4em; font-weight: 800; color: #222;">15,49€</span>
                     </div>
 
-                    <a href="https://buy.stripe.com/3cIcN55Dx1Mg1Fd3nM7Vm0h" class="btn-buy-big" style="background-color: #1a1a1a; margin: 0; display: inline-block; width: auto; min-width: 280px; padding: 15px 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-radius: 8px;">
+                    <input type="email" id="email-pack-home-retail" placeholder="Tu email para recibir las claves" required
+                        style="width:100%; box-sizing:border-box; padding:12px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px; font-size:1em;">
+                    <button type="button" class="btn-buy-big"
+                        style="background-color: #1a1a1a; margin: 0; display: inline-block; width: auto; min-width: 280px; padding: 15px 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-radius: 8px; cursor: pointer; border: none;"
+                        onclick="comprarProducto('Pack Windows 11 Home Retail + McAfee', 'email-pack-home-retail', this)">
                         Comprar Pack
                         <span style="display: block; font-size: 0.8em; font-weight: normal; opacity: 0.8; margin-top: 4px;">Activación inmediata • Soporte 24/7</span>
-                    </a>
+                    </button>
+                    <p id="error-email-pack-home-retail" style="color:#e74c3c; display:none; font-size:0.85em; margin-top:8px;"></p>
                 </div>
 
             </div>
