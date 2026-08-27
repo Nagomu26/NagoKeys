@@ -223,10 +223,15 @@
                         <span style="font-size: 2.4em; font-weight: 800; color: #222;">16,49€</span>
                     </div>
 
-                    <a href="https://buy.stripe.com/7sY9AT3vp0Ic6Zx9Ma7Vm0i" class="btn-buy-big" style="background-color: #1a1a1a; margin: 0; display: inline-block; width: auto; min-width: 280px; padding: 15px 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-radius: 8px;">
+                    <input type="email" id="email-pack-pro-retail" placeholder="Tu email para recibir las claves" required
+                        style="width:100%; box-sizing:border-box; padding:12px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px; font-size:1em;">
+                    <button type="button" class="btn-buy-big"
+                        style="background-color: #1a1a1a; margin: 0; display: inline-block; width: auto; min-width: 280px; padding: 15px 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-radius: 8px; cursor: pointer; border: none;"
+                        onclick="comprarProducto('Pack Windows 11 Pro Retail + McAfee', 'email-pack-pro-retail', this)">
                         Comprar Pack
                         <span style="display: block; font-size: 0.8em; font-weight: normal; opacity: 0.8; margin-top: 4px;">Activación inmediata • Soporte 24/7</span>
-                    </a>
+                    </button>
+                    <p id="error-email-pack-pro-retail" style="color:#e74c3c; display:none; font-size:0.85em; margin-top:8px;"></p>
                 </div>
 
             </div>
