@@ -1981,7 +1981,8 @@ a.card:hover {
         box-sizing: border-box !important;
     }
 
-    .bundle-box a.btn-buy-big {
+.bundle-box a.btn-buy-big,
+    .bundle-box button.btn-buy-big {
         min-width: 0 !important;
         width: 100% !important;
     }
