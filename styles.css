@@ -1971,6 +1971,7 @@ a.card:hover {
 
 /* Evita que el botón "Comprar Pack" (min-width:280px en el HTML) desborde
    en móviles estrechos y descentre el contenido */
+
 @media (max-width: 600px) {
     .bundle-box {
         padding: 20px 15px !important;
@@ -1981,7 +1982,7 @@ a.card:hover {
         box-sizing: border-box !important;
     }
 
-.bundle-box a.btn-buy-big,
+    .bundle-box a.btn-buy-big,
     .bundle-box button.btn-buy-big {
         min-width: 0 !important;
         width: 100% !important;
@@ -2007,15 +2008,25 @@ a.card:hover {
         width: 100% !important;
     }
 
-    .bundle-box > div[style*="text-align: right"] {
+    /* Centra la columna derecha completa en móviles */
+    .bundle-box div[style*="text-align: right"] {
         width: 100% !important;
         align-items: center !important;
         text-align: center !important;
     }
 
-    /* El botón de WhatsApp es fixed y flota siempre encima del contenido;
-       si el pack (u otro bloque) termina justo en la esquina inferior derecha,
-       se monta encima del texto. Le damos aire abajo para que nunca lo tape. */
+    /* Permite que los precios del pack se apilen y reduce su tamaño */
+    .bundle-box div[style*="text-align: right"] div {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+
+    .bundle-box div[style*="text-align: right"] div span:last-child {
+        font-size: 1.8em !important;
+    }
+
+    /* El botón de WhatsApp es fixed y flota siempre encima del contenido */
     .bundle-box {
         margin-bottom: 90px !important;
     }
