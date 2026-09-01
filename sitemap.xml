@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    <url>
       <loc>https://nagokeys.com/</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://nagokeys.com/antivirus</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://nagokeys.com/crunchyroll</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://nagokeys.com/blog</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.7</priority>
    </url>
    <url>
+      <loc>https://nagokeys.com/blog-clave-windows-11</loc>
+      <lastmod>2026-09-01</lastmod>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>https://nagokeys.com/tutorial-activar</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.8</priority>
    </url>
    <url>
@@ -33,49 +39,85 @@
 
    <url>
       <loc>https://nagokeys.com/productos/windows-11-home-retail</loc>
-      <lastmod>2026-08-27</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/home.webp</image:loc>
+         <image:title>Clave Windows 11 Home Retail Barata</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://nagokeys.com/productos/windows-11-pro-retail</loc>
-      <lastmod>2026-08-27</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/pro.jpg</image:loc>
+         <image:title>Clave Windows 11 Pro Retail Barata</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://nagokeys.com/productos/windows-11-home-oem</loc>
-      <lastmod>2026-08-27</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/home.webp</image:loc>
+         <image:title>Clave Windows 11 Home OEM Barata</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://nagokeys.com/productos/windows-11-pro-oem</loc>
-      <lastmod>2026-08-27</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/pro.jpg</image:loc>
+         <image:title>Clave Windows 11 Pro OEM Barata</image:title>
+      </image:image>
    </url>
 
    <url>
       <loc>https://nagokeys.com/productos/mcafee-antivirus-1-ano</loc>
-      <lastmod>2026-08-27</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/mcafee.jpg</image:loc>
+         <image:title>Antivirus McAfee 1 Año Barato</image:title>
+      </image:image>
    </url>
 
    <url>
       <loc>https://nagokeys.com/productos/crunchyroll-fan-1-mes</loc>
-      <lastmod>2026-07-28</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/fa_mes.webp</image:loc>
+         <image:title>Suscripción Crunchyroll Fan 1 Mes</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://nagokeys.com/productos/crunchyroll-fan-12-meses</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/fan_año.webp</image:loc>
+         <image:title>Suscripción Crunchyroll Fan 12 Meses</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://nagokeys.com/productos/crunchyroll-mega-fan-1-mes</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/mes_megafan.webp</image:loc>
+         <image:title>Suscripción Crunchyroll Mega Fan 1 Mes</image:title>
+      </image:image>
    </url>
    <url>
       <loc>https://nagokeys.com/productos/crunchyroll-mega-fan-12-meses</loc>
-      <lastmod>2026-08-23</lastmod>
+      <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://nagokeys.com/images/año_megafan.webp</image:loc>
+         <image:title>Suscripción Crunchyroll Mega Fan 12 Meses</image:title>
+      </image:image>
    </url>
 </urlset>
