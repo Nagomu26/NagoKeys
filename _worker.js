@@ -1,5 +1,14 @@
 export default {
   async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const isStaticAsset =
+      url.pathname.startsWith('/images/') ||
+      url.pathname === '/styles.css' ||
+      url.pathname === '/favicon.ico';
+    if (isStaticAsset && env.ASSETS) {
+      return env.ASSETS.fetch(request);
+    }
+
     const maintenancePage = `<!DOCTYPE html>
 <html lang="es">
 <head>
