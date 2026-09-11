@@ -3,8 +3,7 @@ export default {
     const url = new URL(request.url);
     const isStaticAsset =
       url.pathname.startsWith('/images/') ||
-      url.pathname === '/styles.css' ||
-      url.pathname === '/favicon.ico';
+      url.pathname === '/styles.css';
     if (isStaticAsset && env.ASSETS) {
       return env.ASSETS.fetch(request);
     }
@@ -16,6 +15,7 @@ export default {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>NagoKeys | En Mantenimiento</title>
+    <link rel="icon" type="image/png" href="/images/pruebas.png">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
         body {
