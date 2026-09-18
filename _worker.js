@@ -34,18 +34,20 @@ async function autorizado(request, env) {
 }
 
 async function iniciarTabla(env) {
-  await env.DB.exec(`
-    CREATE TABLE IF NOT EXISTS claves (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      Nombre_Producto TEXT NOT NULL,
-      Clave_Activacion TEXT NOT NULL UNIQUE,
-      Estado TEXT NOT NULL DEFAULT 'Disponible',
-      Email_Comprador TEXT,
-      Fecha_Venta TEXT,
-      creado_en TEXT DEFAULT (datetime('now'))
-    );
-    CREATE INDEX IF NOT EXISTS idx_claves_producto_estado ON claves(Nombre_Producto, Estado);
-  `);
+  await env.DB.batch([
+    env.DB.prepare(`
+      CREATE TABLE IF NOT EXISTS claves (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Nombre_Producto TEXT NOT NULL,
+        Clave_Activacion TEXT NOT NULL UNIQUE,
+        Estado TEXT NOT NULL DEFAULT 'Disponible',
+        Email_Comprador TEXT,
+        Fecha_Venta TEXT,
+        creado_en TEXT DEFAULT (datetime('now'))
+      )
+    `),
+    env.DB.prepare('CREATE INDEX IF NOT EXISTS idx_claves_producto_estado ON claves(Nombre_Producto, Estado)'),
+  ]);
 }
 
 async function handleApi(request, env, url) {
