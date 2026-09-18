@@ -1,0 +1,157 @@
+{
+  "name": "NagoKeys · PayPal → Clave por Email",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "pago-paypal-nagokeys",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-entrada",
+      "name": "Webhook PayPal (entrada)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "nagokeys-ppal-001"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Entrada: JSON con { producto, email } desde checkout.js\n// PayPal envía el pago y, al confirmarse, este nodo recibe el pedido\n// pendiente. Aquí solo normalizamos campos.\nconst datos = {\n  email: $json.email || '',\n  producto: typeof $json.producto === 'string' ? $json.producto.trim() : '',\n  enlacePaypal: $json.enlacePaypal || '',\n  pagoId: ($json.id || $json.paymentId || $json.resource_id || '').toString()\n};\nreturn [datos];"
+      },
+      "id": "normaliza",
+      "name": "Normalizar pedido",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifica en PayPal que el pago esté COMPLETADO (COMPLETED)\n// y que el importe coincida. Reemplaza el client_id / secret en el\n// nodo de credenciales \"PayPal API\" (Credenciales > Nueva > PayPal API).\n// La llamada ya estructura el verify a /v2/checkout/orders/{id}.\nconst opciones = {\n  method: 'GET',\n  url: 'https://api-m.paypal.com/v2/checkout/orders/' +\n    encodeURIComponent($json.pagoId),\n  auth: {\n    // Usa la credencial 'PayPal API' con tu client_id y client_secret\n    // (PayPal Developer > Apps > Tu app > Live API credentials)\n    type: 'paypalApi'\n  },\n  json: true\n};\nreturn await this.helpers.httpRequest(opciones).then(res => {\n  const estado = res.status || '';\n  const ok = estado === 'COMPLETED' || estado === 'APPROVED';\n  return [{ ...$json, _paypal_valido: ok, _paypal_estado: estado }];\n});"
+      },
+      "id": "verifica",
+      "name": "Verificar pago en PayPal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "if-valido",
+      "name": "¿Pago válido?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [660, 0]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/ID_DE_TU_HOJA/edit"
+        },
+        "sheetName": "claves",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "producto": "={{ $json.producto }}",
+            "email": "={{ $json.email }}",
+            "estado": "{{= $json._paypal_valido ? 'PAGADO' : 'PENDIENTE' }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "sheets",
+      "name": "Registrar en Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [880, 0],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ID_CREDENCIAL_GOOGLE",
+          "name": "Google Sheets (rellena tú)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Busca la clave correspondiente en tu hoja 'claves'.\n// Formato esperado de la hoja:  producto | clave | vendido(SÍ/NO)\n// Reemplaza la lógica por tu API/script si usas otro método.\nconst filas = $json.result || [];\nreturn filas.filter(f => String(f.producto).toLowerCase() === String($json.producto).toLowerCase());"
+      },
+      "id": "busca-clave",
+      "name": "Buscar clave en Sheets (edita tú)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 0]
+    },
+    {
+      "parameters": {
+        "fromEmail": "TU_EMAIL_ORIGEN@TU_DOMINIO.com",
+        "toEmail": "={{ $json.email }}",
+        "subject": "{{= 'Tu clave ' + $json.producto + ' · NagoKeys' }}",
+        "text": "Hola,\n\nAquí tienes la clave que acabas de comprar:\n\nCLAVE: {{ claves[0].clave }}\n\nLa instalación lleva 2-3 minutos. ¿Necesitas ayuda?\nWhatsApp: +34 644 709 806\n\nGracias,\nNagoKeys"
+      },
+      "id": "email",
+      "name": "Enviar clave por email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.2,
+      "position": [1320, 0],
+      "credentials": {
+        "smtp": {
+          "id": "ID_CREDENCIAL_SMTP",
+          "name": "SMTP (rellena tú)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "TU_CHAT_ID_TELEGRAM",
+        "text": "🎉 Nueva venta NagoKeys\n\nProducto: {{ $json.producto }}\nEmail: {{ $json.email }}\nPayPal: {{ $json._paypal_estado }}\n\nEntra en Sheets y envía la clave."
+      },
+      "id": "telegram",
+      "name": "Avisar por Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 2.2,
+      "position": [1540, 0],
+      "credentials": {
+        "telegramApi": {
+          "id": "ID_CREDENCIAL_TELEGRAM",
+          "name": "Telegram Bot (rellena tú)"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook PayPal (entrada)": {
+      "main": [[{ "node": "Normalizar pedido", "type": "main", "index": 0 }]]
+    },
+    "Normalizar pedido": {
+      "main": [[{ "node": "Verificar pago en PayPal", "type": "main", "index": 0 }]]
+    },
+    "Verificar pago en PayPal": {
+      "main": [[{ "node": "¿Pago válido?", "type": "main", "index": 0 }]]
+    },
+    "¿Pago válido?": {
+      "main": [
+        [{ "node": "Registrar en Google Sheets", "type": "main", "index": 0 }],
+        [{ "node": "Registrar en Google Sheets", "type": "main", "index": 0 }]
+      ]
+    },
+    "Registrar en Google Sheets": {
+      "main": [[{ "node": "Buscar clave en Sheets (edita tú)", "type": "main", "index": 0 }]]
+    },
+    "Buscar clave en Sheets (edita tú)": {
+      "main": [[{ "node": "Enviar clave por email", "type": "main", "index": 0 }]]
+    },
+    "Enviar clave por email": {
+      "main": [[{ "node": "Avisar por Telegram", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Madrid"
+  },
+  "tags": [],
+  "active": false,
+  "versionId": "nagokeys-paypal-v1"
+}

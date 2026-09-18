@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Optimiza Windows 10 u 11 para gaming: configura el modo juego, NVIDIA Reflex, Game Mode, plan de energía y desactiva servicios que roban FPS.">
+    <meta name="keywords"
+        content="optimizar windows para gaming, mejorar fps windows 11, windows 11 gaming optimizacion, aumentar fps pc, modo juego windows, plan de energia alto rendimiento, hardware accelerated gpu scheduling, desactivar servicios windows gaming">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f47521">
+
+    <title>Cómo Optimizar Windows 10 u 11 para Gaming y Ganar FPS</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/pruebas.png">
+
+    <meta property="og:site_name" content="NagoKeys">
+    <meta property="og:title" content="Cómo optimizar Windows 10 u 11 para gaming y ganar FPS">
+    <meta property="og:description" content="Guía para sacar el máximo rendimiento a tu PC con Windows 10 u 11: modo juego, plan de alto rendimiento, GPU scheduling y más.">
+    <meta property="og:image" content="https://nagokeys.com/images/pruebas.png">
+    <meta property="og:url" content="https://nagokeys.com/blog-optimizar-windows-gaming">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-09-16">
+
+    <link rel="canonical" href="https://nagokeys.com/blog-optimizar-windows-gaming">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Cómo optimizar Windows para gaming",
+      "description": "Pasos para mejorar el rendimiento de Windows jugando: modo juego, plan de energía, ajustes de gráficos y servicios.",
+      "totalTime": "PT30M",
+      "step": [
+        { "@type": "HowToStep", "name": "Activar el Modo Juego" },
+        { "@type": "HowToStep", "name": "Usar el plan de energía Alto rendimiento" },
+        { "@type": "HowToStep", "name": "Activar la aceleración de GPU por hardware" },
+        { "@type": "HowToStep", "name": "Desactivar servicios y notificaciones" }
+      ],
+      "author": { "@type": "Organization", "name": "NagoKeys" },
+      "publisher": { "@type": "Organization", "name": "NagoKeys" }
+    }
+    </script>
+</head>
+
+<body>
+
+    <div class="nk-progress" id="nkProgress" aria-hidden="true"></div>
+
+    <header>
+        <a href="./" class="logo" style="text-decoration: none;"> Nago<span style="color: #f47521;">Keys</span></a>
+        <nav>
+            <a href="./">Windows</a>
+            <a href="antivirus">Antivirus</a>
+            <a href="crunchyroll">Crunchyroll</a>
+            <a href="blog" style="color: #00d4ff; font-weight: bold;">Tutoriales</a>
+            <a href="./#contacto">Soporte</a>
+        </nav>
+    </header>
+
+    <main class="nk-article">
+
+        <div class="nk-hero">
+            <div class="nk-breadcrumb">
+                <a href="./">Inicio</a><span>/</span><a href="blog">Blog</a><span>/</span>Rendimiento
+            </div>
+            <span class="nk-chip">🎮 Gaming</span>
+            <h1>Cómo Optimizar Windows 10 u 11 para Gaming y Ganar FPS</h1>
+            <p class="nk-lead">
+                Antes de cambiar de gráfica o de procesador, hay mucho rendimiento gratis escondido en la configuración
+                de Windows. Con estos ajustes de <strong>optimización para gaming</strong> notarás más fluidez en tus
+                juegos y, en algunos casos, <strong>varios FPS extra</strong> sin tocar el hardware.
+            </p>
+            <div class="nk-meta">
+                <span>👤 NagoKeys</span>
+                <span>📅 16 de septiembre de 2026</span>
+                <span>⏱️ 5 min de lectura</span>
+            </div>
+        </div>
+
+        <nav class="nk-toc" aria-label="Índice del artículo">
+            <h2>En esta guía</h2>
+            <ol>
+                <li><a href="#modo-juego">Activa el Modo Juego</a></li>
+                <li><a href="#energia">Plan de energía Alto rendimiento</a></li>
+                <li><a href="#gpu">Aceleración de GPU por hardware</a></li>
+                <li><a href="#servicios">Desactiva lo que sobra</a></li>
+                <li><a href="#activar">Windows activado rinde más</a></li>
+            </ol>
+        </nav>
+
+        <article class="nk-content">
+
+            <h2 id="modo-juego">1. Activa el Modo Juego de Windows</h2>
+            <p>
+                El <strong>Modo Juego</strong> prioriza los recursos de tu CPU y GPU para el juego en primer plano y
+                pausa las actualizaciones y notificaciones que pueden provocar micro-cortes (stutters):
+            </p>
+            <ol>
+                <li>Abre <strong>Configuración &gt; Juegos &gt; Modo juego</strong>.</li>
+                <li>Actívalo y, dentro, marca la opción <em>"Impedir que Windows Update reinicie tu PC"</em>.</li>
+                <li>En la misma pantalla, añade tu juego como <strong>juego de alto rendimiento</strong> si usas un
+                    portátil híbrido.</li>
+            </ol>
+
+            <div class="nk-callout tip">
+                <span class="nk-callout-icon">💡</span>
+                <p><strong>Tip:</strong> combínalo con el <strong>plan de energía Alto rendimiento</strong> del paso 2 para
+                    un efecto doble. En portátiles, recuerda hacerlo también estando enchufado.</p>
+            </div>
+
+            <h2 id="energia">2. Usa el plan de energía Alto rendimiento</h2>
+            <p>
+                Windows a veces limita la CPU para ahorrar batería incluso en equipos de sobremesa. Forzar el máximo
+                rendimiento es muy fácil:
+            </p>
+            <ol>
+                <li>Escribe <em>"elegir un plan de energía"</em> en el buscador y ábrelo.</li>
+                <li>Selecciona <strong>Alto rendimiento</strong> (o <em>Máximo rendimiento</em> si aparece).</li>
+                <li>Si no lo ves, escribe <code>powercfg.cpl</code> en <em>Ejecutar</em> y ajústalo desde el Panel de
+                    control.</li>
+            </ol>
+
+            <div class="nk-callout warn">
+                <span class="nk-callout-icon">⚠️</span>
+                <p><strong>Ojo:</strong> en portátiles, el plan de máximo rendimiento consume más batería y genera más
+                    calor. Úsalo cuando juegues conectado a la corriente.</p>
+            </div>
+
+            <h2 id="gpu">3. Activa la aceleración de GPU por hardware</h2>
+            <p>
+                La <strong>Programación de GPU acelerada por hardware</strong> (<em>Hardware-Accelerated GPU
+                Scheduling</em>) reduce la latencia y ayuda a que la tarjeta gráfica gestione su memoria de forma más
+                eficiente:
+            </p>
+            <ol>
+                <li>Abre <strong>Configuración &gt; Sistema &gt; Pantalla &gt; Gráficos</strong>.</li>
+                <li>Pulsa <em>"Configuración de gráficos predeterminada"</em>.</li>
+                <li>Activa <strong>"Aceleración de GPU por hardware"</strong>.</li>
+                <li>Reinicia el equipo.</li>
+            </ol>
+            <p>
+                También escribe <code>dxdiag</code> en <em>Ejecutar</em> para comprobar que tu tarjeta aparece con la
+                versión esperada de <strong>DirectX</strong>.
+            </p>
+
+            <h2 id="servicios">4. Desactiva lo que sobra</h2>
+            <ul>
+                <li><strong>Desactiva el arranque de programas</strong> innecesarios: <em>Administrador de tareas &gt;
+                    Inicio</em> y desmarca todo lo que no uses.</li>
+                <li><strong>Apaga las notificaciones</strong> durante las partidas con el <strong>Asistente de
+                    concentración</strong> (Windows + Shift + O).</li>
+                <li><strong>Game Bar</strong>: deja el fondo/raíces de juego activos, pero deshabilita los widgets que no
+                    uses.</li>
+                <li><strong>Animaciones</strong>: en un PC modesto, desactiva los efectos visuales desde
+                    <em>Rendimiento</em> en el Panel de control.</li>
+            </ul>
+
+            <div class="nk-callout tip">
+                <span class="nk-callout-icon">🚀</span>
+                <p><strong>Dato:</strong> instalar el juego y Windows en un <strong>SSD NVMe</strong> es el cambio de
+                    rendimiento más notable tras la tarjeta gráfica. Mover el sistema a un SSD suele acortar las cargas
+                    enormemente. ¿Te planteabas <a href="blog-formatear-pc-lento">formatear el PC</a> para empezar de
+                    cero?</p>
+            </div>
+
+            <h2 id="activar">5. Windows activado también rinde más</h2>
+            <p>
+                Un Windows <strong>sin activar</strong> funciona con el modo de bajo rendimiento deshabilitado por
+                defecto (se apaga la pantalla antes, no se pueden aplicar temas y pierdes funciones). Con tu licencia
+                original de NagoKeys tendrás <strong>todas las funciones, cero marca de agua y actualizaciones
+                completas</strong>, que son vitales para el rendimiento y la seguridad en juegos online.
+            </p>
+
+            <div class="nk-cta">
+                <h3>🎮 ¿Listo para exprimir tu PC con Windows original?</h3>
+                <p>Activa Windows 10 u 11 con una licencia original de NagoKeys desde 3,99€: entrega inmediata a tu
+                    correo, activación permanente y todas las funciones para jugar sin límites.</p>
+                <a href="./#productos" class="nk-btn">Ver Licencias de Windows</a>
+                <div class="nk-cta-note">Entrega inmediata · Activación 100% legal · Pago seguro vía Stripe</div>
+            </div>
+
+        </article>
+
+        <div class="nk-author">
+            <div class="nk-author-avatar">NK</div>
+            <div class="nk-author-info">
+                <strong>Equipo NagoKeys</strong>
+                <p>Especialistas en licencias de software y soporte técnico. Escribimos guías sencillas para que tu PC
+                    funcione mejor y más rápido.</p>
+            </div>
+        </div>
+
+        <section class="nk-related">
+            <h2>Sigue aprendiendo</h2>
+            <div class="nk-related-grid">
+                <a class="nk-related-card" href="blog-formatear-pc-lento">
+                    <span class="nk-related-tag">Mantenimiento</span>
+                    <h3>Cómo formatear un PC lento y dejarlo como nuevo</h3>
+                    <span class="nk-related-arrow">Leer guía &rarr;</span>
+                </a>
+                <a class="nk-related-card" href="blog-compatibilidad-procesador-placa">
+                    <span class="nk-related-tag">Hardware</span>
+                    <h3>Cómo comprobar si procesador y placa base son compatibles</h3>
+                    <span class="nk-related-arrow">Leer guía &rarr;</span>
+                </a>
+                <a class="nk-related-card" href="blog-windows-11-home-vs-pro">
+                    <span class="nk-related-tag">Ediciones</span>
+                    <h3>Windows 11 Home vs Pro: cuál elegir para gaming</h3>
+                    <span class="nk-related-arrow">Leer guía &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Términos del Servicio</a> |
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Privacidad</a> |
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Reembolso</a>
+        </div>
+        <p style="font-size: 0.9em; margin-bottom: 10px;">Pago seguro vía Stripe: 💳 Visa | Mastercard | Apple Pay</p>
+        <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Microsoft.</p>
+    </footer>
+
+    <a href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20mi%20PC%20va%20lento%20en%20los%20juegos%20y%20quiero%20optimizarlo%20para%20ganar%20FPS."
+        class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+    </a>
+
+</body>
+
+</html>
