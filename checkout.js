@@ -1,6 +1,15 @@
+/* AVISO: pagos por tarjeta (Mollie) deshabilitados temporalmente.
+   Cambia MOLLIE_PAGOS_DESHABILITADOS a false para restaurar el pago. */
+const MOLLIE_PAGOS_DESHABILITADOS = true;
+
 function comprarProducto(producto, inputId, btnEl) {
     const input = document.getElementById(inputId);
     const errorEl = document.getElementById('error-' + inputId);
+
+    if (MOLLIE_PAGOS_DESHABILITADOS) {
+        return;
+    }
+
     const email = input.value.trim();
 
     const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -47,35 +56,93 @@ function comprarProducto(producto, inputId, btnEl) {
 
 /* =====================================================================
    PAYPAL · NagoKeys
-   Enlaces de Pago (Payment Links) de PayPal creados y configurados.
-   Si creas un producto nuevo: crea el enlace en PayPal y añádelo aquí.
+   Flujo: el cliente teclea su email -> POST /api/paypal/crear (Worker)
+   -> PayPal cobra -> vuelve a gracias.html?paypal=ok -> el Worker
+   captura el pago y avisa al webhook de n8n, que envía la clave.
+   No hay que crear Payment Links; los precios viven en _worker.js
+   (PAYPAL_PRECIOS) y las credenciales en las variables de entorno.
    ===================================================================== */
-var PAYPAL_ENLACES = {
-    'Windows 11 Home OEM':   'https://www.paypal.com/ncp/payment/KZW83TJYSCZGU',
-    'Windows 11 Home Retail': 'https://www.paypal.com/ncp/payment/J6AUSPCNQ8QW4',
-    'Windows 11 Pro OEM':    'https://www.paypal.com/ncp/payment/2F4NJSFRFVHKY',
-    'Windows 11 Pro Retail':  'https://www.paypal.com/ncp/payment/Z2ZCYLBCAQXJS',
-    'McAfee Antivirus 1 Año': 'https://www.paypal.com/ncp/payment/6GD4CGVF9FPMW'
-};
+
+function getEmailYError(btnEl) {
+    var box = btnEl && btnEl.closest('.checkout-box') ? btnEl.closest('.checkout-box') : null;
+    var email = '';
+    var errorEl = null;
+    if (box) {
+        var input = box.querySelector('input[type=email]');
+        if (input) email = input.value.trim();
+        errorEl = box.querySelector('p[id^=error-]');
+    }
+    return { email: email, errorEl: errorEl };
+}
 
 function pagarConPaypal(producto, btnEl) {
-    var enlace = PAYPAL_ENLACES[producto];
-    if (!enlace || enlace.indexOf('COLOCA_AQUI') === 0) {
-        if (btnEl) {
-            btnEl.innerHTML = 'PayPal disponible en breve';
-            setTimeout(function () { location.reload(); }, 2200);
+    var datos = getEmailYError(btnEl);
+    var email = datos.email;
+    var errorEl = datos.errorEl;
+
+    var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValido) {
+        if (errorEl) {
+            errorEl.textContent = 'Introduce un email válido para recibir tu clave.';
+            errorEl.style.display = 'block';
         }
         return;
     }
-    var email = '';
-    var input = btnEl && btnEl.closest('.checkout-box')
-        ? btnEl.closest('.checkout-box').querySelector('input[type=email]')
-        : null;
-    if (input) email = input.value.trim();
-    if (email) {
-        try { localStorage.setItem('nagokeys_email', email); } catch (e) { }
+    if (errorEl) errorEl.style.display = 'none';
+
+    var originalHTML = btnEl.innerHTML;
+    btnEl.innerHTML = 'Conectando con PayPal...';
+    btnEl.style.pointerEvents = 'none';
+    btnEl.style.opacity = '0.7';
+
+    fetch('/api/paypal/crear', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ producto: producto, email: email })
+    })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+            if (!data || !data.ok || !data.checkoutUrl) {
+                throw new Error((data && data.error) || 'No se recibió URL de pago');
+            }
+            try {
+                localStorage.setItem('nagokeys_paypal',
+                    JSON.stringify({ orderId: data.id, producto: producto, email: email }));
+            } catch (e) { }
+            var enlace = data.checkoutUrl;
+            if (window.self === window.top) {
+                window.location.href = enlace;
+            } else {
+                window.open(enlace, '_top');
+            }
+        })
+        .catch(function () {
+            btnEl.innerHTML = originalHTML;
+            btnEl.style.pointerEvents = 'auto';
+            btnEl.style.opacity = '1';
+            if (errorEl) {
+                errorEl.textContent = 'Hubo un problema al iniciar el pago. Inténtalo de nuevo.';
+                errorEl.style.display = 'block';
+            }
+        });
+}
+
+function deshabilitarBotonesMollie() {
+    if (!MOLLIE_PAGOS_DESHABILITADOS) return;
+    var botones = document.querySelectorAll('button[onclick*="comprarProducto"]');
+    for (var i = 0; i < botones.length; i++) {
+        var btn = botones[i];
+        if (btn.classList.contains('mollie-deshabilitado')) continue;
+        btn.classList.add('mollie-deshabilitado');
+        btn.style.pointerEvents = 'none';
+        btn.style.cursor = 'not-allowed';
+        if (!btn.parentNode.querySelector('.mollie-aviso')) {
+            var aviso = document.createElement('div');
+            aviso.className = 'mollie-aviso';
+            aviso.textContent = 'Deshabilitado temporalmente';
+            btn.parentNode.insertBefore(aviso, btn.nextSibling);
+        }
     }
-    window.open(enlace, '_blank');
 }
 
 function inyectarBotonesPaypal() {
@@ -105,8 +172,26 @@ function inyectarBotonesPaypal() {
     }
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inyectarBotonesPaypal);
-} else {
+function activarCambiosPago() {
+    if (MOLLIE_PAGOS_DESHABILITADOS) {
+        var style = document.createElement('style');
+        style.id = 'mollie-deshabilitado-css';
+        style.textContent =
+            '.btn-buy-big.mollie-deshabilitado{' +
+            'background-color:#d9d9d9 !important;background-image:none !important;' +
+            'color:#8a8a8a !important;box-shadow:none !important;' +
+            'transform:translateY(0) !important;}' +
+            '.mollie-aviso{font-size:0.8em;color:#e67e22;margin:6px 0 6px;font-weight:600;}';
+        if (!document.getElementById('mollie-deshabilitado-css')) {
+            document.head.appendChild(style);
+        }
+    }
     inyectarBotonesPaypal();
+    deshabilitarBotonesMollie();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', activarCambiosPago);
+} else {
+    activarCambiosPago();
 }
