@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cómo formatear un ordenador lento y dejarlo como nuevo: respaldo, instalación limpia de Windows, borrado de discos y optimización posterior.">
+    <meta name="keywords"
+        content="formatear pc lento, formatear ordenador, como formatear un pc, formatear windows 11, pc lento como dejarlo nuevo, restablecer windows">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f47521">
+
+    <title>Cómo Formatear un Ordenador Lento y Dejarlo Como Nuevo</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/pruebas.png">
+
+    <meta property="og:site_name" content="NagoKeys">
+    <meta property="og:title" content="Cómo formatear un ordenador lento y dejarlo como nuevo">
+    <meta property="og:description"
+        content="Guía completa para formatear tu PC paso a paso: respalda, reinstala Windows y recupera la velocidad de cuando era nuevo.">
+    <meta property="og:image" content="https://nagokeys.com/images/pruebas.png">
+    <meta property="og:url" content="https://nagokeys.com/blog-formatear-pc-lento">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-09-16">
+
+    <link rel="canonical" href="https://nagokeys.com/blog-formatear-pc-lento">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Cómo formatear un ordenador lento",
+      "description": "Pasos para formatear un PC lento: respaldo, reinstalación limpia de Windows, instalación de drivers y configuración.",
+      "totalTime": "PT120M",
+      "step": [
+        { "@type": "HowToStep", "name": "Hacer copia de seguridad" },
+        { "@type": "HowToStep", "name": "Crear USB de instalación" },
+        { "@type": "HowToStep", "name": "Formatear e instalar Windows" },
+        { "@type": "HowToStep", "name": "Actualizar drivers y activar" }
+      ],
+      "author": { "@type": "Organization", "name": "NagoKeys" },
+      "publisher": { "@type": "Organization", "name": "NagoKeys" }
+    }
+    </script>
+</head>
+
+<body>
+
+    <div class="nk-progress" id="nkProgress" aria-hidden="true"></div>
+
+    <header>
+        <a href="./" class="logo" style="text-decoration: none;"> Nago<span style="color: #f47521;">Keys</span></a>
+        <nav>
+            <a href="./">Windows</a>
+            <a href="antivirus">Antivirus</a>
+            <a href="crunchyroll">Crunchyroll</a>
+            <a href="blog" style="color: #00d4ff; font-weight: bold;">Tutoriales</a>
+            <a href="./#contacto">Soporte</a>
+        </nav>
+    </header>
+
+    <main class="nk-article">
+
+        <div class="nk-hero">
+            <div class="nk-breadcrumb">
+                <a href="./">Inicio</a><span>/</span><a href="blog">Blog</a><span>/</span>Formateo
+            </div>
+            <span class="nk-chip">🧹 Guía práctica</span>
+            <h1>Cómo Formatear un Ordenador Lento y Dejarlo Como Nuevo</h1>
+            <p class="nk-lead">
+                ¿Tu PC ya no arranca como antes, se ralentiza con cualquier cosa y sospechas que está lleno de basura
+                o programas de más? La solución definitiva sigue siendo la de siempre: <strong>formatear y reinstalar
+                Windows</strong>. Sigue estos pasos y lo dejarás como recién salido de la tienda.
+            </p>
+            <div class="nk-meta">
+                <span>👤 NagoKeys</span>
+                <span>📅 16 de septiembre de 2026</span>
+                <span>⏱️ 7 min de lectura</span>
+            </div>
+        </div>
+
+        <nav class="nk-toc" aria-label="Índice del artículo">
+            <h2>En esta guía</h2>
+            <ol>
+                <li><a href="#respaldo">Haz una copia de seguridad</a></li>
+                <li><a href="#licencia">Comprueba tu licencia</a></li>
+                <li><a href="#usb">Crea una USB de instalación</a></li>
+                <li><a href="#instalar">Formatea e instala Windows</a></li>
+                <li><a href="#drivers">Instala drivers y programas</a></li>
+                <li><a href="#activar">Activa Windows para tenerlo al 100%</a></li>
+            </ol>
+        </nav>
+
+        <article class="nk-content">
+
+            <h2 id="respaldo">Paso 1: Haz una copia de seguridad</h2>
+            <p>
+                Formatear borra <strong>todo</strong>, así que primero respalda lo que no quieras perder:
+            </p>
+            <ul>
+                <li>Documentos, fotos y vídeos a un <strong>disco externo</strong> o a la nube.</li>
+                <li>Los <strong>marcadores y contraseñas</strong> del navegador (se pueden exportar).</li>
+                <li>Guarda los <strong>instaladores</strong> de tus programas o apunta los métodos de descarga.</li>
+            </ul>
+
+            <h2 id="licencia">Paso 2: Comprueba tu licencia antes de formatear</h2>
+            <p>
+                Si Windows está activado con una <strong>licencia OEM</strong> ligada a la placa o con una clave Retail
+                vinculada a tu cuenta Microsoft, al reinstalar se reactiva solo. Si no tienes claro qué licencia usas,
+                mira nuestra guía sobre
+                <a href="blog-licencia-oem-vs-retail">diferencias entre OEM y Retail</a>
+                y ten tu clave a mano por si acaso.
+            </p>
+
+            <div class="nk-callout tip">
+                <span class="nk-callout-icon">🔑</span>
+                <p><strong>Antes de empezar:</strong> anota (o imprime) tu clave de Windows. Lo normal es que se
+                    reactive sola al conectarte a internet, pero si no ocurre necesitarás tenerla a mano.</p>
+            </div>
+
+            <h2 id="usb">Paso 3: Crea una USB de instalación</h2>
+            <ol>
+                <li>Descarga la <strong>herramienta de creación de medios</strong> de Microsoft.</li>
+                <li>Conecta una <strong>USB de 8 GB o más</strong>.</li>
+                <li>Selecciona la edición (Home o Pro) y el idioma.</li>
+                <li>Deja que cree el medio arrancable.</li>
+            </ol>
+
+            <h2 id="instalar">Paso 4: Formatea e instala Windows limpio</h2>
+            <ol>
+                <li>Reinicia y entra a la <strong>BIOS</strong> para arrancar desde la USB (tecla Supr, F2 o F12).</li>
+                <li>En el instalador, elige <em>"Instalación personalizada"</em>.</li>
+                <li>Selecciona cada partición del disco y pulsa <strong>Eliminar</strong> (¡adiós, archivos basura!).</li>
+                <li>Elige el disco y pulsa <strong>Siguiente</strong>; Windows formateará e instalará solo.</li>
+            </ol>
+            <p>
+                Si necesitas repasar cómo arrancar desde la USB, aquí tienes la guía de
+                <a href="blog-instalar-windows-usb-bios">BIOS e instalación desde USB</a>.
+            </p>
+
+            <div class="nk-callout warn">
+                <span class="nk-callout-icon">⚠️</span>
+                <p><strong>Atención:</strong> eliminar todas las particiones borra también la <strong>partición de
+                    recuperación</strong> y otros datos del fabricante. Si tu equipo venía con una, asegúrate de que no
+                    necesitas nada de ella antes de continuar.</p>
+            </div>
+
+            <h2 id="drivers">Paso 5: Instala drivers y programas</h2>
+            <ul>
+                <li>Ejecuta <strong>Windows Update</strong> hasta que no queden actualizaciones.</li>
+                <li>Instala los drivers de la <strong>gráfica</strong>, audio y red desde los fabricantes.</li>
+                <li>Reinstala solo lo esencial: navegador, Office y tus programas de siempre.</li>
+            </ul>
+
+            <h2 id="activar">Paso 6: Activa Windows para tenerlo al 100%</h2>
+            <p>
+                Una vez reinstalado, ve a <strong>Configuración &gt; Sistema &gt; Activación</strong>. Si tu clave no se
+                detecta automáticamente, introduce la licencia y quedará activado de forma permanente, sin marca de
+                agua y con todas las funciones.
+            </p>
+
+            <div class="nk-cta">
+                <h3>✨ ¿Te falta la clave para reinstalar?</h3>
+                <p>Recupera la velocidad de tu PC con una licencia original y permanente de NagoKeys desde 3,99€. Te la
+                    enviamos al instante, probada y con soporte.</p>
+                <a href="./#productos" class="nk-btn">Ver Licencias de Windows</a>
+                <div class="nk-cta-note">Entrega inmediata · Activación 100% legal · Pago seguro vía Stripe</div>
+            </div>
+
+        </article>
+
+        <div class="nk-author">
+            <div class="nk-author-avatar">NK</div>
+            <div class="nk-author-info">
+                <strong>Equipo NagoKeys</strong>
+                <p>Especialistas en licencias de software y soporte técnico. Escribimos guías sencillas para que tu PC
+                    funcione mejor.</p>
+            </div>
+        </div>
+
+        <section class="nk-related">
+            <h2>Sigue aprendiendo</h2>
+            <div class="nk-related-grid">
+                <a class="nk-related-card" href="blog-instalar-windows-usb-bios">
+                    <span class="nk-related-tag">Instalación</span>
+                    <h3>Instalar Windows desde USB: arranca desde la BIOS</h3>
+                    <span class="nk-related-arrow">Leer guía &rarr;</span>
+                </a>
+                <a class="nk-related-card" href="blog-licencia-oem-vs-retail">
+                    <span class="nk-related-tag">Licencias</span>
+                    <h3>Licencia OEM vs Retail: diferencias y cuál te conviene</h3>
+                    <span class="nk-related-arrow">Leer guía &rarr;</span>
+                </a>
+                <a class="nk-related-card" href="blog-optimizar-windows-gaming">
+                    <span class="nk-related-tag">Rendimiento</span>
+                    <h3>Optimizar Windows para gaming: gana FPS gratis</h3>
+                    <span class="nk-related-arrow">Leer guía &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Términos del Servicio</a> |
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Privacidad</a> |
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Reembolso</a>
+        </div>
+        <p style="font-size: 0.9em; margin-bottom: 10px;">Pago seguro vía Stripe: 💳 Visa | Mastercard | Apple Pay</p>
+        <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Microsoft.</p>
+    </footer>
+
+    <a href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20quiero%20formatear%20mi%20PC%20lento%20y%20dejarlo%20nuevo."
+        class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+    </a>
+
+</body>
+
+</html>
