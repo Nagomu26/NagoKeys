@@ -1,18 +1,22 @@
 export default {
   async fetch(request, env, ctx) {
-    const url = new URL(request.url);
+    try {
+      const url = new URL(request.url);
 
-    if (url.pathname.startsWith('/api/')) {
-      return handleApi(request, env, url);
-    }
+      if (url.pathname.startsWith('/api/')) {
+        return await handleApi(request, env, url);
+      }
 
-    if (env.ASSETS && typeof env.ASSETS.fetch === 'function') {
-      return env.ASSETS.fetch(request);
+      if (env.ASSETS && typeof env.ASSETS.fetch === 'function') {
+        return env.ASSETS.fetch(request);
+      }
+      return new Response('NagoKeys no disponible en este momento', {
+        status: 503,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      });
+    } catch (e) {
+      return json({ ok: false, error: String((e && (e.stack || e.message)) || e) }, 500);
     }
-    return new Response('NagoKeys no disponible en este momento', {
-      status: 503,
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-    });
   },
 };
 
