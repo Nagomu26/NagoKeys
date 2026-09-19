@@ -61,24 +61,19 @@ function comprarProducto(producto, inputId, btnEl) {
    captura el pago y avisa al webhook de n8n, que envía la clave.
    No hay que crear Payment Links; los precios viven en _worker.js
    (PAYPAL_PRECIOS) y las credenciales en las variables de entorno.
+
+   FIX: antes se buscaba el email subiendo por el DOM hasta encontrar
+   un contenedor con la clase ".checkout-box", pero esa clase no existe
+   en todas las cajas de compra (p.ej. la del pack usa ".bundle-box"),
+   así que el botón de PayPal fallaba en silencio ahí. Ahora usamos
+   directamente el mismo inputId que ya usa comprarProducto(), sin
+   depender de ninguna clase de contenedor.
    ===================================================================== */
 
-function getEmailYError(btnEl) {
-    var box = btnEl && btnEl.closest('.checkout-box') ? btnEl.closest('.checkout-box') : null;
-    var email = '';
-    var errorEl = null;
-    if (box) {
-        var input = box.querySelector('input[type=email]');
-        if (input) email = input.value.trim();
-        errorEl = box.querySelector('p[id^=error-]');
-    }
-    return { email: email, errorEl: errorEl };
-}
-
-function pagarConPaypal(producto, btnEl) {
-    var datos = getEmailYError(btnEl);
-    var email = datos.email;
-    var errorEl = datos.errorEl;
+function pagarConPaypal(producto, inputId, btnEl) {
+    var input = document.getElementById(inputId);
+    var errorEl = document.getElementById('error-' + inputId);
+    var email = input ? input.value.trim() : '';
 
     var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!emailValido) {
@@ -149,9 +144,10 @@ function inyectarBotonesPaypal() {
     var botones = document.querySelectorAll('button[onclick*="comprarProducto"]');
     for (var i = 0; i < botones.length; i++) {
         var btn = botones[i];
-        var m = btn.getAttribute('onclick').match(/comprarProducto\(\s*'([^']+)'/);
+        var m = btn.getAttribute('onclick').match(/comprarProducto\(\s*'([^']+)'\s*,\s*'([^']+)'/);
         if (!m) continue;
         var producto = m[1];
+        var inputId = m[2];
         if (btn.parentNode && btn.parentNode.querySelector('.btn-paypal-nagokeys')) continue;
         var nuevo = document.createElement('button');
         nuevo.type = 'button';
@@ -163,11 +159,13 @@ function inyectarBotonesPaypal() {
         nuevo.innerHTML = '<i class="fab fa-paypal" style="font-size:1.8em; vertical-align:middle; margin-right:10px; ' +
             'color:#003087; position:relative; top:-2px;"></i>Pagar con PayPal ' +
             '<span class="small" style="color:#8a8a8a; display:inline;">Pago seguro · Sin esperas</span>';
+        nuevo.setAttribute('data-producto', producto);
+        nuevo.setAttribute('data-input-id', inputId);
         nuevo.addEventListener('click', function (ev) {
             var p = ev.currentTarget.getAttribute('data-producto');
-            pagarConPaypal(p, ev.currentTarget);
+            var iid = ev.currentTarget.getAttribute('data-input-id');
+            pagarConPaypal(p, iid, ev.currentTarget);
         });
-        nuevo.setAttribute('data-producto', producto);
         btn.parentNode.insertBefore(nuevo, btn.nextSibling);
     }
 }
