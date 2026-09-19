@@ -57,16 +57,13 @@ function comprarProducto(producto, inputId, btnEl) {
 /* =====================================================================
    PAYPAL · NagoKeys
    Enlaces de Pago (Payment Links) de PayPal creados y configurados.
-   El botón abre directamente el enlace de su producto (sin pasar por
-   el Worker, que no tiene endpoint de PayPal). El email se guarda en
-   localStorage para usarlo en la entrega de la clave.
+   El botón abre directamente el enlace de su producto. El email se
+   guarda en localStorage para usarlo en la entrega de la clave.
 
-   TODO: crear en PayPal los enlaces que faltan (packs y Crunchyroll) y
-   sustituir el '' por la URL real https://www.paypal.com/ncp/payment/XXXXX
-
-   FIX: el email se lee usando el mismo inputId que ya usa
-   comprarProducto(), sin depender de ninguna clase de contenedor
-   (las cajas de pack usan ".bundle-box", no ".checkout-box").
+   NOTAS:
+   - Crunchyroll ya no se vende (deshabilitado).
+   - Los enlaces de los packs se crearon con la API Payment Links
+     & Buttons (POST /v1/checkout/payment-resources).
    ===================================================================== */
 
 var PAYPAL_ENLACES = {
@@ -75,10 +72,10 @@ var PAYPAL_ENLACES = {
     'Windows 11 Pro OEM': 'https://www.paypal.com/ncp/payment/2F4NJSFRFVHKY',
     'Windows 11 Pro Retail': 'https://www.paypal.com/ncp/payment/Z2ZCYLBCAQXJS',
     'McAfee Antivirus 1 Año': 'https://www.paypal.com/ncp/payment/6GD4CGVF9FPMW',
-    'Pack Windows 11 Home OEM + McAfee': '',
-    'Pack Windows 11 Home Retail + McAfee': '',
-    'Pack Windows 11 Pro OEM + McAfee': '',
-    'Pack Windows 11 Pro Retail + McAfee': ''
+    'Pack Windows 11 Home OEM + McAfee': 'https://www.paypal.com/ncp/payment/PLB-VBCBA9MWEW9A',
+    'Pack Windows 11 Home Retail + McAfee': 'https://www.paypal.com/ncp/payment/PLB-HJKNWXJ8D297',
+    'Pack Windows 11 Pro OEM + McAfee': 'https://www.paypal.com/ncp/payment/PLB-4V4B83WWN8BQ',
+    'Pack Windows 11 Pro Retail + McAfee': 'https://www.paypal.com/ncp/payment/PLB-U2QQUS7BEMRT'
 };
 
 function pagarConPaypal(producto, inputId, btnEl) {
