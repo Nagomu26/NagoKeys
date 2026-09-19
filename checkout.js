@@ -56,19 +56,30 @@ function comprarProducto(producto, inputId, btnEl) {
 
 /* =====================================================================
    PAYPAL · NagoKeys
-   Flujo: el cliente teclea su email -> POST /api/paypal/crear (Worker)
-   -> PayPal cobra -> vuelve a gracias.html?paypal=ok -> el Worker
-   captura el pago y avisa al webhook de n8n, que envía la clave.
-   No hay que crear Payment Links; los precios viven en _worker.js
-   (PAYPAL_PRECIOS) y las credenciales en las variables de entorno.
+   Enlaces de Pago (Payment Links) de PayPal creados y configurados.
+   El botón abre directamente el enlace de su producto (sin pasar por
+   el Worker, que no tiene endpoint de PayPal). El email se guarda en
+   localStorage para usarlo en la entrega de la clave.
 
-   FIX: antes se buscaba el email subiendo por el DOM hasta encontrar
-   un contenedor con la clase ".checkout-box", pero esa clase no existe
-   en todas las cajas de compra (p.ej. la del pack usa ".bundle-box"),
-   así que el botón de PayPal fallaba en silencio ahí. Ahora usamos
-   directamente el mismo inputId que ya usa comprarProducto(), sin
-   depender de ninguna clase de contenedor.
+   TODO: crear en PayPal los enlaces que faltan (packs y Crunchyroll) y
+   sustituir el '' por la URL real https://www.paypal.com/ncp/payment/XXXXX
+
+   FIX: el email se lee usando el mismo inputId que ya usa
+   comprarProducto(), sin depender de ninguna clase de contenedor
+   (las cajas de pack usan ".bundle-box", no ".checkout-box").
    ===================================================================== */
+
+var PAYPAL_ENLACES = {
+    'Windows 11 Home OEM': 'https://www.paypal.com/ncp/payment/KZW83TJYSCZGU',
+    'Windows 11 Home Retail': 'https://www.paypal.com/ncp/payment/J6AUSPCNQ8QW4',
+    'Windows 11 Pro OEM': 'https://www.paypal.com/ncp/payment/2F4NJSFRFVHKY',
+    'Windows 11 Pro Retail': 'https://www.paypal.com/ncp/payment/Z2ZCYLBCAQXJS',
+    'McAfee Antivirus 1 Año': 'https://www.paypal.com/ncp/payment/6GD4CGVF9FPMW',
+    'Pack Windows 11 Home OEM + McAfee': '',
+    'Pack Windows 11 Home Retail + McAfee': '',
+    'Pack Windows 11 Pro OEM + McAfee': '',
+    'Pack Windows 11 Pro Retail + McAfee': ''
+};
 
 function pagarConPaypal(producto, inputId, btnEl) {
     var input = document.getElementById(inputId);
@@ -85,41 +96,23 @@ function pagarConPaypal(producto, inputId, btnEl) {
     }
     if (errorEl) errorEl.style.display = 'none';
 
-    var originalHTML = btnEl.innerHTML;
-    btnEl.innerHTML = 'Conectando con PayPal...';
-    btnEl.style.pointerEvents = 'none';
-    btnEl.style.opacity = '0.7';
+    var enlace = PAYPAL_ENLACES[producto];
+    if (!enlace) {
+        if (errorEl) {
+            errorEl.textContent = 'El pago con PayPal para este producto estará disponible en breve.';
+            errorEl.style.display = 'block';
+        }
+        return;
+    }
 
-    fetch('/api/paypal/crear', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ producto: producto, email: email })
-    })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-            if (!data || !data.ok || !data.checkoutUrl) {
-                throw new Error((data && data.error) || 'No se recibió URL de pago');
-            }
-            try {
-                localStorage.setItem('nagokeys_paypal',
-                    JSON.stringify({ orderId: data.id, producto: producto, email: email }));
-            } catch (e) { }
-            var enlace = data.checkoutUrl;
-            if (window.self === window.top) {
-                window.location.href = enlace;
-            } else {
-                window.open(enlace, '_top');
-            }
-        })
-        .catch(function () {
-            btnEl.innerHTML = originalHTML;
-            btnEl.style.pointerEvents = 'auto';
-            btnEl.style.opacity = '1';
-            if (errorEl) {
-                errorEl.textContent = 'Hubo un problema al iniciar el pago. Inténtalo de nuevo.';
-                errorEl.style.display = 'block';
-            }
-        });
+    try {
+        localStorage.setItem('nagokeys_email', email);
+    } catch (e) { }
+
+    var ventana = window.open(enlace, '_blank');
+    if (!ventana) {
+        window.location.href = enlace;
+    }
 }
 
 function deshabilitarBotonesMollie() {

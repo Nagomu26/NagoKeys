@@ -37,15 +37,17 @@ producto pertenece.**
 ## FASE 2 · Activar en la web (2 min)
 
 - [ ] Abre `checkout.js` → bloque `PAYPAL_ENLACES`.
-- [ ] Reemplaza cada `COLOCA_AQUI_TU_PAYMENT_LINK_...` por la URL real de su
-      producto (las tienes anotadas arriba).
-- [] Guarda y sube el archivo. Los botones "Pagar con PayPal" ya enlazan.
+- [ ] Windows (Home/Pro, OEM/Retail) y McAfee ya llevan su enlace real.
+- [ ] Los 4 PACKS tienen `''`: crea el enlace de cada pack en PayPal
+      (Centro de ventas → Enlaces de pago → Crear enlace) y pégalo aquí.
+      Hasta entonces su botón avisará de que estará disponible en breve.
+- [ ] Guarda y sube el archivo. Los botones "Pagar con PayPal" ya enlazan.
 
 ---
 
 ## FASE 3 · Automatización n8n (después de tu primera venta PayPal)
 
-Usa el archivo `workflow_n8n_paypal_nagokeys.json` (te lo he generado) y
+Usa el archivo `plantilla-workflow-paypal-nagokeys-n8n.json` (te lo he generado) y
 respeta las notas dentro: sustituye `TU_CLIENT_ID` / `TU_CLIENT_SECRET`
 (PayPal Developer → Apps) y el texto de los nodos antes de importar.
 
