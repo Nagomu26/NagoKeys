@@ -1,1 +1,9 @@
 _worker.js
+node_modules
+.git
+.wrangler
+package.json
+package-lock.json
+.wrangler
+.dev.vars
+.env

@@ -21,5 +21,8 @@
       "database_id": "68d72ec4-9a11-4a06-946b-5d3f3088fa39",
       "migrations_dir": "migrations"
     }
-  ]
+  ],
+  "vars": {
+    "PAYPAL_SANDBOX": "true"
+  }
 }
