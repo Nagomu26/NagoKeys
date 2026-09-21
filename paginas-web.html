@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="NagoKeys">
     <meta property="og:title" content="NagoKeys - Creación de Páginas Web para Negocios">
     <meta property="og:description" content="Páginas web profesionales para tu negocio: barberías, restaurantes, tiendas. Elige plantilla, nos cuentas tu negocio por WhatsApp, entrega 100% terminada por 100 €.">
-    <meta property="og:image" content="https://nagokeys.com/images/hero-barber.webp">
+    <meta property="og:image" content="https://nagokeys.com/images/hero-ejemplo-vintage.webp">
     <meta property="og:url" content="https://nagokeys.com/paginas-web">
     <meta property="og:type" content="website">
 
@@ -212,9 +212,9 @@
         }
 
         .feature i {
-            font-size: 1.6rem;
-            color: #00d4ff;
-            background: rgba(0, 212, 255, 0.12);
+            font-size: 1.5rem;
+            color: #fff;
+            background: #007a9c;
             width: 54px;
             height: 54px;
             display: flex;
@@ -222,6 +222,12 @@
             justify-content: center;
             border-radius: 14px;
             margin-bottom: 16px;
+            box-shadow: 0 8px 18px rgba(0, 122, 156, 0.35);
+        }
+
+        .feature:nth-child(even) i {
+            background: #c0560f;
+            box-shadow: 0 8px 18px rgba(192, 86, 15, 0.35);
         }
 
         .feature h3 {
@@ -324,9 +330,9 @@
         }
 
         .soon-body i {
-            font-size: 2.4rem;
-            color: #00d4ff;
-            background: rgba(0, 212, 255, 0.12);
+            font-size: 2.2rem;
+            color: #fff;
+            background: #c0560f;
             width: 70px;
             height: 70px;
             display: inline-flex;
@@ -334,6 +340,12 @@
             justify-content: center;
             border-radius: 18px;
             margin-bottom: 16px;
+            box-shadow: 0 10px 22px rgba(192, 86, 15, 0.35);
+        }
+
+        #plantillas-tiendas .soon-body i {
+            background: #007a9c;
+            box-shadow: 0 10px 22px rgba(0, 122, 156, 0.35);
         }
 
         .soon-body h4 {
@@ -521,9 +533,17 @@
         }
 
         .g-box i {
-            font-size: 2.2rem;
-            color: #00d4ff;
-            margin-bottom: 12px;
+            font-size: 1.9rem;
+            color: #fff;
+            background: #c0560f;
+            width: 64px;
+            height: 64px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 24px rgba(192, 86, 15, 0.4);
         }
 
         .g-box h3 {
@@ -638,6 +658,81 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ---------- TEMA OSCURO (SOLO ESTA PÁGINA) ---------- */
+        /* Fondo azul profundo (#006187) para que el cian de la marca (#00d4ff)
+           de los textos e iconos destaque y se lea bien. */
+        body {
+            background: linear-gradient(140deg, #021c27 0%, #00475f 55%, #006187 100%);
+            background-attachment: fixed;
+            color: #eaf6fb;
+        }
+
+        /* Cabecera oscura a juego */
+        header {
+            background: rgba(3, 28, 39, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        /* Textos que van sueltos sobre el fondo oscuro */
+        .hero-split h1,
+        .section-title,
+        .tipo-title {
+            color: #fff;
+        }
+
+        .hero-split p.lead,
+        .section-sub,
+        .all-price {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .hero-eyebrow {
+            background: rgba(244, 117, 33, 0.18);
+            color: #ffb27a;
+        }
+
+        /* Caja de garantía (va sobre el fondo) */
+        .g-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.16), rgba(244, 117, 33, 0.14));
+        }
+
+        .g-box h3 {
+            color: #fff;
+        }
+
+        .g-box p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Pie (base sobre el fondo) */
+        footer {
+            color: rgba(255, 255, 255, 0.85);
+            border-top-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Sección de contacto (base sobre el fondo) */
+        .support-section {
+            background-color: transparent;
+        }
+
+        .contact-layout h2 {
+            color: #fff;
+        }
+
+        .contact-layout .intro,
+        .pay-methods li {
+            color: rgba(255, 255, 255, 0.85);
+        }
     </style>
 </head>
 
@@ -674,7 +769,9 @@
             </div>
         </div>
         <div class="hero-photo">
-            <img src="images/hero-barber.webp" alt="Barbería con web profesional creada por NagoKeys">
+            <img src="images/hero-ejemplo-vintage.webp"
+                    alt="Ejemplo de web creada por NagoKeys: página de una barbería con reserva online"
+                    style="width: 100%; height: 340px; object-fit: cover; object-position: top;">
             <div class="hero-float">100 €<small>todo incluido,<br>sin cuotas mensuales</small></div>
         </div>
     </section>
@@ -844,19 +941,83 @@
             horario de cocina.</p>
 
         <div class="pricing-container">
-            <div class="card tpl-card card-soon">
-                <div class="soon-body">
-                    <i class="fa-solid fa-utensils"></i>
-                    <h4>Bares y restaurantes: ¡muy pronto!</h4>
-                    <p>Estamos preparando plantillas totalmente adaptadas a restaurantes y bares: carta con precios,
-                        reserva de mesa y fotos de tus platos. Escríbenos por WhatsApp y te avisamos en cuanto estén
-                        listas.</p>
-                    <a class="btn-primary soon-btn"
-                        href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20avisadme%20cuando%20esten%20listas%20las%20plantillas%20para%20restaurantes.">Avisarme
-                        por WhatsApp</a>
+
+            <a href="https://nagomu26.github.io/your-restaurant-luxe/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">DISEÑO OSCURO</span>
+                <img class="tpl-img" src="images/plantillas-restaurant-luxe.webp"
+                    alt="Plantilla web LUXE para restaurante">
+                <div class="tpl-body">
+                    <h2>Your Restaurant — Luxe</h2>
+                    <p class="tpl-font" style="font-family: 'Cormorant Garamond', serif; color: #8a6d2f;">Cocina
+                        de mercado, con clase<span class="fx">Cormorant Garamond · serif</span></p>
+                    <p class="tpl-desc">Fondo oscuro y tipografía elegante. Perfecta para un restaurante premium.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
                 </div>
-            </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-restaurant-bright/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">DISEÑO CLARO</span>
+                <img class="tpl-img" src="images/plantillas-restaurant-bright.webp"
+                    alt="Plantilla web BRIGHT para restaurante">
+                <div class="tpl-body">
+                    <h2>Your Restaurant — Bright</h2>
+                    <p class="tpl-font" style="font-family: 'Playfair Display', serif; font-style: italic; color: #222;">Menú
+                        claro y luminoso<span class="fx">Playfair Display · cursiva</span></p>
+                    <p class="tpl-desc">Claro, limpio y con aire de revista. Un comedor que invita a quedarse.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-restaurant-urban/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">ESTILO URBANO</span>
+                <img class="tpl-img" src="images/plantillas-restaurant-urban.webp"
+                    alt="Plantilla web URBAN para restaurante">
+                <div class="tpl-body">
+                    <h2>Your Restaurant — Urban</h2>
+                    <p class="tpl-font" style="font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #111;">Street
+                        food con actitud<span class="fx">Anton · sans condensada</span></p>
+                    <p class="tpl-desc">Tipografía contundente y estilo street. Para food trucks y locales
+                        desenfadados.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-restaurant-vintage/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">ESTILO CLÁSICO</span>
+                <img class="tpl-img" src="images/plantillas-restaurant-vintage.webp"
+                    alt="Plantilla web VINTAGE para restaurante">
+                <div class="tpl-body">
+                    <h2>Your Restaurant — Vintage</h2>
+                    <p class="tpl-font" style="font-family: 'Alfa Slab One', serif; color: #7a3e11;">La cocina de
+                        siempre<span class="fx">Alfa Slab One · slab serif</span></p>
+                    <p class="tpl-desc">Tonos crema y letra tipo rótulo. La cocina de toda la vida, con encanto.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-restaurant-nature/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">ESTILO NATURAL</span>
+                <img class="tpl-img" src="images/plantillas-restaurant-nature.webp"
+                    alt="Plantilla web NATURAL para restaurante">
+                <div class="tpl-body">
+                    <h2>Your Restaurant — Natural</h2>
+                    <p class="tpl-font" style="font-family: 'Caveat', cursive; font-size: 28px; color: #3f6b4f;">Producto
+                        fresco, al natural<span class="fx">Caveat · manuscrita</span></p>
+                    <p class="tpl-desc">Cálido y orgánico, con letra manuscrita y toques naturales. Producto fresco y
+                        cercano.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
         </div>
+
+        <p class="all-price" style="margin-top: 30px;">Todas las plantillas cuestan lo mismo: <strong>100 €</strong>
+            (50 € al empezar + 50 € a la entrega).</p>
     </section>
 
     <!-- ================= PLANTILLAS: TIENDAS Y OTROS ================= -->
@@ -866,18 +1027,76 @@
             ubicación y formas de contactar.</p>
 
         <div class="pricing-container">
-            <div class="card tpl-card card-soon">
-                <div class="soon-body">
-                    <i class="fa-solid fa-store"></i>
-                    <h4>Tiendas y otros negocios: ¡muy pronto!</h4>
-                    <p>Estamos preparando plantillas versátiles para tiendas, estudios y servicios. Escríbenos por
-                        WhatsApp y te avisamos en cuanto estén listas.</p>
-                    <a class="btn-primary soon-btn"
-                        href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20avisadme%20cuando%20esten%20listas%20las%20plantillas%20para%20tiendas.">Avisarme
-                        por WhatsApp</a>
+
+            <a href="https://nagomu26.github.io/your-place-luxe/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">DISEÑO OSCURO</span>
+                <img class="tpl-img" src="images/plantillas-place-luxe.webp" alt="Plantilla web LUXE para tu negocio">
+                <div class="tpl-body">
+                    <h2>Your Place — Luxe</h2>
+                    <p class="tpl-font" style="font-family: 'Cormorant Garamond', serif; color: #8a6d2f;">Tu negocio,
+                        con clase<span class="fx">Cormorant Garamond · serif</span></p>
+                    <p class="tpl-desc">Fondo oscuro y tipografía elegante. Tu negocio con imagen premium.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
                 </div>
-            </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-place-bright/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">DISEÑO CLARO</span>
+                <img class="tpl-img" src="images/plantillas-place-bright.webp" alt="Plantilla web BRIGHT para tu negocio">
+                <div class="tpl-body">
+                    <h2>Your Place — Bright</h2>
+                    <p class="tpl-font" style="font-family: 'Playfair Display', serif; font-style: italic; color: #222;">Escaparate
+                        limpio y luminoso<span class="fx">Playfair Display · cursiva</span></p>
+                    <p class="tpl-desc">Claro, limpio y con aire de revista. Un escaparate moderno.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-place-urban/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">ESTILO URBANO</span>
+                <img class="tpl-img" src="images/plantillas-place-urban.webp" alt="Plantilla web URBAN para tu negocio">
+                <div class="tpl-body">
+                    <h2>Your Place — Urban</h2>
+                    <p class="tpl-font" style="font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #111;">Actitud
+                        de barrio<span class="fx">Anton · sans condensada</span></p>
+                    <p class="tpl-desc">Tipografía contundente y estilo street. Ideal para tiendas de moda urbana.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-place-vintage/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">ESTILO CLÁSICO</span>
+                <img class="tpl-img" src="images/plantillas-place-vintage.webp" alt="Plantilla web VINTAGE para tu negocio">
+                <div class="tpl-body">
+                    <h2>Your Place — Vintage</h2>
+                    <p class="tpl-font" style="font-family: 'Alfa Slab One', serif; color: #7a3e11;">El encanto de
+                        siempre<span class="fx">Alfa Slab One · slab serif</span></p>
+                    <p class="tpl-desc">Tonos crema y letra tipo rótulo de escaparate. Cercana y con encanto.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
+            <a href="https://nagomu26.github.io/your-place-nature/" target="_blank" rel="noopener noreferrer"
+                class="card tpl-card">
+                <span class="tag">ESTILO NATURAL</span>
+                <img class="tpl-img" src="images/plantillas-place-nature.webp" alt="Plantilla web NATURAL para tu negocio">
+                <div class="tpl-body">
+                    <h2>Your Place — Natural</h2>
+                    <p class="tpl-font" style="font-family: 'Caveat', cursive; font-size: 28px; color: #3f6b4f;">Cercano
+                        y al natural<span class="fx">Caveat · manuscrita</span></p>
+                    <p class="tpl-desc">Cálido y orgánico, con letra manuscrita y toques naturales. Cercano y humano.</p>
+                    <span class="tpl-cta">Ver la página en directo →</span>
+                </div>
+            </a>
+
         </div>
+
+        <p class="all-price" style="margin-top: 30px;">Todas las plantillas cuestan lo mismo: <strong>100 €</strong>
+            (50 € al empezar + 50 € a la entrega).</p>
     </section>
 
     <!-- ================= CÓMO FUNCIONA ================= -->
@@ -993,16 +1212,16 @@
 
     <footer>
         <div style="text-align: center; margin-bottom: 20px;">
-            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Términos
+            <a href="legal" style="color: rgba(255, 255, 255, 0.78); text-decoration: none; margin: 0 10px; font-size: 0.85em;">Términos
                 del Servicio</a> |
-            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política
+            <a href="legal" style="color: rgba(255, 255, 255, 0.78); text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política
                 de Privacidad</a> |
-            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política
+            <a href="legal" style="color: rgba(255, 255, 255, 0.78); text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política
                 de Reembolso</a>
         </div>
 
         <p style="font-size: 0.9em; margin-bottom: 10px;">Pago: 💳 Tarjeta · PayPal · Bizum · Transferencia</p>
-        <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Microsoft.</p>
+        <p style="font-size: 0.8em; color: rgba(255, 255, 255, 0.6);">© 2026 NagoKeys. No afiliado con Microsoft.</p>
     </footer>
 
     <a href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20quiero%20hacer%20la%20web%20de%20mi%20negocio."
