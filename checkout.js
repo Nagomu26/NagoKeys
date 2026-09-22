@@ -56,27 +56,16 @@ function comprarProducto(producto, inputId, btnEl) {
 
 /* =====================================================================
    PAYPAL · NagoKeys
-   Enlaces de Pago (Payment Links) de PayPal creados y configurados.
-   El botón abre directamente el enlace de su producto. El email se
-   guarda en localStorage para usarlo en la entrega de la clave.
+   El botón "Pagar con PayPal" crea una orden real en PayPal vía el Worker
+   (/api/paypal/crear), guarda el pedido en la base de datos y redirige al
+   checkout de PayPal. Al volver a /gracias, el Worker captura el pago y
+   avisa a n8n para que envíe la clave automáticamente.
 
    NOTAS:
    - Crunchyroll ya no se vende (deshabilitado).
-   - Los enlaces de los packs se crearon con la API Payment Links
-     & Buttons (POST /v1/checkout/payment-resources).
+   - Los precios se toman del Worker (PAYPAL_PRECIOS), que deben coincidir
+     con los precios publicados en las páginas de producto.
    ===================================================================== */
-
-var PAYPAL_ENLACES = {
-    'Windows 11 Home OEM': 'https://www.paypal.com/ncp/payment/KZW83TJYSCZGU',
-    'Windows 11 Home Retail': 'https://www.paypal.com/ncp/payment/J6AUSPCNQ8QW4',
-    'Windows 11 Pro OEM': 'https://www.paypal.com/ncp/payment/2F4NJSFRFVHKY',
-    'Windows 11 Pro Retail': 'https://www.paypal.com/ncp/payment/Z2ZCYLBCAQXJS',
-    'McAfee Antivirus 1 Año': 'https://www.paypal.com/ncp/payment/6GD4CGVF9FPMW',
-    'Pack Windows 11 Home OEM + McAfee': 'https://www.paypal.com/ncp/payment/PLB-VBCBA9MWEW9A',
-    'Pack Windows 11 Home Retail + McAfee': 'https://www.paypal.com/ncp/payment/PLB-HJKNWXJ8D297',
-    'Pack Windows 11 Pro OEM + McAfee': 'https://www.paypal.com/ncp/payment/PLB-4V4B83WWN8BQ',
-    'Pack Windows 11 Pro Retail + McAfee': 'https://www.paypal.com/ncp/payment/PLB-U2QQUS7BEMRT'
-};
 
 function pagarConPaypal(producto, inputId, btnEl) {
     var input = document.getElementById(inputId);
@@ -93,23 +82,47 @@ function pagarConPaypal(producto, inputId, btnEl) {
     }
     if (errorEl) errorEl.style.display = 'none';
 
-    var enlace = PAYPAL_ENLACES[producto];
-    if (!enlace) {
-        if (errorEl) {
-            errorEl.textContent = 'El pago con PayPal para este producto estará disponible en breve.';
-            errorEl.style.display = 'block';
-        }
-        return;
-    }
+    var originalHTML = btnEl.innerHTML;
+    btnEl.innerHTML = 'Procesando...';
+    btnEl.style.pointerEvents = 'none';
+    btnEl.style.opacity = '0.7';
 
-    try {
-        localStorage.setItem('nagokeys_email', email);
-    } catch (e) { }
-
-    var ventana = window.open(enlace, '_blank');
-    if (!ventana) {
-        window.location.href = enlace;
-    }
+    fetch('/api/paypal/crear', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ producto: producto, email: email })
+    })
+        .then(function (res) {
+            return res.json().then(function (data) {
+                return { ok: res.ok, status: res.status, data: data };
+            });
+        })
+        .then(function (r) {
+            if (r.ok && r.data && r.data.checkoutUrl) {
+                try {
+                    localStorage.setItem('nagokeys_paypal', JSON.stringify({
+                        orderId: r.data.id,
+                        producto: producto,
+                        email: email
+                    }));
+                } catch (e) { }
+                window.location.href = r.data.checkoutUrl;
+            } else {
+                var msg = (r.data && r.data.error) ? r.data.error : 'No se pudo iniciar el pago. Inténtalo de nuevo.';
+                throw new Error(msg);
+            }
+        })
+        .catch(function (err) {
+            btnEl.innerHTML = originalHTML;
+            btnEl.style.pointerEvents = 'auto';
+            btnEl.style.opacity = '1';
+            if (errorEl) {
+                errorEl.textContent = err && err.message
+                    ? err.message
+                    : 'Hubo un problema al iniciar el pago. Inténtalo de nuevo.';
+                errorEl.style.display = 'block';
+            }
+        });
 }
 
 function deshabilitarBotonesMollie() {

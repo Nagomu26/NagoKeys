@@ -4,3 +4,11 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# secretos / inventario (NUNCA subir)
+claves.csv
+*claves*.csv
+hola.txt
+hola2.txt
+*.pem
+*.key

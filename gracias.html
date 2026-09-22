@@ -99,12 +99,20 @@
             var statusEl = document.getElementById('estado-pago');
             if (statusEl) statusEl.style.display = 'block';
 
-            var pedido = null;
+            var orderId = '';
             try {
-                pedido = JSON.parse(localStorage.getItem('nagokeys_paypal') || 'null');
-            } catch (e) { pedido = null; }
+                if (params.get('token')) orderId = params.get('token').trim();
+            } catch (e) { }
 
-            if (!pedido || !pedido.orderId) {
+            var pedido = null;
+            if (!orderId) {
+                try {
+                    pedido = JSON.parse(localStorage.getItem('nagokeys_paypal') || 'null');
+                } catch (e) { pedido = null; }
+                if (pedido && pedido.orderId) orderId = pedido.orderId;
+            }
+
+            if (!orderId) {
                 if (statusEl) {
                     statusEl.style.color = '#b2500b';
                     statusEl.style.background = '#fdf1e6';
@@ -114,7 +122,7 @@
                 return;
             }
 
-            fetch('/api/paypal/confirmar?id=' + encodeURIComponent(pedido.orderId))
+            fetch('/api/paypal/confirmar?id=' + encodeURIComponent(orderId))
                 .then(function (r) { return r.json(); })
                 .then(function (data) {
                     if (!statusEl) return;

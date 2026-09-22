@@ -23,6 +23,6 @@
     }
   ],
   "vars": {
-    "PAYPAL_SANDBOX": "true"
+    "PAYPAL_SANDBOX": "false"
   }
 }

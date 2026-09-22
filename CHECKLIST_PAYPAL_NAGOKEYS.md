@@ -5,62 +5,91 @@
 
 ---
 
-## FASE 1 · Cuenta y enlaces (10-15 min, online)
+## FASE 1 · Cuenta y claves API de PayPal (10-15 min, online)
 
-- [ ] Crea **PayPal Business** (Cuenta Empresa) con un correo corporativo tipo
-      `pagos@nagokeys.com`. Vincula una tarjeta/cuenta bancaria real.
-- [ ] Confirma el correo y verifica la identidad (te lo pide PayPal).
-- [ ] **Configura el dominio** para el "Pago con PayPal" (opcional pero
-      recomendado): en tu cuenta añade `nagokeys.com` y verifica con el
-      archivo TXT (un solo `n8n`, no necesitas tocar credenciales).
+- [ ] Confirma que tu cuenta **PayPal Business** está verificada.
+- [ ] Crea una app en **https://developer.paypal.com → Apps & Credentials**
+      y activa el modo **LIVE** (no el sandbox).
+- [ ] Anota el **Client ID** y el **Client Secret LIVE**.
 
-### Crear los ENLACES DE PAGO (uno por producto)
-En el panel: **Centro de ventas → Enlaces de pago → Crear enlace**
-  - Windows 11 Home OEM .......... precio 4,99 €
-  - Windows 11 Pro OEM ........... precio 4,99 €
-  - Windows 11 Pro Retail ........ precio 6,99 €
-  - Windows 11 Home Retail ....... precio 5,99 €
-  - Pack Windows 11 + McAfee ..... el precio del pack
-  - McAfee Antivirus 1 Año ....... precio 1,99 €
-  - Crunchyroll (los 4 variantes) . según producto
+### Precios REALES que se cobran (verificados en los enlaces de pago)
+  - Windows 11 Home OEM .......... 4,99 €
+  - Windows 11 Pro OEM ........... 4,99 €
+  - Windows 11 Home Retail ....... 9,99 €
+  - Windows 11 Pro Retail ........ 10,99 €
+  - McAfee Antivirus 1 Año ....... 7,99 €
+  - Pack Home OEM + McAfee ....... 10,49 €
+  - Pack Pro OEM + McAfee ........ 10,49 €
+  - Pack Home Retail + McAfee .... 15,49 €
+  - Pack Pro Retail + McAfee ..... 16,49 €
 
-Cada enlace te dará una URL tipo:
-`https://www.paypal.com/ncp/payment/XXXXXXX`
-Guárdala en un sitio seguro (notas privadas). **Anota junto a cada URL a qué
-producto pertenece.**
-
-- [ ] Opcional: activa en el enlace la casilla **"Recopilar email del cliente"**
-      para que nos llegue el correo de entrega sin pasos extra.
+Estos mismos precios ya están en `PAYPAL_PRECIOS` del Worker y en las
+páginas de producto.
 
 ---
 
-## FASE 2 · Activar en la web (2 min)
+## FASE 2 · Configurar el Worker en Cloudflare (5 min)
 
-- [ ] Abre `checkout.js` → bloque `PAYPAL_ENLACES`.
-- [ ] Windows (Home/Pro, OEM/Retail) y McAfee ya llevan su enlace real.
-- [ ] Los 4 PACKS tienen `''`: crea el enlace de cada pack en PayPal
-      (Centro de ventas → Enlaces de pago → Crear enlace) y pégalo aquí.
-      Hasta entonces su botón avisará de que estará disponible en breve.
-- [ ] Guarda y sube el archivo. Los botones "Pagar con PayPal" ya enlazan.
+En el panel de Cloudflare (o con `wrangler secret put`), configura:
+- `NAGOKEYS_API_KEY`  → la MISMA clave que usan los nodos n8n (ver Fase 4).
+- `PAYPAL_CLIENT_ID`  → Client ID LIVE de la app de PayPal.
+- `PAYPAL_CLIENT_SECRET` → Client Secret LIVE de la app de PayPal.
+
+Asegúrate de que `wrangler.jsonc` tenga `PAYPAL_SANDBOX: "false"` (ya está
+así tras el arreglo) y despliega:
+
+- [ ] `npm install`
+- [ ] `npx wrangler deploy`
+- [ ] Prueba: `curl "https://nagokeys.com/api/paypal/pedido?id=TEST"` →
+      debe responder `{"ok":true,...}` o un error de PayPal, NO
+      `"PayPal no configurado"`.
+
+> No subas nunca las credenciales al repositorio. Usa secrets de Cloudflare.
 
 ---
 
-## FASE 3 · Automatización n8n (después de tu primera venta PayPal)
+## FASE 3 · Importar claves a la BD (D1)
 
-Usa el archivo `plantilla-workflow-paypal-nagokeys-n8n.json` (te lo he generado) y
-respeta las notas dentro: sustituye `TU_CLIENT_ID` / `TU_CLIENT_SECRET`
-(PayPal Developer → Apps) y el texto de los nodos antes de importar.
+- [ ] Convierte tu hoja/CSV con `node importar-claves.js claves.csv`
+      (o usa un archivo SQL) y carga las claves en la tabla `claves`
+      de D1 con Estado `Disponible`.
+- [ ] Comprueba con `/api/admin/claves` que hay stock.
 
-1. Importa el workflow en tu n8n (importar desde archivo).
-2. Rellena las credenciales: SMTP, Google Sheets, Telegram, PayPal API.
-3. Activa el workflow. Haz una **venta de prueba** (paypal sandbox) y
-   comprueba que llega el webhook, la clave y el aviso de Telegram.
-4. Cuando PayPal apruebe la cuenta real, cambia de sandbox a producción.
+---
+
+## FASE 4 · Importar el workflow n8n y configurarlo
+
+1. Importa `plantilla-workflow-paypal-nagokeys-n8n.json` en n8n.
+2. Configura las credenciales que pida n8n:
+   - **SMTP account** (para enviar las claves por email),
+   - **Telegram account 2** (para avisos).
+3. En n8n → Settings → Variables define:
+   - `PAYPAL_LIVE_BASIC` = `base64(ClientID:ClientSecret)` de las credenciales
+     LIVE de PayPal (el nodo "Obtener token PayPal" la lee automáticamente).
+4. El webhook de entrada (`/webhook/pago-paypal-nagokeys`) debe quedar
+   **en modo producción** y el workflow **Activo** (el Worker espera la
+   respuesta del último nodo para confirmar el aviso).
+5. IMPORTANTE: la `apiKey` la recibe n8n dentro del payload enviado por el
+   Worker (campo `apiKey`); debe coincidir con la `NAGOKEYS_API_KEY` de
+   Cloudflare. No hay claves hardcodeadas en el repositorio.
+
+---
+
+## FASE 5 · Probar el circuito completo
+
+1. Haz una **venta de prueba** real desde una página de producto.
+2. Comprueba que:
+   - Se crea la orden en `/api/paypal/crear` y redirige al checkout de PayPal.
+   - Al volver a `gracias`, el Worker captura el pago (estado `COMPLETED`).
+   - n8n recibe el webhook, rebusca la clave de Windows, la marca como
+     **Vendida** y envía el email al cliente con la clave.
+3. Si algo falla, revisa los logs del Worker (Cloudflare → Workers → Logs)
+   y el historial de ejecución en n8n.
 
 ---
 
 ## Nota de seguridad (importante)
-- Guarda la contraseña de PayPal y de tu servidor en un gestor (Bitwarden,
-  KeePass, 1Password). **Nunca las pegues en el chat de un asistente.**
-- El host n8n (nagokeys) ya no debe usar la contraseña en claro: cuando puedas,
-  activa la **clave SSH** (acceso por llave) para acceso sin contraseña.
+- Guarda las contraseñas en un gestor (Bitwarden, KeePass, 1Password).
+  **Nunca las pegues en el chat de un asistente.**
+- El host n8n no debe usar contraseña en claro: activa la **clave SSH**.
+- No subas al repositorio ningún secret (Client ID/Secret, apiKey).

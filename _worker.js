@@ -297,11 +297,11 @@ async function handleApi(request, env, url) {
 }
 
 const PAYPAL_PRECIOS = {
-  'Windows 11 Home Retail': '8.99',
-  'Windows 11 Pro Retail': '9.99',
-  'Windows 11 Home OEM': '3.99',
-  'Windows 11 Pro OEM': '3.99',
-  'McAfee Antivirus 1 Año': '6.99',
+  'Windows 11 Home Retail': '9.99',
+  'Windows 11 Pro Retail': '10.99',
+  'Windows 11 Home OEM': '4.99',
+  'Windows 11 Pro OEM': '4.99',
+  'McAfee Antivirus 1 Año': '7.99',
   'Pack Windows 11 Home Retail + McAfee': '15.49',
   'Pack Windows 11 Pro Retail + McAfee': '16.49',
   'Pack Windows 11 Home OEM + McAfee': '10.49',
@@ -309,7 +309,9 @@ const PAYPAL_PRECIOS = {
 };
 
 function getPaypalBase(env) {
-  return env.PAYPAL_SANDBOX ? 'https://api-m.sandbox.paypal.com' : 'https://api-m.paypal.com';
+  return env.PAYPAL_SANDBOX === 'true' || env.PAYPAL_SANDBOX === true
+    ? 'https://api-m.sandbox.paypal.com'
+    : 'https://api-m.paypal.com';
 }
 
 async function paypalToken(env) {
@@ -347,12 +349,13 @@ function comprobarCaptura(data) {
 
 async function avisarN8n(env, datos) {
   const url = env.N8N_WEBHOOK_URL || 'https://n8n.nagokeys.com/webhook/pago-paypal-nagokeys';
+  const payload = Object.assign({}, datos, { apiKey: env.NAGOKEYS_API_KEY || '' });
   for (let i = 0; i < 3; i++) {
     try {
       const r = await fetch(url, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(datos),
+        body: JSON.stringify(payload),
       });
       if (r.ok) return true;
     } catch (e) {
