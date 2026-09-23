@@ -248,9 +248,11 @@
         "toEmail": "={{ $json.Email_Comprador }}",
         "ccEmail": "",
         "bccEmail": "",
-        "subject": "=Tu clave {{ $json.Nombre_Producto }} · NagoKeys",
-        "text": "Hola,\n\n¡Gracias por tu compra en NagoKeys!\n\nAquí tienes la clave de tu producto ({{ $json.Nombre_Producto }}):\n\n{{ $json.Clave_Activacion }}\n\nSi tienes dudas sobre cómo activarla, consulta nuestra guía: https://nagokeys.com/tutorial-activar\n\nUn saludo,\nEl equipo de NagoKeys",
-        "options": {}
+        "subject": "=Tu clave {{ $json.Nombre_Producto }} - NagoKeys",
+        "text": "=Hola,\n\nGracias por tu compra en NagoKeys!\n\nAqui tienes la clave de tu producto ({{ $json.Nombre_Producto }}):\n\n{{ $json.Clave_Activacion }}\n\nSi tienes dudas sobre como activarla, consulta nuestra guia: https://nagokeys.com/tutorial-activar\n\nUn saludo,\nEl equipo de NagoKeys",
+        "options": {},
+        "emailFormat": "both",
+        "html": "=<p>Hola,</p>\n<p>&iexcl;Gracias por tu compra en NagoKeys!</p>\n<p>Aqu&iacute; tienes la clave de tu producto (<strong>{{ $json.Nombre_Producto }}</strong>):</p>\n<h2 style=\"letter-spacing:2px;\">{{ $json.Clave_Activacion }}</h2>\n<p>Si tienes dudas sobre c&oacute;mo activarla, consulta nuestra gu&iacute;a: <a href=\"https://nagokeys.com/tutorial-activar\">https://nagokeys.com/tutorial-activar</a></p>\n<p>Un saludo,<br/>El equipo de NagoKeys</p>"
       },
       "id": "email",
       "name": "Enviar clave por email",
