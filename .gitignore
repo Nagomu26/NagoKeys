@@ -4,6 +4,7 @@
 !.dev.vars.example
 .env*
 !.env.example
+node_modules/
 
 # secretos / inventario (NUNCA subir)
 claves.csv

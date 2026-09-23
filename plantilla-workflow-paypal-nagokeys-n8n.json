@@ -20,7 +20,7 @@
       "parameters": {
         "path": "pago-paypal-nagokeys",
         "httpMethod": "POST",
-        "responseMode": "onLastNode",
+        "responseMode": "lastNode",
         "options": {}
       },
       "id": "webhook-entrada",
@@ -271,7 +271,7 @@
     {
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "// Lee el Basic LIVE desde una variable de n8n (Settings → Variables) o una variable de entorno.\nconst b64 = String(typeof $vars !== 'undefined' && $vars.PAYPAL_LIVE_BASIC ? $vars.PAYPAL_LIVE_BASIC : (process.env.PAYPAL_LIVE_BASIC || 'COLOCA_AQUI_TOKEN_BASIC_PAYPAL_LIVE')).trim();\nif (!b64 || b64 === 'COLOCA_AQUI_TOKEN_BASIC_PAYPAL_LIVE') {\n  throw new Error('Configura PAYPAL_LIVE_BASIC en n8n (Settings → Variables) o sustituye el token Basic en este nodo');\n}\nconst res = await this.helpers.httpRequest({\n  method: 'POST',\n  url: 'https://api-m.paypal.com/v1/oauth2/token',\n  headers: { 'Authorization': 'Basic ' + b64, 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },\n  body: 'grant_type=client_credentials',\n  json: true\n});\nreturn [{ json: { pagoId: $json.pagoId, producto: $json.producto, email: $json.email, captureId: $json.captureId, importe: $json.importe, apiKey: $json.apiKey, access_token: res.access_token, token_type: res.token_type, expires_in: res.expires_in } }];"
+        "jsCode": "// Lee el Basic LIVE desde una variable de n8n (Settings → Variables).\n// IMPORTANTE: no usar process.env aquí; el task runner de n8n no expone 'process'.\nconst b64 = ($vars && $vars.PAYPAL_LIVE_BASIC) ? String($vars.PAYPAL_LIVE_BASIC).trim() : 'QkFBdmRUcTExN20tcUpyNktSR1V4OTdMQ2RVRFNEdkQxYV8zYzJMSUVmNXVKQml3a3BNVlU2eDRLM0xVWkxocHFyYkRSZ2RITWpOSlNxbXFJQTpFRDFVM3IyV3BFcEFvaXBVOHZuX0FydEZOX1Q3dldJY0hISjFaRTdTTnRQVXppOWVoWDF1X2g0eENBdk5IYlMyd2tCVlZTMWZYRlgwb0xOSA==';\nconst res = await this.helpers.httpRequest({\n  method: 'POST',\n  url: 'https://api-m.paypal.com/v1/oauth2/token',\n  headers: { 'Authorization': 'Basic ' + b64, 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },\n  body: 'grant_type=client_credentials',\n  json: true\n});\nreturn [{ json: { pagoId: $json.pagoId, producto: $json.producto, email: $json.email, captureId: $json.captureId, importe: $json.importe, apiKey: $json.apiKey, access_token: res.access_token, token_type: res.token_type, expires_in: res.expires_in } }];"
       },
       "id": "token-paypal",
       "name": "Obtener token PayPal",
