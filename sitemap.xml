@@ -148,46 +148,9 @@
       <loc>https://nagokeys.com/productos/mcafee-antivirus-1-ano</loc>
       <lastmod>2026-09-01</lastmod>
       <priority>0.9</priority>
-      <image:image>
-         <image:loc>https://nagokeys.com/images/mcafee.jpg</image:loc>
-         <image:title>Antivirus McAfee 1 Año Barato</image:title>
-      </image:image>
-   </url>
-
-   <url>
-      <loc>https://nagokeys.com/productos/crunchyroll-fan-1-mes</loc>
-      <lastmod>2026-09-01</lastmod>
-      <priority>0.8</priority>
-      <image:image>
-         <image:loc>https://nagokeys.com/images/fa_mes.webp</image:loc>
-         <image:title>Suscripción Crunchyroll Fan 1 Mes</image:title>
-      </image:image>
-   </url>
-   <url>
-      <loc>https://nagokeys.com/productos/crunchyroll-fan-12-meses</loc>
-      <lastmod>2026-09-01</lastmod>
-      <priority>0.8</priority>
-      <image:image>
-         <image:loc>https://nagokeys.com/images/fan_año.webp</image:loc>
-         <image:title>Suscripción Crunchyroll Fan 12 Meses</image:title>
-      </image:image>
-   </url>
-   <url>
-      <loc>https://nagokeys.com/productos/crunchyroll-mega-fan-1-mes</loc>
-      <lastmod>2026-09-01</lastmod>
-      <priority>0.9</priority>
-      <image:image>
-         <image:loc>https://nagokeys.com/images/mes_megafan.webp</image:loc>
-         <image:title>Suscripción Crunchyroll Mega Fan 1 Mes</image:title>
-      </image:image>
-   </url>
-   <url>
-      <loc>https://nagokeys.com/productos/crunchyroll-mega-fan-12-meses</loc>
-      <lastmod>2026-09-01</lastmod>
-      <priority>0.9</priority>
-      <image:image>
-         <image:loc>https://nagokeys.com/images/año_megafan.webp</image:loc>
-         <image:title>Suscripción Crunchyroll Mega Fan 12 Meses</image:title>
-      </image:image>
-   </url>
+<image:image>
+          <image:loc>https://nagokeys.com/images/mcafee.jpg</image:loc>
+          <image:title>Antivirus McAfee 1 Año Barato</image:title>
+       </image:image>
+    </url>
 </urlset>
