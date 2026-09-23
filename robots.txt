@@ -3,10 +3,6 @@ Allow: /
 
 Sitemap: https://nagokeys.com/sitemap.xml
 
-# Archivos permitidos
-Allow: /images/
-Allow: /styles.css
-
 # Bloquear archivos innecesarios
 Disallow: /checkout.js
 Disallow: /*.sql
