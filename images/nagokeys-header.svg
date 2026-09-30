@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" width="260" height="48">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF9A4D"/>
+      <stop offset="1" stop-color="#F47521"/>
+    </linearGradient>
+  </defs>
+  <g transform="scale(0.09375)">
+    <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+    <g transform="translate(256,266) rotate(-45) translate(-92,0)" fill="#7C2D12" opacity="0.28">
+      <path fill-rule="evenodd" d="M-78 0a78 78 0 1 0 156 0a78 78 0 1 0 -156 0Z M-30 0a30 30 0 1 0 60 0a30 30 0 1 0 -60 0Z"/>
+      <rect x="66" y="-17" width="196" height="34" rx="8"/>
+      <rect x="186" y="10" width="28" height="56" rx="7"/>
+      <rect x="232" y="10" width="28" height="42" rx="7"/>
+    </g>
+    <g transform="translate(256,252) rotate(-45) translate(-92,0)" fill="#FFFFFF">
+      <path fill-rule="evenodd" d="M-78 0a78 78 0 1 0 156 0a78 78 0 1 0 -156 0Z M-30 0a30 30 0 1 0 60 0a30 30 0 1 0 -60 0Z"/>
+      <rect x="66" y="-17" width="196" height="34" rx="8"/>
+      <rect x="186" y="10" width="28" height="56" rx="7"/>
+      <rect x="232" y="10" width="28" height="42" rx="7"/>
+    </g>
+  </g>
+  <text x="60" y="34" font-family="'Poppins','Montserrat','Segoe UI',Arial,sans-serif" font-size="34" font-weight="800" letter-spacing="-1">
+    <tspan fill="#1F2937">Nago</tspan><tspan fill="#F47521">Keys</tspan>
+  </text>
+</svg>
