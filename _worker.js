@@ -351,8 +351,19 @@ function comprobarCaptura(data) {
   return { ok: true, captureId: c.id, importe: c.amount && c.amount.value };
 }
 
+// Cada familia de productos tiene su webhook en n8n.
+// - Crunchyroll: solo confirma el pago y avisa por email + Telegram (no hay clave que entregar).
+// - Windows/McAfee: entrega la clave como siempre (workflow original, sin cambios).
+function urlN8nParaProducto(env, producto) {
+  const esCrunchyroll = /^crunchyroll/i.test(String(producto || '').trim());
+  if (esCrunchyroll) {
+    return env.N8N_WEBHOOK_URL_CRUNCHYROLL || 'https://n8n.nagokeys.com/webhook/pago-paypal-crunchyroll-nagokeys';
+  }
+  return env.N8N_WEBHOOK_URL || 'https://n8n.nagokeys.com/webhook/pago-paypal-nagokeys';
+}
+
 async function avisarN8n(env, datos) {
-  const url = env.N8N_WEBHOOK_URL || 'https://n8n.nagokeys.com/webhook/pago-paypal-nagokeys';
+  const url = urlN8nParaProducto(env, datos && datos.producto);
   const payload = Object.assign({}, datos, { apiKey: env.NAGOKEYS_API_KEY || '' });
   for (let i = 0; i < 3; i++) {
     try {
