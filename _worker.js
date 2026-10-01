@@ -168,6 +168,10 @@ async function handleApi(request, env, url) {
     }
     const precio = PAYPAL_PRECIOS[producto];
     if (!precio) return json({ ok: false, error: 'Producto no válido' }, 400);
+    // Bloqueo temporal de stock: no se crea ninguna orden en PayPal.
+    if (PRODUCTOS_AGOTADOS.indexOf(producto) !== -1) {
+      return json({ ok: false, error: 'Producto agotado temporalmente. Ya no hay stock.' }, 409);
+    }
     const token = await paypalToken(env);
     if (!token) return json({ ok: false, error: 'PayPal no configurado' }, 500);
     const base = getPaypalBase(env);
@@ -311,6 +315,23 @@ const PAYPAL_PRECIOS = {
   'Crunchyroll Mega Fan 1 Mes': '4.50',
   'Crunchyroll Mega Fan 12 Meses': '34.99',
 };
+
+/* ==========================================================================
+   PRODUCTOS AGOTADOS (temporal)
+   --------------------------------------------------------------------------
+   While esta lista tenga productos, NO se pueden comprar: /api/paypal/crear
+   los rechaza y nunca se crea la orden en PayPal.
+
+   PARA VOLVER A PONERLOS A LA VENTA: borra el producto de la lista y
+   despliega. Nada mas hay que cambiar. Ver RESTAURAR-WINDOWS-11-HOME.md
+   (en la raiz del repo) para el paso a paso completo, incluida la parte
+   visual de las paginas de producto.
+   ========================================================================== */
+const PRODUCTOS_AGOTADOS = [
+  'Windows 11 Home Retail',
+  'Windows 11 Home OEM',
+  // 'Nombre exacto del producto tal cual aparece en PAYPAL_PRECIOS',
+];
 
 function getPaypalBase(env) {
   return env.PAYPAL_SANDBOX === 'true' || env.PAYPAL_SANDBOX === true

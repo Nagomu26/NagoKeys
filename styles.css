@@ -797,6 +797,38 @@ body.crunchyroll-product-page .product-page-container {
     text-transform: uppercase;
 }
 
+/* TEMPORAL · Productos agotados.
+   Lo inyecta checkout.js en los <div class="checkout-paypal-anchor">
+   que llevan data-agotado="1". Para volver a vender, quita ese atributo. */
+.stock-badge.agotado {
+    background-color: #fdecea;
+    color: #c0392b;
+}
+
+.agotado-aviso {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 18px;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    border: 2px solid #c0392b;
+    color: #c0392b;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.agotado-aviso span {
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+
 .product-header h1 {
     font-size: 2rem;
     color: #222;

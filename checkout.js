@@ -163,14 +163,36 @@ function crearBotonPaypal(producto, inputId) {
     return nuevo;
 }
 
+function crearAvisoAgotado() {
+    var caja = document.createElement('div');
+    caja.className = 'agotado-aviso';
+    caja.innerHTML = '<strong>Agotado</strong>' +
+        '<span>Temporalmente sin existencias. Vuelve pronto.</span>';
+    return caja;
+}
+
+/* Si el <div class="checkout-paypal-anchor"> lleva data-agotado="1", se
+   sustituye el boton de PayPal por el aviso de agotado.
+   PARA VOLVER A VENDER EL PRODUCTO: quita el atributo data-agotado="1"
+   del <div> en la pagina y ya vuelve a aparecer el boton de PayPal. */
+function estaAgotado(ancla) {
+    var v = ancla.getAttribute('data-agotado');
+    return v === '1' || v === 'true';
+}
+
 function inyectarBotonesPaypal() {
     var anclas = document.querySelectorAll('.checkout-paypal-anchor');
     for (var i = 0; i < anclas.length; i++) {
         var ancla = anclas[i];
         if (ancla.querySelector('.btn-paypal-nagokeys')) continue;
+        if (ancla.querySelector('.agotado-aviso')) continue;
         var producto = ancla.getAttribute('data-producto');
         var inputId = ancla.getAttribute('data-input-id');
         if (!producto || !inputId) continue;
+        if (estaAgotado(ancla)) {
+            ancla.appendChild(crearAvisoAgotado());
+            continue;
+        }
         ancla.appendChild(crearBotonPaypal(producto, inputId));
     }
 
