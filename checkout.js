@@ -142,32 +142,47 @@ function deshabilitarBotonesMollie() {
     }
 }
 
+function crearBotonPaypal(producto, inputId) {
+    var nuevo = document.createElement('button');
+    nuevo.type = 'button';
+    nuevo.className = 'btn-buy-big btn-paypal-nagokeys';
+    nuevo.setAttribute('style',
+        'background:transparent !important; background-color:transparent !important; ' +
+        'background-image:none !important; border:2px solid #0070ba; color:#0070ba; ' +
+        'box-shadow:none !important;');
+    nuevo.innerHTML = '<i class="fab fa-paypal" style="font-size:1.8em; vertical-align:middle; margin-right:10px; ' +
+        'color:#003087; position:relative; top:-2px;"></i>Pagar con PayPal ' +
+        '<span class="small" style="color:#8a8a8a; display:inline;">Pago seguro · Sin esperas</span>';
+    nuevo.setAttribute('data-producto', producto);
+    nuevo.setAttribute('data-input-id', inputId);
+    nuevo.addEventListener('click', function (ev) {
+        var p = ev.currentTarget.getAttribute('data-producto');
+        var iid = ev.currentTarget.getAttribute('data-input-id');
+        pagarConPaypal(p, iid, ev.currentTarget);
+    });
+    return nuevo;
+}
+
 function inyectarBotonesPaypal() {
+    var anclas = document.querySelectorAll('.checkout-paypal-anchor');
+    for (var i = 0; i < anclas.length; i++) {
+        var ancla = anclas[i];
+        if (ancla.querySelector('.btn-paypal-nagokeys')) continue;
+        var producto = ancla.getAttribute('data-producto');
+        var inputId = ancla.getAttribute('data-input-id');
+        if (!producto || !inputId) continue;
+        ancla.appendChild(crearBotonPaypal(producto, inputId));
+    }
+
     var botones = document.querySelectorAll('button[onclick*="comprarProducto"]');
-    for (var i = 0; i < botones.length; i++) {
-        var btn = botones[i];
+    for (var j = 0; j < botones.length; j++) {
+        var btn = botones[j];
         var m = btn.getAttribute('onclick').match(/comprarProducto\(\s*'([^']+)'\s*,\s*'([^']+)'/);
         if (!m) continue;
         var producto = m[1];
         var inputId = m[2];
         if (btn.parentNode && btn.parentNode.querySelector('.btn-paypal-nagokeys')) continue;
-        var nuevo = document.createElement('button');
-        nuevo.type = 'button';
-        nuevo.className = 'btn-buy-big btn-paypal-nagokeys';
-        nuevo.setAttribute('style',
-            'background:transparent !important; background-color:transparent !important; ' +
-            'background-image:none !important; border:2px solid #0070ba; color:#0070ba; ' +
-            'box-shadow:none !important;');
-        nuevo.innerHTML = '<i class="fab fa-paypal" style="font-size:1.8em; vertical-align:middle; margin-right:10px; ' +
-            'color:#003087; position:relative; top:-2px;"></i>Pagar con PayPal ' +
-            '<span class="small" style="color:#8a8a8a; display:inline;">Pago seguro · Sin esperas</span>';
-        nuevo.setAttribute('data-producto', producto);
-        nuevo.setAttribute('data-input-id', inputId);
-        nuevo.addEventListener('click', function (ev) {
-            var p = ev.currentTarget.getAttribute('data-producto');
-            var iid = ev.currentTarget.getAttribute('data-input-id');
-            pagarConPaypal(p, iid, ev.currentTarget);
-        });
+        var nuevo = crearBotonPaypal(producto, inputId);
         btn.parentNode.insertBefore(nuevo, btn.nextSibling);
     }
 }
