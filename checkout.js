@@ -62,7 +62,6 @@ function comprarProducto(producto, inputId, btnEl) {
    avisa a n8n para que envíe la clave automáticamente.
 
    NOTAS:
-   - Crunchyroll ya no se vende (deshabilitado).
    - Los precios se toman del Worker (PAYPAL_PRECIOS), que deben coincidir
      con los precios publicados en las páginas de producto.
    ===================================================================== */

@@ -306,6 +306,10 @@ const PAYPAL_PRECIOS = {
   'Pack Windows 11 Pro Retail + McAfee': '16.49',
   'Pack Windows 11 Home OEM + McAfee': '10.49',
   'Pack Windows 11 Pro OEM + McAfee': '10.49',
+  'Crunchyroll Fan 1 Mes': '3.99',
+  'Crunchyroll Fan 12 Meses': '19.99',
+  'Crunchyroll Mega Fan 1 Mes': '4.50',
+  'Crunchyroll Mega Fan 12 Meses': '34.99',
 };
 
 function getPaypalBase(env) {
