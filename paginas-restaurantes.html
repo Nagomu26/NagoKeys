@@ -691,18 +691,21 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
         }
 
-        nav a {
+        /* Selectores con "header" para igualar la especificidad de styles.css
+           (header nav a). Si se dejan en "nav a", el color oscuro de styles.css
+           gana por especificidad y el menu sale negro sobre el fondo azul marino. */
+        header nav a {
             color: rgba(255, 255, 255, 0.85);
         }
 
         /* El enlace activo del menu es azul oscuro (#00628f) porque sobre el
            tema claro no se leia. Aqui el fondo es oscuro, asi que vuelve el
            celeste de la marca. */
-        nav a.nav-active {
+        header nav a.nav-active {
             color: #00d4ff;
         }
 
-        nav a:hover {
+        header nav a:hover {
             color: #00d4ff;
         }
 
