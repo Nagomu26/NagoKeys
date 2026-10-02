@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cómo pasar tu licencia Windows 11 a un ordenador nuevo paso a paso. Cuándo funciona con OEM, cuándo necesitas Retail y qué hacer si el equipo viejo ya no arranca.">
+    <meta name="keywords" content="transferir licencia windows 11, cambiar clave windows a otro pc, transferir windows 11 nuevo ordenador, licencia windows otro equipo, desactivar windows 11, mover licencia windows">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f47521">
+
+    <title>Cómo Transferir tu Licencia Windows 11 a Otro PC | NagoKeys</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="images/nagokeys-icon.svg">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cómo Transferir tu Licencia Windows 11 a Otro PC",
+  "description": "Cómo pasar tu licencia Windows 11 a un ordenador nuevo paso a paso. Cuándo funciona con OEM, cuándo necesitas Retail y qué hacer si el equipo viejo ya no arranca.",
+  "author": {
+    "@type": "Organization",
+    "name": "NagoKeys"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "NagoKeys"
+  },
+  "datePublished": "2026-10-02",
+  "dateModified": "2026-10-02",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nagokeys.com/blog-transferir-licencia-windows-11"
+  }
+}
+    </script>
+
+    <link rel="canonical" href="https://nagokeys.com/blog-transferir-licencia-windows-11">
+
+    <meta property="og:site_name" content="NagoKeys">
+    <meta property="og:title" content="Cómo transferir tu licencia Windows 11 a otro equipo">
+    <meta property="og:description" content="Paso a paso para mover tu clave a un PC nuevo sin perderla ni pagar dos veces.">
+    <meta property="og:image" content="https://nagokeys.com/images/nagokeys-icon-512.png">
+    <meta property="og:url" content="https://nagokeys.com/blog-transferir-licencia-windows-11">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-10-02">
+</head>
+
+<body>
+
+    <header>
+        <a href="./" class="logo" style="text-decoration: none; display:block; width:fit-content;"><img src="images/nagokeys-header.svg" alt="NagoKeys" style="height:38px; width:auto; display:block;"></a>
+        <nav>
+            <a href="./">Windows</a>
+            <a href="antivirus">Antivirus</a>
+            <a href="paginas-web">Páginas web</a>
+            <a href="crunchyroll">Crunchyroll</a>
+            <a href="blog" class="nav-active">Tutoriales</a>
+            <a href="./#contacto">Soporte</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="nk-progress" id="nkProgress" aria-hidden="true"></div>
+
+        <article class="nk-article">
+            <div class="nk-hero">
+                <div class="nk-breadcrumb"><a href="./">Inicio</a><span>/</span><a href="blog">Blog</a><span>/</span>Licencias</div>
+                <span class="nk-chip">🔄 Cambio de equipo</span>
+                <h1>Cómo Transferir tu Licencia Windows 11 a Otro PC</h1>
+                <p class="nk-lead">
+                    Te has montado un PC nuevo y la licencia se ha quedado en el equipo viejo. <strong>No pasa nada</strong>: si tu licencia es Retail se puede mover. Te enseñamos a desactivarla correctamente para no perderla y qué hacer si el ordenador antiguo ya no enciende.
+                </p>
+                <div class="nk-meta">
+                    <span>👤 NagoKeys</span>
+                    <span>📅 2 de octubre de 2026</span>
+                    <span>⏱️ 6 min de lectura</span>
+                </div>
+            </div>
+
+            <nav class="nk-toc" aria-label="Contenido del artículo">
+                <h2>En esta guía</h2>
+                <ol>
+                    <li><a href="#antes">Lo primero: qué tipo de licencia tienes</a></li>
+                    <li><a href="#desactivar">Desactivar Windows en el equipo antiguo</a></li>
+                    <li><a href="#nuevo">Instalar Windows 11 en el equipo nuevo</a></li>
+                    <li><a href="#reutilizar">Cambiar una clave Retail por una más barata</a></li>
+                    <li><a href="#problemas">Problemas frecuentes y soluciones</a></li>
+                    <li><a href="#movil">El caso especial: mover la licencia a un portátil</a></li>
+                </ol>
+            </nav>
+
+            <article class="nk-content">
+
+                <h2 id="antes">Lo primero: qué tipo de licencia tienes</h2>
+                <p>
+                    Antes de tocar nada, comprueba qué tipo de clave activó tu equipo. Es el dato que decide si puedes
+                    moverla o no. Ve a <strong>Configuración &gt; Sistema &gt; Activación</strong> y fíjate en el tipo
+                    de clave que aparece.
+                </p>
+
+                <div class="nk-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de licencia</th>
+                                <th>¿Se puede mover?</th>
+                                <th>Notas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>OEM (preinstalada o barata)</td>
+                                <td>No</td>
+                                <td>Queda unida a la placa base para siempre</td>
+                            </tr>
+                            <tr>
+                                <td>Retail (clave de 25 caracteres)</td>
+                                <td>Sí</td>
+                                <td>Se transfiere tantas veces como quieras</td>
+                            </tr>
+                            <tr>
+                                <td>Licencia digital de cuenta Microsoft</td>
+                                <td>Sí</td>
+                                <td>Viaja con tu cuenta, sin escribir clave</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                                <div class="nk-callout warn">
+                    <span class="nk-callout-icon">⚠️</span>
+                    <p><strong>Si tu equipo traía Windows de fábrica</strong> con una etiqueta de licencia pegada en la carcasa, esa licencia es OEM. Cambiar de placa base significa perderla, y no hay forma legal de recuperarla.</p>
+                </div>
+
+                <p>
+                    Puedes ver los detalles del tipo de licencia con la herramienta
+                    <strong>slmgr /dli</strong>: pulsa <strong>Windows + R</strong>, escribe ese comando y pulsa Enter.
+                    Si en la ventana te aparece <em>VOLUME_KMSCLIENT</em> o <em>Channel: Retail</em> ya sabrás qué
+                    tienes entre manos.
+                </p>
+
+                <h2 id="desactivar">Desactivar Windows en el equipo antiguo</h2>
+                <p>
+                    Este paso es <strong>imprescindible</strong>. Si cambias el hardware sin desactivar antes, Microsoft
+                    considera que la licencia se está usando en dos sitios y puede bloquearla. Hazlo así:
+                </p>
+                <ol>
+                    <li>En el equipo antiguo, entra en <strong>Configuración &gt; Sistema &gt; Activación</strong>.</li>
+                    <li>Pulsa <strong>Desactivar</strong>. Te pedirá confirmar si quieres eliminar la clave de producto de este equipo.</li>
+                    <li>Confirma. Aparecerá un mensaje indicando que la licencia se ha quitado del equipo.</li>
+                    <li><strong>Anota la clave de producto</strong> que tenías activada, por si la necesitas más adelante.</li>
+                </ol>
+
+                                <div class="nk-callout tip">
+                    <span class="nk-callout-icon">💡</span>
+                    <p><strong>Comprueba que eres administrador.</strong> Si no te aparece el botón Desactivar, abre Configuración con una cuenta de administrador. Es el error número uno cuando esto no funciona.</p>
+                </div>
+
+                <h2 id="nuevo">Instalar Windows 11 en el equipo nuevo</h2>
+                <p>
+                    Una vez desactivada la licencia, ya puedes montar el equipo nuevo sin miedo. El proceso completo de
+                    instalación desde cero lo tienes en la
+                    <a href="blog-instalar-windows-usb-bios">guía de instalación de Windows 11 desde USB</a>, pero el
+                    resumen es este:
+                </p>
+                <ol>
+                    <li>Instala Windows 11 en el equipo nuevo normalmente.</li>
+                    <li>Ve a <strong>Configuración &gt; Sistema &gt; Activación &gt; Cambiar clave de producto</strong>.</li>
+                    <li>Escribe tu clave de 25 caracteres y pulsa <strong>Siguiente</strong>.</li>
+                    <li>Windows contacta con Microsoft y activa la licencia. Tarda unos segundos.</li>
+                </ol>
+
+                <div class="nk-callout warn">
+                    <span class="nk-callout-icon">📞</span>
+                    <p><strong>Si no tienes Internet o la activación se queda pensando</strong>, puedes usar la
+                        activación por teléfono: pulsa <strong>Windows + R</strong>, escribe <strong>slui 4</strong> y
+                        elige tu país. Microsoft te dará varios números de teléfono para introducir el código de
+                        instalación de 9 grupos.</p>
+                </div>
+
+                <p>
+                    La secuencia completa de los 5 pasos, con capturas de cada pantalla, está en nuestro
+                    <a href="tutorial-activar">tutorial de activación paso a paso</a>.
+                </p>
+
+                <h2 id="reutilizar">Si ya tenías una Retail y cambias de equipo</h2>
+                <p>
+                    Si ya tenías una <strong>Retail</strong> y has cambiado el hardware, no pasa nada siempre que
+                    la hayas desactivado antes en el equipo anterior. Solo tienes que introducir la misma clave en
+                    el equipo nuevo.
+                </p>
+                <p>
+                    Y si lo que quieres es pagar menos por tu licencia definitiva, una
+                    <strong>licencia Retail se puede transferir</strong>: la compras una vez y la mueves cada vez que
+                    cambies de equipo. Es justo lo contrario que la OEM.
+                </p>
+
+                <div class="nk-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Licencia</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Clave Windows 11 Home OEM</td>
+                                <td>Vinculada a tu placa base</td>
+                                <td>4,99€</td>
+                            </tr>
+                            <tr>
+                                <td>Clave Windows 11 Pro OEM</td>
+                                <td>Vinculada a tu placa base</td>
+                                <td>4,99€</td>
+                            </tr>
+                            <tr>
+                                <td>Clave Windows 11 Home Retail</td>
+                                <td>Transferible a otro PC</td>
+                                <td>9,99€</td>
+                            </tr>
+                            <tr>
+                                <td>Clave Windows 11 Pro Retail</td>
+                                <td>Transferible a otro PC</td>
+                                <td>10,99€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                                <div class="nk-callout info">
+                    <span class="nk-callout-icon">ℹ️</span>
+                    <p>Si tu licencia actual venía asociada a una cuenta Microsoft, quizá no necesites comprar nada: entra en <strong>Configuración &gt; Sistema &gt; Activación</strong> y busca la opción de <strong>licencia digital</strong>. Si aparece, la licencia viajará contigo al iniciar sesión.</p>
+                </div>
+
+                <h2 id="problemas">Problemas frecuentes y soluciones</h2>
+
+                <h3>El equipo antiguo ya no arranca</h3>
+                <p>
+                    Si el PC viejo está estropeado, hay dos vías. La primera es la
+                    <strong>activación por teléfono</strong>, que no necesita el ordenador encendido: con el código de
+                    9 grupos de tu clave puedes activar por voz. La segunda es contactar con el soporte de Microsoft,
+                    que puede verificar tu compra y reactivarte la licencia.
+                </p>
+
+                <h3>Windows dice que la clave ya se ha usado</h3>
+                <p>
+                    Casi siempre significa que <strong>no desactivaste la licencia en el equipo anterior</strong>, o que
+                    hay otro equipo usando la misma clave. Vuelve a hacer el paso de desactivación. Si ya no tienes
+                    acceso al otro equipo, la activación por teléfono suele resolverlo.
+                </p>
+
+                <h3>He cambiado la placa base y perdí la licencia</h3>
+                <p>
+                    Si tu licencia era OEM, no hay solución legal: está vinculada al hardware. Es el motivo principal por
+                    el que la gente que amplía o renueva su PC termina eligiendo Retail. Está explicado en la
+                    <a href="blog-licencia-oem-vs-retail">guía de OEM vs Retail</a>.
+                </p>
+
+                <h2 id="movil">El caso especial: pasar la licencia a un portátil</h2>
+                <p>
+                    Si tu licencia está en un PC de sobremesa y lo quieres pasar a un portátil o tablet con Windows,
+                    tienes dos opciones:
+                </p>
+                <ul>
+                    <li><strong>Si ambos equipos tienen Windows 11 activado</strong>, entra en el equipo nuevo en <strong>Configuración &gt; Sistema &gt; Activación</strong> y busca <strong>He transferred my license to this device</strong> (He transferido mi licencia a este dispositivo). Necesitas tu cuenta Microsoft.</li>
+                    <li><strong>Si el portátil no tiene Windows</strong>, tendrás que comprar una licencia para el portátil: necesita su propia clave.</li>
+                </ul>
+
+                <h2>Resumen en 30 segundos</h2>
+                <ul>
+                    <li>¿Es <strong>OEM</strong>? Se queda en el equipo viejo para siempre. Necesitarás una licencia nueva.</li>
+                    <li>¿Es <strong>Retail</strong>? Desactívala en el equipo viejo, introduce la misma clave en el nuevo y listo.</li>
+                    <li>¿Ya no puedes encender el viejo? Usa <strong>slui 4</strong> para activar por teléfono.</li>
+                </ul>
+
+            </article>
+
+            <div class="nk-author">
+                <div class="nk-author-avatar">NK</div>
+                <div class="nk-author-info">
+                    <strong>Equipo NagoKeys</strong>
+                    <p>Especialistas en licencias de software y soporte técnico. Escribimos guías sencillas para que tu PC
+                        funcione mejor.</p>
+                </div>
+            </div>
+
+            <div class="nk-cta">
+                <h3>🔑 ¿Cambias de equipo? Ahí es donde importa la Retail</h3>
+                <p>Una licencia Retail se queda contigo para siempre y la mueves cada vez que renuevas el PC. Desde 9,99€.</p>
+                <a href="productos/windows-11-home-retail" class="nk-btn">Ver Licencias Retail</a>
+                <div class="nk-cta-note">Pago 100% seguro vía PayPal · Entrega en minutos</div>
+            </div>
+        </article>
+
+        <aside class="nk-related">
+            <h2>Artículos relacionados</h2>
+            <div class="nk-related-grid">
+                <a class="nk-related-card" href="blog-licencia-oem-vs-retail">
+                    <span class="nk-chip">Información</span>
+                    <h3>Licencia OEM vs Retail: diferencias y cuál te conviene</h3>
+                </a>
+                <a class="nk-related-card" href="tutorial-activar">
+                    <span class="nk-chip">Tutorial</span>
+                    <h3>Cómo activar Windows 11 en 5 pasos</h3>
+                </a>
+                <a class="nk-related-card" href="blog-clave-windows-11">
+                    <span class="nk-chip">Compra</span>
+                    <h3>Cómo comprar una clave Windows 11 barata y original</h3>
+                </a>
+            </div>
+        </aside>
+    </main>
+
+<footer>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Términos del Servicio</a> |
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Privacidad</a> |
+            <a href="legal" style="color: #666; text-decoration: none; margin: 0 10px; font-size: 0.85em;">Política de Reembolso</a>
+        </div>
+        <p style="font-size: 0.9em; margin-bottom: 10px;">Pago seguro vía PayPal: 💳 Visa | Mastercard | Apple Pay</p>
+        <p style="font-size: 0.8em; color: #888;">© 2026 NagoKeys. No afiliado con Microsoft.</p>
+    </footer>
+
+<a href="https://wa.me/34644709806?text=Hola%20NagoKeys,%20no%20consigo%20quitar%20la%20marca%20de%20agua%20de%20Windows."
+        class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+    </a>
+
+</body>
+
+</html>
