@@ -858,6 +858,13 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
+        /* El enlace activo del menu es azul oscuro (#00628f) porque sobre el
+           tema claro no se leia. Aqui el fondo es oscuro, asi que vuelve el
+           celeste de la marca. */
+        nav a.nav-active {
+            color: #00d4ff;
+        }
+
         nav a:hover {
             color: #00d4ff;
         }
@@ -922,7 +929,7 @@
         <nav>
             <a href="./">Windows</a>
             <a href="antivirus">Antivirus</a>
-            <a href="paginas-web" style="color: #00d4ff; font-weight: bold;">Páginas web</a>
+            <a href="paginas-web" class="nav-active">Páginas web</a>
             <a href="crunchyroll">Crunchyroll</a>
             <a href="blog">Tutoriales</a>
             <a href="./#contacto">Soporte</a>

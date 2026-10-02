@@ -71,7 +71,15 @@ nav a {
 }
 
 nav a:hover {
-    color: #00d4ff;
+    color: #00628f;
+}
+
+/* Pagina activa del menu.
+   Antes llevaba style="color:#00d4ff" en linea: el celeste sobre el header
+   blanco daba 1.67 de contraste y no se leia. Este azul da 6.29. */
+.nav-active {
+    color: #00628f;
+    font-weight: bold;
 }
 
 
@@ -508,7 +516,7 @@ footer {
 .blog-tag {
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: #00d4ff;
+    color: #00628f;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -536,7 +544,7 @@ footer {
 }
 
 .btn-read:hover {
-    color: #00d4ff;
+    color: #00628f;
 }
 
 
@@ -584,7 +592,9 @@ footer {
     top: 0;
     width: 40px;
     height: 40px;
-    background-color: #00d4ff;
+    /* El numero va en blanco: con el celeste #00d4ff el contraste era 1.77
+       y practicamente no se leia. Este azul deja el blanco en 6.68. */
+    background-color: #00628f;
     color: #fff;
     font-weight: bold;
     font-size: 1.2rem;
@@ -592,7 +602,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 98, 143, 0.4);
 }
 
 .step-text h3 {
@@ -639,6 +649,138 @@ footer {
 .tutorial-cta p {
     margin-bottom: 20px;
     color: #555;
+}
+
+/* --- ARTICULOS DE BLOG (contenido largo) --- */
+/* Esta clase la usan los articulos largos como /blog-clave-windows-11.
+   Antes no existia ninguna regla .blog-article: la pagina se apoyaba solo
+   en estilos inline sueltos, por eso no cogia el diseno del resto del sitio. */
+
+.blog-article {
+    max-width: 1040px;
+    /* Mas ancho que .tutorial-content (900px) para que las capturas
+       de los pasos se vean grandes. */
+    margin: 0 auto;
+    padding: 20px 20px 40px;
+}
+
+.blog-article .blog-date {
+    color: #5a6270;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Titulares en gris muy oscuro: el degradado de fondo es claro,
+   asi que el texto oscuro es el que mas contraste da. */
+.blog-article h1 {
+    color: #1f2430;
+}
+
+.blog-article h2 {
+    color: #1f2430;
+    font-size: 1.7rem;
+    margin: 45px 0 15px;
+    line-height: 1.3;
+}
+
+.blog-article h3 {
+    color: #1f2430;
+    font-size: 1.25rem;
+    margin: 0 0 10px;
+}
+
+.blog-article p {
+    color: #3d4451;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.blog-article strong {
+    color: #1f2430;
+}
+
+/* Enlaces de texto: el naranja #f47521 sobre fondo claro daba 2.67.
+   Este tono mantiene el color de marca y sube a 4.97. */
+.blog-article p a,
+.blog-article li a {
+    color: #b34d00;
+    font-weight: 600;
+}
+
+/* Lista de pasos dentro del articulo */
+.blog-article .step {
+    padding: 28px 28px 28px 72px;
+}
+
+.blog-article .step-text h3 {
+    margin-top: 4px;
+}
+
+.blog-article .step-text p {
+    margin-bottom: 16px;
+}
+
+/* Tabla de precios */
+.blog-article .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 10px;
+    font-size: 1.05rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.blog-article .price-table th {
+    background: #f47521;
+    color: #fff;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.blog-article .price-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: #3d4451;
+}
+
+.blog-article .price-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Nota al pie de la tabla */
+.blog-article .price-note {
+    font-size: 0.95rem;
+    color: #5a6270;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+
+    .blog-article h2 {
+        font-size: 1.4rem;
+    }
+
+    .blog-article .step {
+        padding: 26px 20px 26px 20px;
+        margin-bottom: 40px;
+    }
+
+    /* En movil el numero del paso deja de flotar en la esquina */
+    .blog-article .step-number {
+        position: static;
+        margin-bottom: 14px;
+    }
+
+    .blog-article .price-table {
+        font-size: 0.95rem;
+    }
+
+    .blog-article .price-table th,
+    .blog-article .price-table td {
+        padding: 11px 10px;
+    }
 }
 
 #planes .btn-buy:hover {
