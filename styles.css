@@ -61,8 +61,10 @@ header {
     color: #00d4ff;
 }
 
-/* CAMBIO: Enlaces del menú en gris oscuro */
-nav a {
+/* CAMBIO: Enlaces del menú en gris oscuro.
+   Acotado a header nav: el índice de los artículos (nav.nk-toc) también es
+   un <nav> y heredaba margin-left y nowrap, lo que lo desbordaba en móvil. */
+header nav a {
     color: #1a1a1a;
     text-decoration: none;
     margin-left: 20px;
@@ -70,7 +72,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+header nav a:hover {
     color: #00628f;
 }
 
@@ -1112,7 +1114,7 @@ body.crunchyroll-product-page .product-page-container {
         /* Mantiene logo y menú en la misma línea */
     }
 
-    nav {
+    header nav {
         display: flex !important;
         flex-wrap: wrap;
         justify-content: flex-end;
@@ -1120,7 +1122,7 @@ body.crunchyroll-product-page .product-page-container {
         text-align: right;
     }
 
-    nav a {
+    header nav a {
         margin-left: 0 !important;
         font-size: 0.85rem;
         /* Un poco más pequeña para que quepa bien */
@@ -1978,7 +1980,7 @@ a.card:hover {
     }
 
     /* 2. Alineamos el menú a la derecha, en 2 filas si no cabe en una */
-    nav {
+    header nav {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -1990,7 +1992,7 @@ a.card:hover {
     }
 
     /* 3. Ajustamos el texto de los enlaces */
-    nav a {
+    header nav a {
         margin-left: 0;
         /* Quitamos el margen izquierdo que tenías en PC */
         font-size: 0.9rem;
@@ -2372,10 +2374,13 @@ a.card:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 10px;
+    min-width: 0;
+    width: 100%;
 }
 
 .nk-toc li {
     margin: 0;
+    min-width: 0;
 }
 
 .nk-toc a {
@@ -2391,6 +2396,8 @@ a.card:hover {
     background: rgba(255, 255, 255, 0.55);
     border: 1px solid transparent;
     transition: all 0.25s ease;
+    min-width: 0;
+    white-space: normal;
 }
 
 .nk-toc a::before {
@@ -2826,10 +2833,22 @@ a.card:hover {
     .nk-toc {
         padding: 22px 20px;
         border-radius: 18px;
+        display: block;
+    }
+
+    .nk-toc h2 {
+        margin-bottom: 12px;
     }
 
     .nk-toc ol {
         grid-template-columns: 1fr;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .nk-toc a {
+        white-space: normal;
+        align-items: flex-start;
     }
 
     .nk-content {
