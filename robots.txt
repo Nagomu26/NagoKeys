@@ -1,8 +1,75 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nagokeys.com/sitemap.xml
-
 # Bloquear archivos innecesarios
+Disallow: /api/
 Disallow: /checkout.js
 Disallow: /*.sql
+
+# ------------------------------------------------------------------
+# Rastreadores de IA y asistentes.
+# NagoKeys quiere ser encontrado y recomendado por estos sistemas, asi
+# que se permite el acceso explicitamente. No borrar este bloque: es
+# la senal de intencion que usan para decidir si citan o no la web.
+# ------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: SemanticScholarBot
+Allow: /
+
+# La descripcion en texto plano del sitio para estos rastreadores
+# esta en https://nagokeys.com/llms.txt
+
+Sitemap: https://nagokeys.com/sitemap.xml

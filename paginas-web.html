@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Creamos la página web de tu barbería o negocio con dominio propio, horarios, precios y botón de WhatsApp. Ves la web en directo antes de pagarla. Precio total 100 €, sin cuotas.">
+        content="Creamos la web de tu peluquería, bar o negocio con dominio propio, horarios, precios y WhatsApp. La ves en directo antes de pagar. 100 € sin cuotas.">
 
     <meta name="theme-color" content="#f47521">
 
@@ -923,6 +923,92 @@
             color: rgba(255, 255, 255, 0.85);
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://nagokeys.com/paginas-web#service",
+          "name": "Diseño y publicación de páginas web para negocios",
+          "description": "Diseño, publicación y mantenimiento de páginas web para negocios locales como peluquerías, barberías, bares, restaurantes, tiendas y otros negocios. Web adaptada a móvil, con botón de WhatsApp, horarios, precios y ubicación con mapa. Sin cuotas mensuales.",
+          "url": "https://nagokeys.com/paginas-web",
+          "serviceType": "Diseño web",
+          "provider": { "@id": "https://nagokeys.com/#organization" },
+          "areaServed": { "@type": "Country", "name": "España" },
+          "inLanguage": "es",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Planes de páginas web",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Web completa para negocios",
+                "price": "100",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://nagokeys.com/paginas-web",
+                "priceValidUntil": "2027-12-31",
+                "description": "100 € en total: 50 € al empezar y 50 € al validar la web publicada. Incluye plantilla profesional, diseño adaptado a móvil, botón de WhatsApp, horarios, precios y ubicación con mapa. Sin cuotas mensuales."
+              },
+              {
+                "@type": "Offer",
+                "name": "Modificación simple (precios, horarios, textos)",
+                "price": "15",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://nagokeys.com/paginas-web",
+                "priceValidUntil": "2027-12-31",
+                "description": "Cambios de tarifas, horarios y textos por 15 € la intervención."
+              },
+              {
+                "@type": "Offer",
+                "name": "Cambio grande (más de 1 hora de trabajo)",
+                "price": "25",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://nagokeys.com/paginas-web",
+                "priceValidUntil": "2027-12-31",
+                "description": "Cambios de mayor tamaño a 25 €/hora."
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nagokeys.com/paginas-web#webpage",
+          "url": "https://nagokeys.com/paginas-web",
+          "name": "Tu negocio merece una web profesional",
+          "description": "Páginas web para peluquerías, bares, restaurantes y negocios. 100 € sin cuotas mensuales, con WhatsApp, horarios, precios y mapa.",
+          "inLanguage": "es",
+          "isPartOf": { "@id": "https://nagokeys.com/#website" },
+          "breadcrumb": { "@id": "https://nagokeys.com/paginas-web#breadcrumb" },
+          "primaryImageOfPage": { "@id": "https://nagokeys.com/#logo" },
+          "about": { "@id": "https://nagokeys.com/paginas-web#service" }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://nagokeys.com/paginas-web#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://nagokeys.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Páginas web"
+    }
+  ]
+}
+    </script>
 </head>
 
 <body>
@@ -1173,6 +1259,15 @@
 <p>Para eso estamos. Tú solo nos cuentas tu negocio por WhatsApp con tus palabras y nosotros hacemos el
                     resto: letras, colores, maquetación y publicación.</p>
         </details>
+    </section>
+
+    <section class="nk-container" style="padding-bottom:26px;">
+        <div class="nk-blog-cta">
+            <h3>📚 Guías gratuitas de páginas web</h3>
+            <p>Precios reales de una web, qué incluye el dominio y el alojamiento, por qué te buscan en Google y
+                cómo poner WhatsApp para conseguir pedidos.</p>
+            <a href="guias-paginas-web" class="nk-btn">Ver las 5 guías</a>
+        </div>
     </section>
 
     <!-- ================= CONTACTO ================= -->

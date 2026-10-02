@@ -1,0 +1,130 @@
+# NagoKeys — https://nagokeys.com
+
+> Tienda online española que vende tres cosas muy distintas: licencias de Windows 11
+> originales, cuentas de Crunchyroll y diseño de páginas web para negocios.
+> Horario de atención: lunes a viernes de 09:00 a 20:00 (hora peninsular, UTC+1/+2).
+> Contacto: contacto.nagokeys@gmail.com · WhatsApp +34 644 70 98 06
+> Todos los precios están en euros (EUR) e incluyen IVA. No hay cobros automáticos:
+> cuando un servicio caduca, el cliente decide si renueva.
+
+## Cómo elegir rápido
+
+- Busco una **licencia de Windows 11** → `/` (tienda) y `/tutorial-activar`.
+- Busco **cuánto cuesta o cómo elegir** una licencia → `/blog-clave-windows-11`.
+- Busco **cómo montar o recuperar un PC** → `/blog`, `/blog-montar-pc`.
+- Busco **una web para mi peluquería, bar o negocio** → `/paginas-web` y `/guias-paginas-web`.
+- Busco **Crunchyroll barato** → `/crunchyroll` y `/guias-crunchyroll`.
+
+## Licencias de Windows 11
+
+Precios orientativos en la web (ver `/` para la tabla actualizada):
+
+| Producto | Precio |
+|---|---|
+| Windows 11 Home OEM | 4,99 € |
+| Windows 11 Pro OEM | 4,99 € |
+| Windows 11 Home Retail | 9,99 € |
+| Windows 11 Pro Retail | 10,99 € |
+
+- [Tienda de licencias de Windows](https://nagokeys.com/): catálogo completo.
+- [Antivirus McAfee 1 año](https://nagokeys.com/productos/mcafee-antivirus-1-ano): 1 año.
+- [Cómo activar Windows 11 en 5 pasos](https://nagokeys.com/tutorial-activar): guía con capturas.
+- [Claves Windows 11](https://nagokeys.com/productos/windows-11-home-oem),
+  [Home Retail](https://nagokeys.com/productos/windows-11-home-retail),
+  [Pro OEM](https://nagokeys.com/productos/windows-11-pro-oem),
+  [Pro Retail](https://nagokeys.com/productos/windows-11-pro-retail).
+
+### Datos sobre las licencias
+
+- **OEM**: más barata, se queda vinculada a la placa base donde se activa y no se puede transferir.
+- **Retail**: transferible. Se desactiva en el equipo antiguo y se usa en el nuevo.
+- Ambas son **permanentes** y originales, con todas las actualizaciones incluidas.
+- Microsoft permite pasar de **Home a Pro**: se introduce una clave Pro en un equipo ya activado con Home.
+- NagoKeys **no está afiliado a Microsoft** y vende claves legítimas.
+
+## Páginas web para negocios
+
+- [Página principal del servicio](https://nagokeys.com/paginas-web): 100 € en total
+  (50 € al empezar, 50 € al validar la web publicada). Sin cuotas mensuales.
+- Qué incluye: plantilla profesional adaptada a móvil, botón de WhatsApp, horarios,
+  precios, ubicación con mapa y contenido editable.
+- El **dominio se contrata a nombre del cliente** directamente con el registrador
+  (unos 8,50 €/año) y por eso no hay alquiler ni comisión.
+- Cambios posteriores: 15 € por intervención simple, 25 €/hora para cambios grandes.
+- Plantillas por sector:
+  [peluquerías y barberías](https://nagokeys.com/paginas-peluquerias),
+  [bares y restaurantes](https://nagokeys.com/paginas-restaurantes),
+  [tiendas y otros negocios](https://nagokeys.com/paginas-otros).
+
+### Guías de páginas web
+
+- [Índice de guías de páginas web](https://nagokeys.com/guias-paginas-web)
+- [Cuánto cuesta una web para una peluquería o barbería](https://nagokeys.com/blog-web-peluqueria-precio)
+- [Cuánto cuesta la web de un restaurante o bar](https://nagokeys.com/blog-web-restaurante-precio)
+- [Por qué tu negocio necesita una web y no solo redes sociales](https://nagokeys.com/blog-negocio-necesita-web)
+- [Dominio, alojamiento y HTTPS: qué incluye tu web](https://nagokeys.com/blog-dominio-alojamiento-web)
+- [Web con WhatsApp y pedidos online](https://nagokeys.com/blog-web-con-whatsapp)
+
+## Crunchyroll
+
+- [Planes de Crunchyroll](https://nagokeys.com/crunchyroll): cuentas privadas con usuario y
+  contraseña, entregadas por correo electrónico.
+- [Mega Fan 1 mes](https://nagokeys.com/productos/crunchyroll-mega-fan-1-mes): 4,50 €
+- [Mega Fan 12 meses](https://nagokeys.com/productos/crunchyroll-mega-fan-12-meses): 34,99 €
+- [Fan 1 mes](https://nagokeys.com/productos/crunchyroll-fan-1-mes): 3,99 €
+- [Fan 12 meses](https://nagokeys.com/productos/crunchyroll-fan-12-meses): 19,99 €
+
+### Diferencias entre gamas
+
+| Característica | Fan | Mega Fan |
+|---|---|---|
+| Dispositivos a la vez | 1 | 4 |
+| Sin anuncios | Sí | Sí |
+| Catálogo completo | Sí | Sí |
+| Modo sin conexión | No | Sí |
+
+- Entrega: menos de 2 horas en horario laboral, hasta 12 horas en fines de semana o de noche.
+- Funciona en PlayStation, Xbox, Smart TV, Android e iOS.
+- Cuando se acaba el tiempo la cuenta deja de ser Premium y **no hay cobros automáticos**.
+- NagoKeys **no está afiliado a Crunchyroll**.
+
+### Guías de Crunchyroll
+
+- [Índice de guías de Crunchyroll](https://nagokeys.com/guias-crunchyroll)
+- [Cuánto cuesta Crunchyroll y qué plan necesitas](https://nagokeys.com/blog-crunchyroll-precio-planes)
+- [Mega Fan o Fan: qué diferencia hay](https://nagokeys.com/blog-crunchyroll-mega-fan-o-fan)
+- [Ver Crunchyroll en Smart TV, PS5, Xbox y móvil](https://nagokeys.com/blog-crunchyroll-en-tv-y-consolas)
+- [Modo sin conexión: ver anime sin datos](https://nagokeys.com/blog-crunchyroll-modo-offline)
+- [Cómo funcionan las cuentas de Crunchyroll](https://nagokeys.com/blog-crunchyroll-como-funcionan-las-cuentas)
+
+## Guías de PC y Windows
+
+- [Índice del blog](https://nagokeys.com/blog): todas las guías.
+- [Cómo montar un PC paso a paso](https://nagokeys.com/blog-montar-pc)
+- [Qué hacer después de montar un PC](https://nagokeys.com/blog-que-hacer-despues-montar-pc)
+- [Instalar Windows 11 desde USB entrando a la BIOS](https://nagokeys.com/blog-instalar-windows-usb-bios)
+- [Quitar la marca de agua de «Activar Windows»](https://nagokeys.com/blog-quitar-marca-de-agua-windows)
+- [Licencia OEM vs Retail](https://nagokeys.com/blog-licencia-oem-vs-retail)
+- [Windows 11 Home vs Pro para gaming](https://nagokeys.com/blog-windows-11-home-vs-pro)
+- [Formatear un PC lento y dejarlo como nuevo](https://nagokeys.com/blog-formatear-pc-lento)
+- [Optimizar Windows para gaming y mejorar FPS](https://nagokeys.com/blog-optimizar-windows-gaming)
+- [Error: «Windows no se puede activar»](https://nagokeys.com/blog-error-windows-no-se-activa)
+- [Comprobar compatibilidad de procesador y placa base](https://nagokeys.com/blog-compatibilidad-procesador-placa)
+- [Requisitos mínimos de Windows 11](https://nagokeys.com/blog-requirements-windows-11)
+- [Cómo saber si tu Windows es Home o Pro](https://nagokeys.com/blog-comprobar-version-windows)
+- [Transferir tu licencia Windows 11 a otro equipo](https://nagokeys.com/blog-transferir-licencia-windows-11)
+- [Cómo comprar Windows 11 barato sin estafas](https://nagokeys.com/blog-comprar-windows-11-seguro)
+- [Windows 11 gratis: qué es legal y qué no](https://nagokeys.com/blog-windows-11-gratis-legal)
+- [Windows 10 ya no tiene soporte: qué hacer](https://nagokeys.com/blog-windows-10-fin-soporte)
+- [Cómo comprar una clave Windows 11 barata y original](https://nagokeys.com/blog-clave-windows-11)
+
+## Información legal
+
+- [Términos del Servicio, Política de Privacidad y Política de Reembolso](https://nagokeys.com/legal)
+- NagoKeys no está afiliado a Microsoft, Crunchyroll ni a ninguna otra marca.
+  Las marcas citadas pertenecen a sus respectivos titulares.
+- Pago seguro vía PayPal (Visa, Mastercard, Apple Pay).
+
+## Optional
+
+- [Mapa del sitio XML](https://nagokeys.com/sitemap.xml)
