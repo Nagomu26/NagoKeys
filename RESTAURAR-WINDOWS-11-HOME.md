@@ -5,76 +5,84 @@
 | Producto | Estado | Nota |
 |---|---|---|
 | `Windows 11 Home OEM` | **A la venta** | Restaurado el 2026-10-01 |
-| `Windows 11 Home Retail` | **Agotado** | Sigue bloqueado |
+| `Windows 11 Home Retail` | **A la venta** | Restaurado el 2026-10-02 |
 
-Para volver a poner **Retail** a la venta, sigue los pasos de abajo. Los pasos
-son los mismos para cualquier producto: solo cambia el nombre.
+**Ahora mismo no hay ningun producto agotado**: `PRODUCTOS_AGOTADOS` esta
+vacia en `_worker.js`. Este documento queda como guia por si hay que volver a
+bloquear alguno mas adelante (los pasos son los mismos para cualquier producto).
 
-Son 3 sitios, todos marcados con `AGOTADO` o con comentarios evidentes.
-El paso 1 es el obligatorio: sin el, se puede comprar igual.
+Si algun dia hay que bloquear uno, escribe su nombre en la lista, pon
+`data-agotado="1"` en su pagina y despliega. Para quitar el bloqueo, borra su
+linea de la lista, quita el atributo y despliega.
 
 ---
 
-## 1. Quitar el bloqueo en el Worker (OBLIGATORIO)
+## Como volver a bloquear un producto (por si hace falta)
+
+### 1. Bloquear en el Worker (OBLIGATORIO)
 
 Archivo: `_worker.js`
 
-En `productos/windows-11-home-retail.html` el producto bloqueado se llama
-`Windows 11 Home Retail`. Quita su linea de `PRODUCTOS_AGOTADOS`:
+Anade el nombre exacto del producto (tal cual aparece en `PAYPAL_PRECIOS`)
+en la lista `PRODUCTOS_AGOTADOS`:
 
 ```js
 const PRODUCTOS_AGOTADOS = [
-  'Windows 11 Home Retail',   // <- borra esta linea
-  // 'Windows 11 Home OEM',   // <- disponible otra vez desde 2026-10-01
+  'Windows 11 Home Retail',
+  // 'Nombre exacto del producto tal cual aparece en PAYPAL_PRECIOS',
 ];
 ```
 
-Dejalo asi:
-
-```js
-const PRODUCTOS_AGOTADOS = [
-  // sin productos bloqueados
-];
-```
-
-Despues despliega (esto es lo que hace que se pueda volver a comprar):
+Despues despliega:
 
 ```
 npx --yes wrangler deploy --name nagokeysgithub
 ```
 
-Comprobacion: `POST /api/paypal/crear` con `Windows 11 Home Retail` ya no
-devuelve `409`, crea la orden en PayPal y sale `checkoutUrl`.
+Comprobacion: `POST /api/paypal/crear` con ese producto devuelve `409` y
+**no crea ninguna orden en PayPal**.
 
----
+### 2. Marcarlo en la pagina de producto
 
-## 2. Quitar el aviso de la pagina de producto
-
-Archivo: `productos/windows-11-home-retail.html`
-(para el OEM seria `productos/windows-11-home-oem.html`, mismo cambio)
-
-En el, borra el atributo `data-agotado="1"` del div del boton:
+Anade `data-agotado="1"` al div del boton:
 
 ```html
-<!-- ANTES (agotado) -->
+<!-- AGOTADO -->
 <div class="checkout-paypal-anchor" data-producto="Windows 11 Home Retail" data-input-id="email-home-retail" data-agotado="1"></div>
 
-<!-- DESPUES (a la venta) -->
+<!-- A LA VENTA -->
 <div class="checkout-paypal-anchor" data-producto="Windows 11 Home Retail" data-input-id="email-home-retail"></div>
 ```
 
-Con esto el boton de PayPal vuelve a aparecer solo (lo inyecta `checkout.js`).
+Con el atributo, `checkout.js` sustituye el boton de PayPal por el aviso gris
+de "Agotado" (no hay que tocar el HTML a mano).
 
-Aprovecha el mismo momento para quitar el resto de marcas de agotado:
+Aprovecha el mismo momento para anadir el resto de marcas:
 
 | Cambio | Buscar y sustituir |
 |---|---|
-| Badge | `<span class="stock-badge agotado">Agotado</span>` -> `<span class="stock-badge">En Stock</span>` |
-| Aviso rojo | Borrar el `<p style="color:#c0392b;"><strong>⛔ Agotado temporalmente:...` |
-| Google | `"availability": "https://schema.org/OutOfStock"` -> `"availability": "https://schema.org/InStock"` |
+| Badge | `<span class="stock-badge">En Stock</span>` -> `<span class="stock-badge agotado">Agotado</span>` |
+| Aviso rojo | Anadir en el bloque `delivery-info`: `<p style="color:#c0392b;"><strong>⛔ Agotado temporalmente:</strong> Ya no se puede comprar este producto. Estamos reponiendo stock; vuelve pronto.</p>` |
+| Google | `"availability": "https://schema.org/InStock"` -> `"availability": "https://schema.org/OutOfStock"` |
 
-El badge de Retail decia `En Stock` y el del OEM `Oferta Flash` antes de
-marcarlos como agotados. Pon el que te gusto en su momento.
+Badges originales antes de marcarlos: Retail `En Stock`, OEM `Oferta Flash`.
+
+### 3. Deploy y verificacion
+
+```
+npx --yes wrangler deploy --name nagokeysgithub
+```
+
+En la pagina del producto debe verse el badge rojo "Agotado" y el aviso gris
+en lugar del boton "Pagar con PayPal".
+
+---
+
+## Nota: la lista tambien sirve para otros productos
+
+`PRODUCTOS_AGOTADOS` acepta cualquier clave de `PAYPAL_PRECIOS` (mismo texto
+exacto). Anadir un producto es escribir su nombre en la lista; para ponerlo a
+la venta de nuevo es borrar su linea y desplegar.
 
 ---
 
@@ -84,13 +92,8 @@ marcarlos como agotados. Pon el que te gusto en su momento.
 npx --yes wrangler deploy --name nagokeysgithub
 ```
 
-Comprueba en `https://nagokeys.com/productos/windows-11-home-oem` que:
-
-- aparece el boton "Pagar con PayPal" (no el aviso gris de Agotado),
-- el badge ya no dice Agotado,
-- no sale el aviso rojo.
-
-Y que el boton lleva a PayPal de verdad (no a un error 409).
+En la pagina del producto debe verse el badge rojo "Agotado" y el aviso gris
+en lugar del boton "Pagar con PayPal".
 
 ---
 
