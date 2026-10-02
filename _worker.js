@@ -329,7 +329,7 @@ const PAYPAL_PRECIOS = {
    ========================================================================== */
 const PRODUCTOS_AGOTADOS = [
   'Windows 11 Home Retail',
-  'Windows 11 Home OEM',
+  // 'Windows 11 Home OEM',   // <- disponible otra vez desde 2026-10-01
   // 'Nombre exacto del producto tal cual aparece en PAYPAL_PRECIOS',
 ];
 
