@@ -168,6 +168,10 @@ async function handleApi(request, env, url) {
     }
     const precio = PAYPAL_PRECIOS[producto];
     if (!precio) return json({ ok: false, error: 'Producto no válido' }, 400);
+    // Descripción opcional del pedido (máx. 127 caracteres en PayPal).
+    // Para las páginas web es la plantilla comprada, para que se vea en el
+    // panel de PayPal y en el recibo del cliente.
+    const detalle = ((body.detalle) || '').replace(/\s+/g, ' ').trim().slice(0, 127);
     // Bloqueo temporal de stock: no se crea ninguna orden en PayPal.
     if (PRODUCTOS_AGOTADOS.indexOf(producto) !== -1) {
       return json({ ok: false, error: 'Producto agotado temporalmente. Ya no hay stock.' }, 409);
@@ -176,12 +180,14 @@ async function handleApi(request, env, url) {
     if (!token) return json({ ok: false, error: 'PayPal no configurado' }, 500);
     const base = getPaypalBase(env);
     const returnUrl = (env.PAYPAL_RETURN_URL || 'https://nagokeys.com/gracias').replace(/\/$/, '') + '?paypal=ok';
+    const unidad = { amount: { currency_code: 'EUR', value: precio }, custom_id: producto };
+    if (detalle) unidad.description = detalle;
     const resp = await fetch(base + '/v2/checkout/orders', {
       method: 'POST',
       headers: { 'content-type': 'application/json', authorization: 'Bearer ' + token },
       body: JSON.stringify({
         intent: 'CAPTURE',
-        purchase_units: [{ amount: { currency_code: 'EUR', value: precio }, custom_id: producto }],
+        purchase_units: [unidad],
         application_context: {
           brand_name: 'NagoKeys',
           user_action: 'PAY_NOW',
@@ -219,7 +225,7 @@ async function handleApi(request, env, url) {
     if (fila.estado === 'CAPTURADO') {
       // El pago ya se cobró pero n8n no fue avisado (p. ej. estaba caído).
       // Reintenta el aviso para no perder la entrega de la clave.
-      const n8nOk = await avisarN8n(env, {
+      const n8nOk = await avisarN8nSiProcede(env, {
         pagoId: id,
         captureId: fila.capture_id || '',
         producto: fila.producto,
@@ -261,7 +267,7 @@ async function handleApi(request, env, url) {
       .bind('CAPTURADO', captura.captureId, payerEmail, captura.importe, id)
       .run();
 
-    const n8nOk = await avisarN8n(env, {
+    const n8nOk = await avisarN8nSiProcede(env, {
       pagoId: id,
       captureId: captura.captureId,
       producto: fila.producto,
@@ -314,6 +320,12 @@ const PAYPAL_PRECIOS = {
   'Crunchyroll Fan 12 Meses': '19.99',
   'Crunchyroll Mega Fan 1 Mes': '4.50',
   'Crunchyroll Mega Fan 12 Meses': '34.99',
+  /* Páginas web para negocios (servicio, no producto digital).
+     Solo hay DOS productos: el precio es el mismo para las 36 plantillas.
+     La plantilla concreta no se codifica aquí; viaja en la descripción del
+     pedido (campo `detalle`), que PayPal muestra en el panel y en el recibo. */
+  'Web con dominio': '120.00',
+  'Web sin dominio': '100.00',
 };
 
 /* ==========================================================================
@@ -400,4 +412,19 @@ async function avisarN8n(env, datos) {
     await new Promise((res) => setTimeout(res, 1000 + i * 1000));
   }
   return false;
+}
+
+/* Páginas web: es un servicio, no un producto digital. No hay clave que
+   entregar automáticamente, así que no se avisa a n8n (su workflow busca la
+   clave en la tabla `claves` y no encontraría nada). El pedido se marca
+   AVISADO directamente: el cobro ya está capturado y confirmado por PayPal.
+   Para saber qué plantilla se compró, está en la descripción del pedido
+   (PayPal la muestra en el panel y en el recibo). */
+function esPaginaWeb(producto) {
+  return /^web\s/i.test(String(producto || '').trim());
+}
+
+async function avisarN8nSiProcede(env, datos) {
+  if (esPaginaWeb(datos && datos.producto)) return true;
+  return avisarN8n(env, datos);
 }

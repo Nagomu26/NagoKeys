@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuestionario del cliente — Restaurante</title>
+<style>
+  :root {
+    --ink: #0b0b0e;
+    --ink2: #14141a;
+    --charcoal: #1b1b23;
+    --line: #2a2a35;
+    --bone: #f3ede2;
+    --muted: #9a917f;
+    --brass: #c9a35c;
+    --brassdark: #a8873f;
+    --ok: #5cb85c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--bone);
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 70px; }
+
+  .hero { text-align: center; padding: 26px 0 20px; }
+  .hero h1 { font-size: 26px; margin: 0 0 10px; }
+  .hero h1 span { color: var(--brass); }
+  .hero p { color: var(--muted); margin: 0; font-size: 14.5px; }
+  .hero .pie { color: var(--brass); font-size: 13px; margin-top: 12px; }
+
+  section.card {
+    background: var(--ink2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 18px 18px;
+    margin-bottom: 16px;
+  }
+  section.card h2 {
+    font-size: 17px;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  section.card h2 .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 30px; height: 30px; border-radius: 50%;
+    background: var(--brass); color: var(--ink);
+    font-size: 15px; font-weight: 700;
+  }
+  section.card > p { color: var(--muted); font-size: 13.5px; margin: 2px 0 16px 40px; }
+
+  label { display: block; margin-bottom: 16px; }
+  label .tag { display: block; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  label .sub { display: block; font-size: 12.5px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+
+  input[type="text"], input[type="tel"], input[type="number"], textarea {
+    width: 100%;
+    background: var(--charcoal);
+    border: 1px solid var(--line);
+    color: var(--bone);
+    border-radius: 10px;
+    padding: 13px 14px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+  }
+  textarea { resize: vertical; min-height: 96px; }
+  input:focus, textarea:focus { border-color: var(--brass); }
+
+  .inline { display: flex; gap: 8px; align-items: center; }
+  .inline .sep { color: var(--muted); }
+
+  .si-no { display: flex; gap: 10px; }
+  .si-no label {
+    flex: 1; margin: 0;
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px; text-align: center; cursor: pointer;
+    font-weight: 600; font-size: 15px; color: var(--muted);
+  }
+  .si-no input { display: none; }
+  .si-no input:checked + label { border-color: var(--brass); color: var(--bone); background: rgba(201,163,92,0.08); }
+
+  .row-servicio {
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    background: var(--ink2);
+  }
+  .row-servicio .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .row-servicio .top .name { font-weight: 700; font-size: 14px; color: var(--brass); }
+  .btn-small {
+    background: transparent; border: 1px solid var(--line);
+    color: var(--muted); border-radius: 8px;
+    padding: 6px 12px; font-size: 13px; cursor: pointer;
+  }
+  .btn-small:hover { color: #d9534f; border-color: #d9534f; }
+  .btn-add {
+    width: 100%;
+    background: transparent; border: 1px dashed var(--brass);
+    color: var(--brass); border-radius: 12px;
+    padding: 13px; font-size: 15px; cursor: pointer; font-family: inherit;
+  }
+  .btn-add:hover { background: rgba(201,163,92,0.08); }
+
+  .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  button.btn {
+    font-family: inherit; font-size: 16px; font-weight: 600;
+    border-radius: 12px; padding: 15px; cursor: pointer; border: none;
+  }
+  .btn-brass { background: var(--brass); color: var(--ink); }
+  .btn-brass:hover { background: var(--brassdark); }
+  .btn-ghost { background: transparent; border: 1px solid var(--line); color: var(--bone); }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
+
+  #resumen { display: none; margin-top: 12px; }
+  #resumen.ok { display: block; }
+  #resumen pre {
+    background: #0a0f0a; border: 1px solid #2c4a2c; border-radius: 12px;
+    padding: 14px; white-space: pre-wrap; word-break: break-word;
+    font-size: 13.5px; font-family: Consolas, monospace; color: #cfe8cf;
+  }
+
+  .aviso { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .wrap { max-width: 100%; padding: 0; }
+    section.card { background: #fff; border: 1px solid #ccc; break-inside: avoid; }
+    input { background: #fff; color: #000; border: 1px solid #aaa; }
+    section.card > p { color: #555; }
+    .actions, .btn-add, .btn-small { display: none !important; }
+    #resumen { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Cuestionario para hacer <span>tu web</span></h1>
+    <p>
+      Responde solo a lo que marca la estrella (<b style="color:#d9534f;">*</b>) si te es posible.
+      No hace falta ser experto: escribe con tus palabras.
+    </p>
+    <p class="pie">Se guarda solo, puedes cerrar y volver cuando quieras.</p>
+  </div>
+
+  <!-- ================= 1. TU NEGOCIO ================= -->
+  <section class="card">
+    <h2><span class="num">1</span> Tu restaurante</h2>
+    <p>Lo que aparece en la web: nombre, teléfono y dónde estás.</p>
+
+    <label>Nombre del negocio *
+      <input type="text" id="nombre" placeholder="Ej. Restaurante El Fogón">
+      <span class="sub">El nombre que verá la gente al entrar en la web.</span>
+    </label>
+
+    <label>Teléfono de contacto *
+      <input type="tel" id="telefono" placeholder="Ej. 600 000 000">
+      <span class="sub">Es el que verán los clientes para llamar o reservar.</span>
+    </label>
+
+    <label>
+      <span class="tag">¿Ese teléfono también es WhatsApp? *</span>
+      <span class="si-no">
+        <input type="radio" name="whatsapp" id="wa_si" value="Si"><label for="wa_si">Sí</label>
+        <input type="radio" name="whatsapp" id="wa_no" value="No"><label for="wa_no">No</label>
+      </span>
+    </label>
+
+    <label>Dirección del local (calle y número) *
+      <input type="text" id="direccion" placeholder="Ej. Calle Mayor, 12">
+    </label>
+
+    <label>Ciudad *
+      <input type="text" id="ciudad" placeholder="Ej. Toledo">
+    </label>
+
+    <label>Código postal *
+      <input type="text" id="cp" placeholder="Ej. 45001">
+    </label>
+  </section>
+
+  <!-- ================= 2. TU CARTA ================= -->
+  <section class="card">
+    <h2><span class="num">2</span> Tu carta</h2>
+    <p>Qué platos se sirven y a qué precio. Pon el nombre y el precio; la descripción la redactamos nosotros. No hace falta que sea toda, solo lo más típico.</p>
+
+    <div id="servicios"></div>
+    <button type="button" class="btn-add" onclick="agregarServicio()">+ Añadir otro plato</button>
+
+    <label style="margin-top:14px;">¿Tenéis menú del día? ¿A qué precio?
+      <input type="text" id="menu_dia" placeholder="Ej. Sí, 13 € de lunes a viernes, bebida incluida">
+      <span class="sub">Si lo tienes, es clave para aparecer en Google. Si no, escribe "no".</span>
+    </label>
+  </section>
+
+  <!-- ================= 3. HORARIO ================= -->
+  <section class="card">
+    <h2><span class="num">3</span> Tu horario</h2>
+    <p>Pon la hora a la que abres y cierras en cada servicio. Los días que cierres, déjalo vacío.</p>
+
+    <label>
+      <span class="tag">Servicio de comida <span style="color:var(--muted); font-weight:400;">(mediodía)</span> *</span>
+      <div class="inline">
+        <input type="text" id="ls1_inicio" placeholder="13:00">
+        <span class="sep">a</span>
+        <input type="text" id="ls1_fin" placeholder="16:00">
+      </div>
+    </label>
+
+    <label>
+      <span class="tag">Servicio de cena</span>
+      <div class="inline">
+        <input type="text" id="ls2_inicio" placeholder="20:00">
+        <span class="sep">a</span>
+        <input type="text" id="ls2_fin" placeholder="23:00">
+      </div>
+      <span class="sub">Si no abres las cenas, déjalo vacío.</span>
+    </label>
+
+    <label>
+      <span class="tag">Días que cerráis a la semana *</span>
+      <input type="text" id="cerrados" placeholder="Ej. Cierro los lunes, o no cierro ningún día">
+      <span class="sub">Ojo: si cierras el domingo o el lunes, conviene decirlo bien claro en la web.</span>
+    </label>
+
+    <label>
+      <span class="tag">¿Cómo es mejor reservar mesa? *</span>
+      <select id="reservas" style="width:100%; background:var(--charcoal); border:1px solid var(--line); color:var(--bone); border-radius:10px; padding:13px 14px; font-size:16px;">
+        <option value="telefono">Por teléfono (lo normal)</option>
+        <option value="whatsapp">Por WhatsApp</option>
+        <option value="ambos">Por teléfono y WhatsApp</option>
+      </select>
+    </label>
+  </section>
+
+  <!-- ================= 4. LOGO Y FOTOS ================= -->
+  <section class="card">
+    <h2><span class="num">4</span> Logo y fotos</h2>
+    <p>No es imprescindible. Si los tienes, avísanos y te diremos cómo enviárnoslos.</p>
+
+    <label>¿Tienes fotos de los platos, del local o un logo?
+      <input type="text" id="fotos" placeholder="Ej. Tengo fotos en Instagram, o no tengo nada">
+      <span class="sub">Para la web de un restaurante las fotos de la comida son muy importantes.</span>
+    </label>
+  </section>
+
+  <!-- ================= 5. SUGERENCIAS (OPCIONAL) ================= -->
+  <section class="card">
+    <h2><span class="num">5</span> Colores y sugerencias <span style="font-size:12px; color:var(--muted); font-weight:400;">(opcional)</span></h2>
+    <p>Esto ya va por gustos. Si no sabes qué responder, déjalo en blanco y lo dejamos como está.</p>
+
+    <label>¿Te gustan los colores actuales (fondo oscuro y dorado)?
+      <span class="si-no">
+        <input type="radio" name="color" id="col_si" value="Si, dejar los actuales"><label for="col_si">Sí, están bien</label>
+        <input type="radio" name="color" id="col_no" value="No"><label for="col_no">Prefiero otros</label>
+      </span>
+    </label>
+
+    <label>Si prefieres otros colores, ¿cuáles?
+      <input type="text" id="colores" placeholder="Ej. Fondo oscuro con detalles en verde botella...">
+      <span class="sub">Puedes decirlo con tus palabras, no hace falta saber de diseño.</span>
+    </label>
+
+    <label>¿Algo más que quieras cambiar o añadir?
+      <textarea id="sugerencias" rows="4" placeholder="Ej. Quiero que se vea el menú del día, que se pueda reservar sin llamar, un aviso de vacaciones..."></textarea>
+    </label>
+  </section>
+
+  <!-- ================= 6. PARA ENTREGARTE LA WEB ================= -->
+  <section class="card">
+    <h2><span class="num">6</span> Tus datos para entregarte la web</h2>
+    <p>Para saber quién eres y cómo enviarte la web terminada.</p>
+
+    <label>Tu nombre *
+      <input type="text" id="cliente_nombre" placeholder="Ej. Juan">
+    </label>
+
+    <label>Tu correo (o un número de teléfono para enviártela)
+      <input type="text" id="cliente_envio" placeholder="Ej. juan@gmail.com">
+    </label>
+
+    <label>NIF o CIF del negocio *
+      <input type="text" id="nif" placeholder="Ej. 00000000A">
+      <span class="sub">Lo pide la ley para el aviso legal. Lo tienes en la declaración de tu negocio o Hacienda.</span>
+    </label>
+  </section>
+
+  <!-- ================= BOTONES ================= -->
+  <div class="actions">
+    <button type="button" class="btn btn-brass" onclick="resumir()">Terminar · Ver mi resumen</button>
+    <button type="button" class="btn btn-ghost" onclick="copiar()">Copiar para enviar</button>
+    <button type="button" class="btn btn-ghost" onclick="guardar(); window.print();">Guardar en papel (imprimir)</button>
+  </div>
+
+  <div id="resumen">
+    <p style="color:var(--ok); font-weight:600; margin-bottom:6px;">Esto es lo que has respondido. Cópialo y envíanoslo:</p>
+    <pre id="resumenPre"></pre>
+  </div>
+
+  <p class="aviso">Tus respuestas se guardan solo en este dispositivo. No se envían a ningún sitio.<br>© Cuestionario para tu web de restaurante</p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var KEY = "yourrestaurant-form-simple-v1";
+  var cont = document.getElementById("servicios");
+
+  var POR_DEFECTO = [
+    { nombre: "Entrante / Para compartir", precio: 12 },
+    { nombre: "Plato principal", precio: 18 },
+    { nombre: "Postre casero", precio: 6 },
+  ];
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  function filaServicio(datos, i) {
+    return '<div class="row-servicio">' +
+      '<div class="top"><span class="name">Plato ' + (i + 1) + '</span>' +
+      '<button type="button" class="btn-small" onclick="eliminarServicio(this)">Quitar</button></div>' +
+      '<div style="display:grid; grid-template-columns:1fr 110px; gap:10px;">' +
+        '<label style="margin:0;">Nombre<br><span style="font-size:12.5px;color:var(--muted);">Ej. Arroz meloso de la casa</span>' +
+          '<input type="text" name="sv_nombre" value="' + esc(datos.nombre) + '"></label>' +
+        '<label style="margin:0;">Precio (€)<br><span style="font-size:12.5px;color:var(--muted);">Ej. 18</span>' +
+          '<input type="text" name="sv_precio" value="' + esc(datos.precio) + '"></label>' +
+      '</div>' +
+    '</div>';
+  }
+
+  window.agregarServicio = function () {
+    cont.insertAdjacentHTML("beforeend", filaServicio({ nombre: "", precio: "" }, cont.children.length));
+    guardar();
+  };
+  window.eliminarServicio = function (btn) {
+    var row = btn.closest(".row-servicio");
+    if (row) row.remove();
+    var names = cont.querySelectorAll(".row-servicio .name");
+    names.forEach(function (n, i) { n.textContent = "Plato " + (i + 1); });
+    guardar();
+  };
+
+  function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+  function setVal(id, v) { var el = document.getElementById(id); if (el) el.value = v || ""; }
+  function whatsapp() {
+    var s = document.querySelector('input[name="whatsapp"]:checked');
+    return s ? s.value : "";
+  }
+  function colorPref() {
+    var s = document.querySelector('input[name="color"]:checked');
+    return s ? s.value : "";
+  }
+
+  function leer() {
+    var servicios = [];
+    cont.querySelectorAll(".row-servicio").forEach(function (r) {
+      var nombre = r.querySelector('[name="sv_nombre"]').value.trim();
+      var precio = r.querySelector('[name="sv_precio"]').value.trim();
+      if (nombre || precio) servicios.push({ nombre: nombre, precio: precio });
+    });
+    return {
+      nombre: val("nombre"), telefono: val("telefono"), whatsapp: whatsapp(),
+      direccion: val("direccion"), ciudad: val("ciudad"), cp: val("cp"),
+      servicios: servicios, menu_dia: val("menu_dia"),
+      ls1: [val("ls1_inicio"), val("ls1_fin")],
+      ls2: [val("ls2_inicio"), val("ls2_fin")],
+      cerrados: val("cerrados"), reservas: val("reservas"),
+      fotos: val("fotos"),
+      color: colorPref(), colores: val("colores"), sugerencias: val("sugerencias"),
+      cliente_nombre: val("cliente_nombre"), cliente_envio: val("cliente_envio"), nif: val("nif"),
+    };
+  }
+
+  function resumenTexto() {
+    var d = leer();
+    var L = [];
+    L.push("=== CUESTIONARIO DEL RESTAURANTE ===");
+    L.push("");
+    L.push("1. TU NEGOCIO");
+    L.push("Nombre: " + (d.nombre || "—"));
+    L.push("Teléfono: " + (d.telefono || "—"));
+    L.push("Tiene WhatsApp en ese número: " + (d.whatsapp || "—"));
+    L.push("Dirección: " + (d.direccion || "—"));
+    L.push("Ciudad: " + (d.ciudad || "—"));
+    L.push("Código postal: " + (d.cp || "—"));
+    L.push("");
+    L.push("2. CARTA");
+    if (!d.servicios.length) L.push("—");
+    d.servicios.forEach(function (s) {
+      L.push("- " + (s.nombre || "Sin nombre") + (s.precio ? "  ->  " + s.precio + " €" : ""));
+    });
+    L.push("Menú del día: " + (d.menu_dia || "—"));
+    L.push("");
+    L.push("3. HORARIO");
+    L.push("Comida: " + ([d.ls1[0], d.ls1[1]].filter(Boolean).join(" a ") || "—"));
+    L.push("Cena: " + ([d.ls2[0], d.ls2[1]].filter(Boolean).join(" a ") || "—"));
+    L.push("Días cerrados: " + (d.cerrados || "—"));
+    L.push("Reservas por: " + (d.reservas || "—"));
+    L.push("");
+    L.push("4. LOGO Y FOTOS");
+    L.push(d.fotos || "—");
+    L.push("");
+    L.push("5. SUGERENCIAS (opcional)");
+    L.push("Colores actuales: " + (d.color || "—"));
+    if (d.colores) L.push("Colores que prefiere: " + d.colores);
+    if (d.sugerencias) L.push("Otras sugerencias: " + d.sugerencias);
+    if (!d.colores && !d.sugerencias) L.push("—");
+    L.push("");
+    L.push("6. PARA LA ENTREGA");
+    L.push("Tu nombre: " + (d.cliente_nombre || "—"));
+    L.push("Enviar a: " + (d.cliente_envio || "—"));
+    L.push("NIF/CIF: " + (d.nif || "—"));
+    return L.join("\n");
+  }
+
+  window.guardar = function () {
+    try { localStorage.setItem(KEY, JSON.stringify({...leer(), serviciosRaw: serializarFilas()})); } catch (e) {}
+  };
+  function serializarFilas() {
+    var out = [];
+    cont.querySelectorAll(".row-servicio").forEach(function (r) {
+      out.push({
+        nombre: r.querySelector('[name="sv_nombre"]').value,
+        precio: r.querySelector('[name="sv_precio"]').value,
+      });
+    });
+    return out;
+  }
+
+  window.resumir = function () {
+    guardar();
+    document.getElementById("resumenPre").textContent = resumenTexto();
+    document.getElementById("resumen").classList.add("ok");
+    document.getElementById("resumen").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+
+  window.copiar = function () {
+    resumir();
+    var texto = document.getElementById("resumenPre").textContent;
+    var ok = false;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(function () { ok = true; }).catch(function () {});
+    }
+    if (!ok) {
+      var ta = document.createElement("textarea");
+      ta.value = texto; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    var btn = document.querySelector('.btn-brass');
+    var viejo = btn.textContent;
+    btn.textContent = "¡Copiado! Pega el texto y envíanoslo";
+    setTimeout(function () { btn.textContent = viejo; }, 2500);
+  };
+
+  var guardando = null;
+  document.addEventListener("input", function () {
+    clearTimeout(guardando);
+    guardando = setTimeout(guardar, 500);
+  });
+
+  function restaurar() {
+    var d = null;
+    try { d = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    if (!d) {
+      cont.innerHTML = POR_DEFECTO.map(function (s, i) { return filaServicio(s, i); }).join("");
+      return;
+    }
+    setVal("nombre", d.nombre); setVal("telefono", d.telefono);
+    setVal("direccion", d.direccion); setVal("ciudad", d.ciudad);
+    setVal("cp", d.cp);
+    setVal("menu_dia", d.menu_dia);
+    setVal("ls1_inicio", d.ls1 && d.ls1[0]); setVal("ls1_fin", d.ls1 && d.ls1[1]);
+    setVal("ls2_inicio", d.ls2 && d.ls2[0]); setVal("ls2_fin", d.ls2 && d.ls2[1]);
+    setVal("cerrados", d.cerrados);
+    setVal("reservas", d.reservas || "telefono");
+    setVal("fotos", d.fotos);
+    setVal("colores", d.colores); setVal("sugerencias", d.sugerencias);
+    setVal("cliente_nombre", d.cliente_nombre); setVal("cliente_envio", d.cliente_envio);
+    setVal("nif", d.nif);
+    if (d.whatsapp) {
+      var r = document.querySelector('input[name="whatsapp"][value="' + d.whatsapp + '"]');
+      if (r) r.checked = true;
+    } else {
+      var si = document.getElementById("wa_si"); if (si) si.checked = true;
+    }
+    if (d.color) {
+      var c = document.querySelector('input[name="color"][value="' + d.color + '"]');
+      if (c) c.checked = true;
+    }
+    var lista = (d.serviciosRaw && d.serviciosRaw.length) ? d.serviciosRaw : d.servicios;
+    cont.innerHTML = (lista && lista.length ? lista : POR_DEFECTO).map(function (s, i) {
+      return filaServicio(s || {}, i);
+    }).join("");
+  }
+
+  restaurar();
+})();
+</script>
+</body>
+</html>

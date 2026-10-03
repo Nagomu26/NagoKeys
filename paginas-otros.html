@@ -458,6 +458,32 @@
             background: #009fbf;
         }
 
+/* ---------- BOTON COMPRAR EN LAS TARJETAS ---------- */
+        .tpl-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tpl-card .tpl-cta {
+            text-decoration: none;
+        }
+
+        .tpl-card .tpl-cta--buy {
+            background: #f47521;
+            box-shadow: 0 4px 10px rgba(244, 117, 33, 0.35);
+        }
+
+        /* despues de ".tpl-card:hover .tpl-cta" para que no lo pise */
+        .tpl-card:hover .tpl-cta--buy {
+            background: #d65f12;
+        }
+
+        .tpl-img-link {
+            display: block;
+            line-height: 0;
+        }
+
         /* ---------- CÓMO FUNCIONA ---------- */
         .steps-grid {
             display: grid;
@@ -895,161 +921,185 @@
 
         <div class="pricing-container">
 
-            <a href="plantillas/your-place-luxe/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">DISEÑO OSCURO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-luxe.webp" alt="Plantilla web LUXE para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-luxe/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-luxe.webp" alt="Plantilla web LUXE para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Luxe</h2>
                     <p class="tpl-font" style="font-family: 'Cormorant Garamond', serif; color: #8a6d2f;">Tu negocio,
                         con clase<span class="fx">Cormorant Garamond · serif</span></p>
                     <p class="tpl-desc">Fondo oscuro y tipografía elegante. Tu negocio con imagen premium.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-luxe/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-luxe">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-bright/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">DISEÑO CLARO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-bright.webp" alt="Plantilla web BRIGHT para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-bright/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-bright.webp" alt="Plantilla web BRIGHT para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Bright</h2>
                     <p class="tpl-font" style="font-family: 'Playfair Display', serif; font-style: italic; color: #222;">Escaparate
                         limpio y luminoso<span class="fx">Playfair Display · cursiva</span></p>
                     <p class="tpl-desc">Claro, limpio y con aire de revista. Un escaparate moderno.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-bright/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-bright">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-urban/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ESTILO URBANO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-urban.webp" alt="Plantilla web URBAN para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-urban/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-urban.webp" alt="Plantilla web URBAN para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Urban</h2>
                     <p class="tpl-font" style="font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #111;">Actitud
                         de barrio<span class="fx">Anton · sans condensada</span></p>
                     <p class="tpl-desc">Tipografía contundente y estilo street. Ideal para tiendas de moda urbana.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-urban/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-urban">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-vintage/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ESTILO CLÁSICO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-vintage.webp" alt="Plantilla web VINTAGE para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-vintage/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-vintage.webp" alt="Plantilla web VINTAGE para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Vintage</h2>
                     <p class="tpl-font" style="font-family: 'Alfa Slab One', serif; color: #7a3e11;">El encanto de
                         siempre<span class="fx">Alfa Slab One · slab serif</span></p>
                     <p class="tpl-desc">Tonos crema y letra tipo rótulo de escaparate. Cercana y con encanto.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-vintage/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-vintage">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-nature/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ESTILO NATURAL</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-nature.webp" alt="Plantilla web NATURAL para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-nature/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-nature.webp" alt="Plantilla web NATURAL para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Natural</h2>
                     <p class="tpl-font" style="font-family: 'Caveat', cursive; font-size: 28px; color: #3f6b4f;">Cercano
                         y al natural<span class="fx">Caveat · manuscrita</span></p>
                     <p class="tpl-desc">Cálido y orgánico, con letra manuscrita y toques naturales. Cercano y humano.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-nature/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-nature">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-minimal/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">MINIMALISTA</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-minimal.webp" alt="Plantilla web MINIMAL para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-minimal/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-minimal.webp" alt="Plantilla web MINIMAL para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Minimal</h2>
                     <p class="tpl-font" style="font-family: 'Archivo', sans-serif; color: #0a0a0a;">Tu negocio,
                         sin ruido<span class="fx">Archivo · sans</span></p>
                     <p class="tpl-desc">Limpio, directo y sin adornos. Lo que ofreces, dónde estás y cómo contactar.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-minimal/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-minimal">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-playful/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">COLORIDO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-playful.webp" alt="Plantilla web PLAYFUL para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-playful/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-playful.webp" alt="Plantilla web PLAYFUL para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Playful</h2>
                     <p class="tpl-font" style="font-family: 'Fredoka', sans-serif; color: #ff5a5f;">Con vida
                         propia<span class="fx">Fredoka · redonda</span></p>
                     <p class="tpl-desc">Alegre y cercano, con colores vivos y formas amables. Transmite buen ambiente.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-playful/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-playful">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-industrial/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">INDUSTRIAL</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-industrial.webp" alt="Plantilla web INDUSTRIAL para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-industrial/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-industrial.webp" alt="Plantilla web INDUSTRIAL para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Industrial</h2>
                     <p class="tpl-font" style="font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #c94b2a;">Con
                         carácter<span class="fx">Oswald · condensada</span></p>
                     <p class="tpl-desc">Hormigón y acero con un toque de óxido. Para negocios con oficio y raíz.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-industrial/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-industrial">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-donna/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ROSA ELEGANTE</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-donna.webp" alt="Plantilla web DONNA para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-donna/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-donna.webp" alt="Plantilla web DONNA para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Donna</h2>
                     <p class="tpl-font" style="font-family: 'Playfair Display', serif; font-style: italic; color: #d96a8f;">Tu negocio,
                         con esencia<span class="fx">Playfair Display · serif cursiva</span></p>
                     <p class="tpl-desc">Papel rosa y serif elegante: un escaparate con personalidad propia.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-donna/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-donna">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-fresh/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">VERDE PISTACHO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-fresh.webp" alt="Plantilla web FRESH para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-fresh/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-fresh.webp" alt="Plantilla web FRESH para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Fresh</h2>
                     <p class="tpl-font" style="font-family: 'Baloo 2', sans-serif; color: #6da34d;">Tu barrio,
                         con más aire<span class="fx">Baloo 2 · redonda</span></p>
                     <p class="tpl-desc">Verde pistacho, redondeado y cercano. Un look amable para tu barrio.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-fresh/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-fresh">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-elegant/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">CLÁSICO SOBRIO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-elegant.webp" alt="Plantilla web ELEGANT para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-elegant/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-elegant.webp" alt="Plantilla web ELEGANT para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Elegant</h2>
                     <p class="tpl-font" style="font-family: 'Cormorant Garamond', serif; color: #a8834f;">Tu negocio,
                         con clase<span class="fx">Cormorant Garamond · serif</span></p>
                     <p class="tpl-desc">Dorado sobrio y serif clásico: elegancia para tu escaparate.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-elegant/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-elegant">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-place-tech/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">OSCURO NEÓN</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-tech.webp" alt="Plantilla web TECH para tu negocio">
+                <a class="tpl-img-link" href="plantillas/your-place-tech/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-place-tech.webp" alt="Plantilla web TECH para tu negocio"></a>
                 <div class="tpl-body">
                     <h2>Your Place — Tech</h2>
                     <p class="tpl-font" style="font-family: 'Space Grotesk', sans-serif; color: #00dfc6;">Tu negocio,
                         actualizado<span class="fx">Space Grotesk · geométrica</span></p>
                     <p class="tpl-desc">Oscuro con neón y rejilla láser: moderno y afilado para tu escaparate.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-place-tech/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-otros-tech">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
         </div>
 

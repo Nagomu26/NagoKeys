@@ -458,6 +458,32 @@
             background: #009fbf;
         }
 
+/* ---------- BOTON COMPRAR EN LAS TARJETAS ---------- */
+        .tpl-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tpl-card .tpl-cta {
+            text-decoration: none;
+        }
+
+        .tpl-card .tpl-cta--buy {
+            background: #f47521;
+            box-shadow: 0 4px 10px rgba(244, 117, 33, 0.35);
+        }
+
+        /* despues de ".tpl-card:hover .tpl-cta" para que no lo pise */
+        .tpl-card:hover .tpl-cta--buy {
+            background: #d65f12;
+        }
+
+        .tpl-img-link {
+            display: block;
+            line-height: 0;
+        }
+
         /* ---------- CÓMO FUNCIONA ---------- */
         .steps-grid {
             display: grid;
@@ -896,161 +922,185 @@
 
         <div class="pricing-container">
 
-            <a href="plantillas/your-barber-luxe/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">DISEÑO OSCURO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-luxe.webp" alt="Plantilla web LUXE para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-luxe/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-luxe.webp" alt="Plantilla web LUXE para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Luxe</h2>
                     <p class="tpl-font" style="font-family: 'Cormorant Garamond', serif; color: #8a6d2f;">Elegante
                         como un club<span class="fx">Cormorant Garamond · serif</span></p>
                     <p class="tpl-desc">Fondo oscuro y tipografía elegante. Perfecta para un corte premium.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-luxe/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-luxe">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-bright/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">DISEÑO CLARO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-bright.webp" alt="Plantilla web BRIGHT para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-bright/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-bright.webp" alt="Plantilla web BRIGHT para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Bright</h2>
                     <p class="tpl-font" style="font-family: 'Playfair Display', serif; font-style: italic; color: #222;">Estilo
                         editorial<span class="fx">Playfair Display · cursiva</span></p>
                     <p class="tpl-desc">Claro, limpio y con aire de revista. Un look moderno y luminoso.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-bright/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-bright">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-urban/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ESTILO URBANO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-urban.webp" alt="Plantilla web URBAN para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-urban/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-urban.webp" alt="Plantilla web URBAN para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Urban</h2>
                     <p class="tpl-font" style="font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #111;">Actitud
                         de barrio<span class="fx">Anton · sans condensada</span></p>
                     <p class="tpl-desc">Tipografía contundente y estilo street. Para un perfil desenfadado.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-urban/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-urban">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-vintage/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ESTILO CLÁSICO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-vintage.webp" alt="Plantilla web VINTAGE para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-vintage/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-vintage.webp" alt="Plantilla web VINTAGE para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Vintage</h2>
                     <p class="tpl-font" style="font-family: 'Alfa Slab One', serif; color: #7a3e11;">La barbería de
                         siempre<span class="fx">Alfa Slab One · slab serif</span></p>
                     <p class="tpl-desc">Tonos crema y letra tipo rótulo de escaparate. Clásica y cercana.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-vintage/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-vintage">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-nature/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ESTILO NATURAL</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-nature.webp" alt="Plantilla web NATURAL para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-nature/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-nature.webp" alt="Plantilla web NATURAL para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Natural</h2>
                     <p class="tpl-font" style="font-family: 'Caveat', cursive; font-size: 28px; color: #3f6b4f;">Tu
                         estilo, al natural<span class="fx">Caveat · manuscrita</span></p>
                     <p class="tpl-desc">Cálido y orgánico, con letra manuscrita y toques naturales.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-nature/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-nature">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-minimal/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">MINIMALISTA</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-minimal.webp" alt="Plantilla web MINIMAL para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-minimal/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-minimal.webp" alt="Plantilla web MINIMAL para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Minimal</h2>
                     <p class="tpl-font" style="font-family: 'Archivo', sans-serif; color: #0a0a0a;">Precisión,
                         sin ruido<span class="fx">Archivo · sans</span></p>
                     <p class="tpl-desc">Blanco, negro y un toque de lima. Sin distracciones: tu corte, tu hora.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-minimal/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-minimal">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-playful/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">COLORIDO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-playful.webp" alt="Plantilla web PLAYFUL para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-playful/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-playful.webp" alt="Plantilla web PLAYFUL para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Playful</h2>
                     <p class="tpl-font" style="font-family: 'Fredoka', sans-serif; color: #ff5a5f;">Cortes con
                         actitud<span class="fx">Fredoka · redonda</span></p>
                     <p class="tpl-desc">Color coral, formas redondeadas y energía. Perfecta para un perfil joven cercano.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-playful/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-playful">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-industrial/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">INDUSTRIAL</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-industrial.webp" alt="Plantilla web INDUSTRIAL para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-industrial/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-industrial.webp" alt="Plantilla web INDUSTRIAL para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Industrial</h2>
                     <p class="tpl-font" style="font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #c94b2a;">Trabajo
                         serio<span class="fx">Oswald · condensada</span></p>
                     <p class="tpl-desc">Hormigón, acero y hierba: un look de taller. Para un barbero de oficio.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-industrial/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-industrial">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-donna/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">ROSA ELEGANTE</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-donna.webp" alt="Plantilla web DONNA para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-donna/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-donna.webp" alt="Plantilla web DONNA para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Donna</h2>
                     <p class="tpl-font" style="font-family: 'Playfair Display', serif; font-style: italic; color: #d96a8f;">El arte de
                         cuidarte<span class="fx">Playfair Display · serif cursiva</span></p>
                     <p class="tpl-desc">Papel rosa y serif elegante: un look cuidado y delicado para tu barbería.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-donna/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-donna">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-fresh/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">VERDE PISTACHO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-fresh.webp" alt="Plantilla web FRESH para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-fresh/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-fresh.webp" alt="Plantilla web FRESH para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Fresh</h2>
                     <p class="tpl-font" style="font-family: 'Baloo 2', sans-serif; color: #6da34d;">Córtate,
                         natural<span class="fx">Baloo 2 · redonda</span></p>
                     <p class="tpl-desc">Verde pistacho, formas redondeadas y buen rollo. Cercano y sin humos.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-fresh/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-fresh">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-elegant/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">CLÁSICO SOBRIO</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-elegant.webp" alt="Plantilla web ELEGANT para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-elegant/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-elegant.webp" alt="Plantilla web ELEGANT para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Elegant</h2>
                     <p class="tpl-font" style="font-family: 'Cormorant Garamond', serif; color: #a8834f;">Lo clásico,
                         bien hecho<span class="fx">Cormorant Garamond · serif</span></p>
                     <p class="tpl-desc">Dorado sobrio y serif clásico. Perfecta para un corte premium y de oficio.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-elegant/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-elegant">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
-            <a href="plantillas/your-barber-tech/" target="_blank" rel="noopener noreferrer"
-                class="card tpl-card">
+            <div class="card tpl-card">
                 <span class="tag">OSCURO NEÓN</span>
-                <img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-tech.webp" alt="Plantilla web TECH para barbería">
+                <a class="tpl-img-link" href="plantillas/your-barber-tech/" target="_blank" rel="noopener noreferrer"><img class="tpl-img" loading="lazy" decoding="async" src="images/plantillas-tech.webp" alt="Plantilla web TECH para barbería"></a>
                 <div class="tpl-body">
                     <h2>Your Barber — Tech</h2>
                     <p class="tpl-font" style="font-family: 'Space Grotesk', sans-serif; color: #00dfc6;">Afilado al
                         milímetro<span class="fx">Space Grotesk · geométrica</span></p>
                     <p class="tpl-desc">Oscuro con neón cian y rejilla láser. Estética digital y precisión total.</p>
-                    <span class="tpl-cta">Ver la página en directo →</span>
+                    <div class="tpl-actions">
+                    <a class="tpl-cta" href="plantillas/your-barber-tech/" target="_blank" rel="noopener noreferrer">Ver en vivo →</a>
+                    <a class="tpl-cta tpl-cta--buy" href="productos/web-peluqueria-tech">Comprar · 100 €</a>
                 </div>
-            </a>
+                </div>
+            </div>
 
         </div>
 

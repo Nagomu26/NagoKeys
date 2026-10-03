@@ -105,19 +105,25 @@
             } catch (e) { }
 
             var pedido = null;
-            if (!orderId) {
-                try {
-                    pedido = JSON.parse(localStorage.getItem('nagokeys_paypal') || 'null');
-                } catch (e) { pedido = null; }
-                if (pedido && pedido.orderId) orderId = pedido.orderId;
-            }
+            try {
+                pedido = JSON.parse(localStorage.getItem('nagokeys_paypal') || 'null');
+            } catch (e) { pedido = null; }
+            if (!orderId && pedido && pedido.orderId) orderId = pedido.orderId;
+
+            // Las páginas web no se entregan por email: hay que rellenar el
+            // formulario de datos. El mensaje cambia para no prometer una clave.
+            var esWeb = !!(pedido && /^\s*web\s/i.test(String(pedido.producto || '')));
+            var msgWebOk = 'Pago confirmado. Ahora tienes que rellenar el formulario con los datos de tu negocio para que podamos montar tu web.';
+            var msgWebKo = 'Pago recibido, pero no hemos podido verificarlo del todo. Escríbenos por WhatsApp y lo resolvemos.';
 
             if (!orderId) {
                 if (statusEl) {
                     statusEl.style.color = '#b2500b';
                     statusEl.style.background = '#fdf1e6';
                     statusEl.style.borderColor = '#f0cfa8';
-                    statusEl.textContent = 'No hemos podido verificar tu pago automáticamente. Si ya pagaste, la clave llegará a tu correo en unos minutos; si no, escríbenos por WhatsApp.';
+                    statusEl.textContent = esWeb
+                        ? msgWebKo
+                        : 'No hemos podido verificar tu pago automáticamente. Si ya pagaste, la clave llegará a tu correo en unos minutos; si no, escríbenos por WhatsApp.';
                 }
                 return;
             }
@@ -127,9 +133,13 @@
                 .then(function (data) {
                     if (!statusEl) return;
                     if (data && data.ok && data.estado === 'AVISADO') {
-                        statusEl.textContent = 'Pago confirmado. Estamos preparando tu clave, llegará a tu email en unos minutos.';
+                        statusEl.textContent = esWeb
+                            ? msgWebOk
+                            : 'Pago confirmado. Estamos preparando tu clave, llegará a tu email en unos minutos.';
                     } else if (data && data.ok && (data.estado === 'CAPTURADO' || data.repetido)) {
-                        statusEl.textContent = 'Pago recibido. Tu clave está en camino; si no llega en 1-2 horas, escríbenos.';
+                        statusEl.textContent = esWeb
+                            ? msgWebOk
+                            : 'Pago recibido. Tu clave está en camino; si no llega en 1-2 horas, escríbenos.';
                     } else {
                         statusEl.style.color = '#b2500b';
                         statusEl.style.background = '#fdf1e6';
@@ -144,7 +154,9 @@
                         statusEl.style.color = '#b2500b';
                         statusEl.style.background = '#fdf1e6';
                         statusEl.style.borderColor = '#f0cfa8';
-                        statusEl.textContent = 'No hemos podido confirmar el pago ahora. Si pagaste, la clave llegará en unos minutos; si no, escríbenos por WhatsApp.';
+                        statusEl.textContent = esWeb
+                            ? msgWebKo
+                            : 'No hemos podido confirmar el pago ahora. Si pagaste, la clave llegará en unos minutos; si no, escríbenos por WhatsApp.';
                     }
                 })
                 .finally(function () {

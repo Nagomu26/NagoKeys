@@ -66,7 +66,7 @@ function comprarProducto(producto, inputId, btnEl) {
      con los precios publicados en las páginas de producto.
    ===================================================================== */
 
-function pagarConPaypal(producto, inputId, btnEl) {
+function pagarConPaypal(producto, inputId, btnEl, detalle) {
     var input = document.getElementById(inputId);
     var errorEl = document.getElementById('error-' + inputId);
     var email = input ? input.value.trim() : '';
@@ -89,7 +89,7 @@ function pagarConPaypal(producto, inputId, btnEl) {
     fetch('/api/paypal/crear', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ producto: producto, email: email })
+        body: JSON.stringify({ producto: producto, email: email, detalle: detalle || '' })
     })
         .then(function (res) {
             return res.json().then(function (data) {
@@ -142,7 +142,7 @@ function deshabilitarBotonesMollie() {
     }
 }
 
-function crearBotonPaypal(producto, inputId) {
+function crearBotonPaypal(producto, inputId, detalle) {
     var nuevo = document.createElement('button');
     nuevo.type = 'button';
     nuevo.className = 'btn-buy-big btn-paypal-nagokeys';
@@ -155,10 +155,12 @@ function crearBotonPaypal(producto, inputId) {
         '<span class="small" style="color:#8a8a8a; display:inline;">Pago seguro · Sin esperas</span>';
     nuevo.setAttribute('data-producto', producto);
     nuevo.setAttribute('data-input-id', inputId);
+    if (detalle) nuevo.setAttribute('data-detalle', detalle);
     nuevo.addEventListener('click', function (ev) {
         var p = ev.currentTarget.getAttribute('data-producto');
         var iid = ev.currentTarget.getAttribute('data-input-id');
-        pagarConPaypal(p, iid, ev.currentTarget);
+        var det = ev.currentTarget.getAttribute('data-detalle') || '';
+        pagarConPaypal(p, iid, ev.currentTarget, det);
     });
     return nuevo;
 }
@@ -188,12 +190,13 @@ function inyectarBotonesPaypal() {
         if (ancla.querySelector('.agotado-aviso')) continue;
         var producto = ancla.getAttribute('data-producto');
         var inputId = ancla.getAttribute('data-input-id');
+        var detalle = ancla.getAttribute('data-detalle') || '';
         if (!producto || !inputId) continue;
         if (estaAgotado(ancla)) {
             ancla.appendChild(crearAvisoAgotado());
             continue;
         }
-        ancla.appendChild(crearBotonPaypal(producto, inputId));
+        ancla.appendChild(crearBotonPaypal(producto, inputId, detalle));
     }
 
     var botones = document.querySelectorAll('button[onclick*="comprarProducto"]');
