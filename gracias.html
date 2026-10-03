@@ -37,7 +37,7 @@
 
             <h1 style="font-size: 2.2rem; color: #111; margin-bottom: 15px;">¡Gracias por tu compra!</h1>
 
-            <p style="font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.6;">
+            <p id="texto-intro" style="font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.6;">
                 Hemos recibido tu pago correctamente. Tu clave de activación está en camino y llegará a tu correo
                 electrónico en <strong>menos de 2 horas</strong> (horario laboral).
             </p>
@@ -46,7 +46,11 @@
                 style="display:none; font-size:1rem; color:#1a7f37; background:#e6f6ec; border:1px solid #b7e3c4; border-radius:10px; padding:14px 18px; margin-bottom:25px;">
             </p>
 
-            <div style="background: #fff9f5; border: 2px dashed #f47521; border-radius: 12px; padding: 20px 25px; margin-bottom: 30px; text-align: left;">
+            <p id="detalle-pedido"
+                style="display:none; font-size:1rem; color:#333; background:#f5f5f7; border:1px solid #dcdce1; border-radius:10px; padding:14px 18px; margin-bottom:25px;">
+            </p>
+
+            <div id="aviso-spam" style="background: #fff9f5; border: 2px dashed #f47521; border-radius: 12px; padding: 20px 25px; margin-bottom: 30px; text-align: left;">
                 <p style="margin: 0; color: #555;">
                     📬 <strong>¿No la ves llegar?</strong> Revisa tu carpeta de <strong>Spam / Correo no deseado</strong>,
                     a veces se cuela ahí por error.
@@ -115,6 +119,26 @@
             var esWeb = !!(pedido && /^\s*web\s/i.test(String(pedido.producto || '')));
             var msgWebOk = 'Pago confirmado. Ahora tienes que rellenar el formulario con los datos de tu negocio para que podamos montar tu web.';
             var msgWebKo = 'Pago recibido, pero no hemos podido verificarlo del todo. Escríbenos por WhatsApp y lo resolvemos.';
+
+            // En una compra de web no hay clave ni correo con la clave: se
+            // cambia el texto introductorio y se oculta el aviso de spam.
+            if (esWeb) {
+                var introEl = document.getElementById('texto-intro');
+                if (introEl) {
+                    introEl.innerHTML = 'Hemos recibido tu pago correctamente. En cuanto rellenes el ' +
+                        '<strong>formulario con los datos de tu negocio</strong> empezamos a montar tu web. ' +
+                        'Te avisamos por WhatsApp en cuanto esté lista.';
+                }
+                var spamEl = document.getElementById('aviso-spam');
+                if (spamEl) spamEl.style.display = 'none';
+            }
+
+            // Muestra qué plantilla concreta se ha comprado (data-detalle).
+            var detalleEl = document.getElementById('detalle-pedido');
+            if (detalleEl && pedido && pedido.detalle) {
+                detalleEl.innerHTML = '<strong>Pedido:</strong> ' + String(pedido.detalle).replace(/[<>&]/g, '');
+                detalleEl.style.display = 'block';
+            }
 
             if (!orderId) {
                 if (statusEl) {

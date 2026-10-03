@@ -66,6 +66,15 @@ function comprarProducto(producto, inputId, btnEl) {
      con los precios publicados en las páginas de producto.
    ===================================================================== */
 
+/* Las páginas web no entregan una clave, así que el aviso de email
+   corregido cambia según el producto. */
+function mensajeEmailInvalido(producto) {
+    if (/^web\s/i.test(producto || '')) {
+        return 'Introduce un email válido para enviarte la factura.';
+    }
+    return 'Introduce un email válido para recibir tu clave.';
+}
+
 function pagarConPaypal(producto, inputId, btnEl, detalle) {
     var input = document.getElementById(inputId);
     var errorEl = document.getElementById('error-' + inputId);
@@ -74,7 +83,7 @@ function pagarConPaypal(producto, inputId, btnEl, detalle) {
     var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!emailValido) {
         if (errorEl) {
-            errorEl.textContent = 'Introduce un email válido para recibir tu clave.';
+            errorEl.textContent = mensajeEmailInvalido(producto);
             errorEl.style.display = 'block';
         }
         return;
@@ -102,6 +111,7 @@ function pagarConPaypal(producto, inputId, btnEl, detalle) {
                     localStorage.setItem('nagokeys_paypal', JSON.stringify({
                         orderId: r.data.id,
                         producto: producto,
+                        detalle: detalle || '',
                         email: email
                     }));
                 } catch (e) { }
