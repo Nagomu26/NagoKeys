@@ -922,6 +922,256 @@
         .pay-methods li {
             color: rgba(255, 255, 255, 0.85);
         }
+    
+        /* ---------- CARRUSEL DE LAS 36 PLANTILLAS ---------- */
+        .carrusel {
+            max-width: 1000px;
+            margin: 26px auto 6px;
+            padding: 0 20px;
+        }
+
+        .carrusel-marco {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.38);
+        }
+
+        .carrusel-chrome {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            background: rgba(3, 28, 39, 0.82);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .carrusel-dots {
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .carrusel-dots i {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .carrusel-url {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            padding: 4px 14px;
+            max-width: 70%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .carrusel-vista {
+            position: relative;
+            overflow: hidden;
+            touch-action: pan-y;
+        }
+
+        .carrusel-pista {
+            display: flex;
+            transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .carrusel-slide {
+            flex: 0 0 100%;
+            margin: 0;
+            position: relative;
+        }
+
+        .carrusel-slide img {
+            display: block;
+            width: 100%;
+            height: clamp(240px, 44vw, 430px);
+            object-fit: cover;
+            object-position: top center;
+            background: #0b2b38;
+        }
+
+        .carrusel-flecha {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(3, 28, 39, 0.72);
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 3;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .carrusel-flecha:hover {
+            background: #00d4ff;
+            border-color: #00d4ff;
+            color: #021c27;
+        }
+
+        .carrusel-flecha:focus-visible {
+            outline: 3px solid #f47521;
+            outline-offset: 2px;
+        }
+
+        .carrusel-antes {
+            left: 14px;
+        }
+
+        .carrusel-despues {
+            right: 14px;
+        }
+
+        .carrusel-progreso {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.14);
+            z-index: 2;
+        }
+
+        .carrusel-progreso span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #00d4ff, #f47521);
+            transition: width 0.4s ease;
+        }
+
+        .carrusel-pie {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+            padding: 14px 16px;
+            background: rgba(3, 28, 39, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .carrusel-fam {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .carrusel-fam button {
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.08);
+            color: #eaf6fb;
+            padding: 7px 15px;
+            font-size: 0.83rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .carrusel-fam button:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+        }
+
+        .carrusel-fam button[aria-pressed="true"] {
+            background: #00d4ff;
+            border-color: #00d4ff;
+            color: #021c27;
+        }
+
+        .carrusel-fam button:focus-visible {
+            outline: 3px solid #f47521;
+            outline-offset: 2px;
+        }
+
+        .carrusel-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-left: auto;
+            flex-wrap: wrap;
+        }
+
+        .carrusel-estilo {
+            font-size: 1.02rem;
+            color: #fff;
+        }
+
+        .carrusel-contador {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .carrusel-enlace {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #00d4ff;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .carrusel-enlace:hover {
+            color: #ffb27a;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .carrusel {
+                padding: 0 14px;
+            }
+
+            .carrusel-flecha {
+                width: 38px;
+                height: 38px;
+                font-size: 1.25rem;
+            }
+
+            .carrusel-antes {
+                left: 8px;
+            }
+
+            .carrusel-despues {
+                right: 8px;
+            }
+
+            .carrusel-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .carrusel-fam {
+                width: 100%;
+            }
+
+            .carrusel-fam button {
+                flex: 1 1 auto;
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .carrusel-pista,
+            .carrusel-progreso span {
+                transition: none;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -1065,6 +1315,185 @@
         <p class="section-sub">Elige tu tipo de negocio y entra a ver las 12 plantillas en directo. Todas incluyen
             dominio propio, diseño adaptado al móvil y botón de WhatsApp.</p>
 
+        <div class="carrusel" id="carrusel-plantillas" data-autoplay="4500"
+            aria-roledescription="carrusel" aria-label="Las 36 plantillas de NagoKeys">
+            <div class="carrusel-marco">
+                <div class="carrusel-chrome" aria-hidden="true">
+                    <span class="carrusel-dots"><i></i><i></i><i></i></span>
+                    <span class="carrusel-url">your-barber-bright</span>
+                </div>
+
+                <div class="carrusel-vista">
+                    <div class="carrusel-pista">
+            <figure class="carrusel-slide" data-estilo="Bright" data-familia="Barberías" data-slug="your-barber-bright" data-demo="plantillas/your-barber-bright/">
+                <img src="images/plantillas-bright.webp" width="1268" height="4877" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Bright para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Donna" data-familia="Barberías" data-slug="your-barber-donna" data-demo="plantillas/your-barber-donna/">
+                <img src="images/plantillas-donna.webp" width="1280" height="4905" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Donna para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Elegant" data-familia="Barberías" data-slug="your-barber-elegant" data-demo="plantillas/your-barber-elegant/">
+                <img src="images/plantillas-elegant.webp" width="1280" height="4968" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Elegant para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Fresh" data-familia="Barberías" data-slug="your-barber-fresh" data-demo="plantillas/your-barber-fresh/">
+                <img src="images/plantillas-fresh.webp" width="1280" height="4974" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Fresh para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Industrial" data-familia="Barberías" data-slug="your-barber-industrial" data-demo="plantillas/your-barber-industrial/">
+                <img src="images/plantillas-industrial.webp" width="1270" height="5047" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Industrial para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Luxe" data-familia="Barberías" data-slug="your-barber-luxe" data-demo="plantillas/your-barber-luxe/">
+                <img src="images/plantillas-luxe.webp" width="1278" height="5425" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Luxe para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Minimal" data-familia="Barberías" data-slug="your-barber-minimal" data-demo="plantillas/your-barber-minimal/">
+                <img src="images/plantillas-minimal.webp" width="1280" height="4922" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Minimal para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Nature" data-familia="Barberías" data-slug="your-barber-nature" data-demo="plantillas/your-barber-nature/">
+                <img src="images/plantillas-nature.webp" width="1268" height="4661" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Nature para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Playful" data-familia="Barberías" data-slug="your-barber-playful" data-demo="plantillas/your-barber-playful/">
+                <img src="images/plantillas-playful.webp" width="1270" height="4851" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Playful para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Tech" data-familia="Barberías" data-slug="your-barber-tech" data-demo="plantillas/your-barber-tech/">
+                <img src="images/plantillas-tech.webp" width="1280" height="4999" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Tech para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Urban" data-familia="Barberías" data-slug="your-barber-urban" data-demo="plantillas/your-barber-urban/">
+                <img src="images/plantillas-urban.webp" width="1268" height="4924" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Urban para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Vintage" data-familia="Barberías" data-slug="your-barber-vintage" data-demo="plantillas/your-barber-vintage/">
+                <img src="images/plantillas-vintage.webp" width="1268" height="4599" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Vintage para barberías y peluquerías">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Bright" data-familia="Restaurantes" data-slug="your-restaurant-bright" data-demo="plantillas/your-restaurant-bright/">
+                <img src="images/plantillas-restaurant-bright.webp" width="1054" height="4937" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Bright para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Donna" data-familia="Restaurantes" data-slug="your-restaurant-donna" data-demo="plantillas/your-restaurant-donna/">
+                <img src="images/plantillas-restaurant-donna.webp" width="1280" height="5010" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Donna para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Elegant" data-familia="Restaurantes" data-slug="your-restaurant-elegant" data-demo="plantillas/your-restaurant-elegant/">
+                <img src="images/plantillas-restaurant-elegant.webp" width="1280" height="4988" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Elegant para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Fresh" data-familia="Restaurantes" data-slug="your-restaurant-fresh" data-demo="plantillas/your-restaurant-fresh/">
+                <img src="images/plantillas-restaurant-fresh.webp" width="1280" height="4954" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Fresh para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Industrial" data-familia="Restaurantes" data-slug="your-restaurant-industrial" data-demo="plantillas/your-restaurant-industrial/">
+                <img src="images/plantillas-restaurant-industrial.webp" width="1270" height="4999" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Industrial para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Luxe" data-familia="Restaurantes" data-slug="your-restaurant-luxe" data-demo="plantillas/your-restaurant-luxe/">
+                <img src="images/plantillas-restaurant-luxe.webp" width="1064" height="5418" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Luxe para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Minimal" data-familia="Restaurantes" data-slug="your-restaurant-minimal" data-demo="plantillas/your-restaurant-minimal/">
+                <img src="images/plantillas-restaurant-minimal.webp" width="1270" height="4922" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Minimal para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Nature" data-familia="Restaurantes" data-slug="your-restaurant-nature" data-demo="plantillas/your-restaurant-nature/">
+                <img src="images/plantillas-restaurant-nature.webp" width="1054" height="4619" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Nature para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Playful" data-familia="Restaurantes" data-slug="your-restaurant-playful" data-demo="plantillas/your-restaurant-playful/">
+                <img src="images/plantillas-restaurant-playful.webp" width="1270" height="4903" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Playful para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Tech" data-familia="Restaurantes" data-slug="your-restaurant-tech" data-demo="plantillas/your-restaurant-tech/">
+                <img src="images/plantillas-restaurant-tech.webp" width="1280" height="5019" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Tech para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Urban" data-familia="Restaurantes" data-slug="your-restaurant-urban" data-demo="plantillas/your-restaurant-urban/">
+                <img src="images/plantillas-restaurant-urban.webp" width="1054" height="4814" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Urban para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Vintage" data-familia="Restaurantes" data-slug="your-restaurant-vintage" data-demo="plantillas/your-restaurant-vintage/">
+                <img src="images/plantillas-restaurant-vintage.webp" width="1054" height="4561" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Vintage para bares y restaurantes">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Bright" data-familia="Otros" data-slug="your-place-bright" data-demo="plantillas/your-place-bright/">
+                <img src="images/plantillas-place-bright.webp" width="1054" height="4883" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Bright para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Donna" data-familia="Otros" data-slug="your-place-donna" data-demo="plantillas/your-place-donna/">
+                <img src="images/plantillas-place-donna.webp" width="1280" height="4891" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Donna para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Elegant" data-familia="Otros" data-slug="your-place-elegant" data-demo="plantillas/your-place-elegant/">
+                <img src="images/plantillas-place-elegant.webp" width="1280" height="4915" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Elegant para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Fresh" data-familia="Otros" data-slug="your-place-fresh" data-demo="plantillas/your-place-fresh/">
+                <img src="images/plantillas-place-fresh.webp" width="1280" height="4921" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Fresh para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Industrial" data-familia="Otros" data-slug="your-place-industrial" data-demo="plantillas/your-place-industrial/">
+                <img src="images/plantillas-place-industrial.webp" width="1270" height="4967" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Industrial para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Luxe" data-familia="Otros" data-slug="your-place-luxe" data-demo="plantillas/your-place-luxe/">
+                <img src="images/plantillas-place-luxe.webp" width="1054" height="5277" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Luxe para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Minimal" data-familia="Otros" data-slug="your-place-minimal" data-demo="plantillas/your-place-minimal/">
+                <img src="images/plantillas-place-minimal.webp" width="1270" height="4870" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Minimal para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Nature" data-familia="Otros" data-slug="your-place-nature" data-demo="plantillas/your-place-nature/">
+                <img src="images/plantillas-place-nature.webp" width="1054" height="4594" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Nature para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Playful" data-familia="Otros" data-slug="your-place-playful" data-demo="plantillas/your-place-playful/">
+                <img src="images/plantillas-place-playful.webp" width="1270" height="4771" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Playful para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Tech" data-familia="Otros" data-slug="your-place-tech" data-demo="plantillas/your-place-tech/">
+                <img src="images/plantillas-place-tech.webp" width="1280" height="4947" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Tech para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Urban" data-familia="Otros" data-slug="your-place-urban" data-demo="plantillas/your-place-urban/">
+                <img src="images/plantillas-place-urban.webp" width="1054" height="4769" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Urban para tiendas y otros negocios">
+            </figure>
+            <figure class="carrusel-slide" data-estilo="Vintage" data-familia="Otros" data-slug="your-place-vintage" data-demo="plantillas/your-place-vintage/">
+                <img src="images/plantillas-place-vintage.webp" width="1054" height="4561" loading="lazy" decoding="async"
+                    alt="Plantilla web estilo Vintage para tiendas y otros negocios">
+            </figure>
+                    </div>
+                    <button type="button" class="carrusel-flecha carrusel-antes"
+                        aria-label="Plantilla anterior">&#8249;</button>
+                    <button type="button" class="carrusel-flecha carrusel-despues"
+                        aria-label="Plantilla siguiente">&#8250;</button>
+                    <div class="carrusel-progreso" aria-hidden="true"><span></span></div>
+                </div>
+
+                <div class="carrusel-pie">
+                    <div class="carrusel-fam" role="group" aria-label="Ir a un tipo de plantilla">
+                    <button type="button" data-inicio="0" aria-pressed="true">✂️ Barberías</button>
+                    <button type="button" data-inicio="12" aria-pressed="false">🍽️ Restaurantes</button>
+                    <button type="button" data-inicio="24" aria-pressed="false">🛍️ Otros</button>
+                    </div>
+                    <div class="carrusel-meta">
+                        <b class="carrusel-estilo">Bright</b>
+                        <span class="carrusel-contador">1 / 36</span>
+                        <a class="carrusel-enlace" href="plantillas/your-barber-bright/" target="_blank"
+                            rel="noopener noreferrer">Ver en directo &#8594;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="pricing-container">
 
             <a href="paginas-peluquerias" class="card tpl-card tpl-card--luxe" rel="noopener noreferrer">
@@ -1073,7 +1502,7 @@
                     alt="Plantillas web para peluquerías y barberías">
                 <div class="tpl-body">
                     <h2>✂️ Barberías y peluquerías</h2>
-                    <p class="tpl-desc">8 diseños para salones: servicios con precios, galería y reserva de cita
+                    <p class="tpl-desc">12 diseños para salones: servicios con precios, galería y reserva de cita
                         online.</p>
                     <span class="tpl-cta">Ver las 12 plantillas →</span>
                 </div>
@@ -1085,7 +1514,7 @@
                     alt="Plantillas web para bares y restaurantes">
                 <div class="tpl-body">
                     <h2>🍽️ Bares y restaurantes</h2>
-                    <p class="tpl-desc">8 diseños con menú o carta con precios, reserva de mesa y horario de cocina.
+                    <p class="tpl-desc">12 diseños con menú o carta con precios, reserva de mesa y horario de cocina.
                     </p>
                     <span class="tpl-cta">Ver las 12 plantillas →</span>
                 </div>
@@ -1097,7 +1526,7 @@
                     alt="Plantillas web para tiendas y otros negocios">
                 <div class="tpl-body">
                     <h2>🛍️ Tiendas y otros negocios</h2>
-                    <p class="tpl-desc">8 diseños como escaparate online: lo que ofreces, tu ubicación y formas de
+                    <p class="tpl-desc">12 diseños como escaparate online: lo que ofreces, tu ubicación y formas de
                         contactar.</p>
                     <span class="tpl-cta">Ver las 12 plantillas →</span>
                 </div>
@@ -1317,6 +1746,102 @@
                 d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
         </svg>
     </a>
+
+    <script>
+
+    (function () {
+        var raiz = document.getElementById('carrusel-plantillas');
+        if (!raiz) return;
+
+        var pista = raiz.querySelector('.carrusel-pista');
+        var vista = raiz.querySelector('.carrusel-vista');
+        var slides = Array.prototype.slice.call(raiz.querySelectorAll('.carrusel-slide'));
+        var chips = Array.prototype.slice.call(raiz.querySelectorAll('.carrusel-fam button'));
+        var antes = raiz.querySelector('.carrusel-antes');
+        var despues = raiz.querySelector('.carrusel-despues');
+        var contador = raiz.querySelector('.carrusel-contador');
+        var estilo = raiz.querySelector('.carrusel-estilo');
+        var enlace = raiz.querySelector('.carrusel-enlace');
+        var url = raiz.querySelector('.carrusel-url');
+        var barra = raiz.querySelector('.carrusel-progreso span');
+        var total = slides.length;
+        var i = 0;
+        var reloj = null;
+        var espera = parseInt(raiz.getAttribute('data-autoplay'), 10) || 4500;
+        var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function irA(n, reiniciar) {
+            i = ((n % total) + total) % total;
+            pista.style.transform = 'translateX(' + (-i * 100) + '%)';
+            for (var k = 0; k < total; k++) {
+                slides[k].setAttribute('aria-hidden', k === i ? 'false' : 'true');
+            }
+            var s = slides[i];
+            contador.textContent = (i + 1) + ' / ' + total;
+            estilo.textContent = s.getAttribute('data-estilo') + ' · ' + s.getAttribute('data-familia');
+            url.textContent = s.getAttribute('data-slug');
+            enlace.href = s.getAttribute('data-demo');
+            enlace.setAttribute('aria-label', 'Ver la plantilla ' + s.getAttribute('data-estilo') +
+                ' de ' + s.getAttribute('data-familia') + ' en directo');
+            barra.style.width = (((i + 1) / total) * 100) + '%';
+            for (var c = 0; c < chips.length; c++) {
+                var ini = parseInt(chips[c].getAttribute('data-inicio'), 10);
+                var fin = (c + 1 < chips.length)
+                    ? parseInt(chips[c + 1].getAttribute('data-inicio'), 10) : total;
+                chips[c].setAttribute('aria-pressed', (i >= ini && i < fin) ? 'true' : 'false');
+            }
+            if (reiniciar) arrancar();
+        }
+
+        function parar() {
+            if (reloj) { clearInterval(reloj); reloj = null; }
+        }
+
+        function arrancar() {
+            parar();
+            if (quieto || document.hidden) return;
+            reloj = setInterval(function () { irA(i + 1); }, espera);
+        }
+
+        antes.addEventListener('click', function () { irA(i - 1, true); });
+        despues.addEventListener('click', function () { irA(i + 1, true); });
+
+        chips.forEach(function (b) {
+            b.addEventListener('click', function () {
+                irA(parseInt(b.getAttribute('data-inicio'), 10), true);
+            });
+        });
+
+        raiz.addEventListener('mouseenter', parar);
+        raiz.addEventListener('mouseleave', arrancar);
+        raiz.addEventListener('focusin', parar);
+        raiz.addEventListener('focusout', function () {
+            if (!raiz.contains(document.activeElement)) arrancar();
+        });
+
+        raiz.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft') { irA(i - 1, true); }
+            else if (e.key === 'ArrowRight') { irA(i + 1, true); }
+        });
+
+        var x0 = null;
+        vista.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+        vista.addEventListener('pointerup', function (e) {
+            if (x0 === null) return;
+            var d = e.clientX - x0;
+            x0 = null;
+            if (Math.abs(d) > 45) irA(d < 0 ? i + 1 : i - 1, true);
+        });
+        vista.addEventListener('pointercancel', function () { x0 = null; });
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) parar(); else arrancar();
+        });
+
+        irA(0);
+        arrancar();
+    })();
+    </script>
 
 </body>
 
