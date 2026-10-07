@@ -340,6 +340,10 @@ const PAYPAL_PRECIOS = {
    visual de las paginas de producto.
    ========================================================================== */
 const PRODUCTOS_AGOTADOS = [
+  'Windows 11 Pro Retail',
+  'Windows 11 Pro OEM',
+  'Pack Windows 11 Pro Retail + McAfee',
+  'Pack Windows 11 Pro OEM + McAfee',
   // 'Windows 11 Home Retail',   // <- disponible otra vez desde 2026-10-02
   // 'Windows 11 Home OEM',      // <- disponible otra vez desde 2026-10-01
   // 'Nombre exacto del producto tal cual aparece en PAYPAL_PRECIOS',
