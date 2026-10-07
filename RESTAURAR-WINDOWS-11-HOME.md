@@ -4,16 +4,24 @@
 
 | Producto | Estado | Nota |
 |---|---|---|
-| `Windows 11 Home OEM` | **A la venta** | Restaurado el 2026-10-01 |
+| `Windows 11 Pro Retail` | **Agotado** | Bloqueado el 2026-10-07 |
+| `Windows 11 Pro OEM` | **Agotado** | Bloqueado el 2026-10-07 |
+| `Pack Windows 11 Pro Retail + McAfee` | **Agotado** | Bloqueado el 2026-10-07 |
+| `Pack Windows 11 Pro OEM + McAfee` | **Agotado** | Bloqueado el 2026-10-07 |
 | `Windows 11 Home Retail` | **A la venta** | Restaurado el 2026-10-02 |
+| `Windows 11 Home OEM` | **A la venta** | Restaurado el 2026-10-01 |
 
-**Ahora mismo no hay ningun producto agotado**: `PRODUCTOS_AGOTADOS` esta
-vacia en `_worker.js`. Este documento queda como guia por si hay que volver a
-bloquear alguno mas adelante (los pasos son los mismos para cualquier producto).
+**Los packs se bloquearon tambien**: incluyen la misma clave Pro, asi que si no
+hay claves Pro no se pueden entregar.
 
-Si algun dia hay que bloquear uno, escribe su nombre en la lista, pon
-`data-agotado="1"` en su pagina y despliega. Para quitar el bloqueo, borra su
-linea de la lista, quita el atributo y despliega.
+`PRODUCTOS_AGOTADOS` en `_worker.js` contiene esos 4 productos y sus paginas
+(`productos/windows-11-pro-retail.html` y `productos/windows-11-pro-oem.html`)
+llevan `data-agotado="1"`, badge rojo "Agotado", aviso rojo en `delivery-info`
+y `availability: OutOfStock`.
+
+Para volver a vender cualquiera de ellos, borra su linea de la lista, quita
+`data-agotado="1"` de su pagina (y devuelve badge/aviso/schema a como estaban)
+y despliega. Los pasos son los mismos para cualquier producto.
 
 ---
 
