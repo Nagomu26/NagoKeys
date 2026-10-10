@@ -310,7 +310,7 @@ const PAYPAL_PRECIOS = {
   'Windows 11 Home Retail': '9.99',
   'Windows 11 Pro Retail': '10.99',
   'Windows 11 Home OEM': '4.99',
-  'Windows 11 Pro OEM': '4.99',
+  'Windows 11 Pro OEM': '5.99',
   'McAfee Antivirus 1 Año': '7.99',
   'Pack Windows 11 Home Retail + McAfee': '15.49',
   'Pack Windows 11 Pro Retail + McAfee': '16.49',
@@ -341,9 +341,7 @@ const PAYPAL_PRECIOS = {
    ========================================================================== */
 const PRODUCTOS_AGOTADOS = [
   'Windows 11 Pro Retail',
-  'Windows 11 Pro OEM',
   'Pack Windows 11 Pro Retail + McAfee',
-  'Pack Windows 11 Pro OEM + McAfee',
   // 'Windows 11 Home Retail',   // <- disponible otra vez desde 2026-10-02
   // 'Windows 11 Home OEM',      // <- disponible otra vez desde 2026-10-01
   // 'Nombre exacto del producto tal cual aparece en PAYPAL_PRECIOS',

@@ -5,19 +5,18 @@
 | Producto | Estado | Nota |
 |---|---|---|
 | `Windows 11 Pro Retail` | **Agotado** | Bloqueado el 2026-10-07 |
-| `Windows 11 Pro OEM` | **Agotado** | Bloqueado el 2026-10-07 |
 | `Pack Windows 11 Pro Retail + McAfee` | **Agotado** | Bloqueado el 2026-10-07 |
-| `Pack Windows 11 Pro OEM + McAfee` | **Agotado** | Bloqueado el 2026-10-07 |
+| `Windows 11 Pro OEM` | **A la venta** | Restaurado el 2026-10-10 a 5,99 € |
+| `Pack Windows 11 Pro OEM + McAfee` | **A la venta** | Restaurado el 2026-10-10 (10,49 €) |
 | `Windows 11 Home Retail` | **A la venta** | Restaurado el 2026-10-02 |
 | `Windows 11 Home OEM` | **A la venta** | Restaurado el 2026-10-01 |
 
-**Los packs se bloquearon tambien**: incluyen la misma clave Pro, asi que si no
-hay claves Pro no se pueden entregar.
+**Los packs se bloquean/restauran junto a su clave Pro**: incluyen la misma
+clave Pro, asi que si no hay claves Pro no se pueden entregar.
 
-`PRODUCTOS_AGOTADOS` en `_worker.js` contiene esos 4 productos y sus paginas
-(`productos/windows-11-pro-retail.html` y `productos/windows-11-pro-oem.html`)
-llevan `data-agotado="1"`, badge rojo "Agotado", aviso rojo en `delivery-info`
-y `availability: OutOfStock`.
+`PRODUCTOS_AGOTADOS` en `_worker.js` contiene ahora esos 2 productos (Pro Retail
+y su pack) y sus paginas llevan `data-agotado="1"`, badge rojo "Agotado", aviso
+rojo en `delivery-info` y `availability: OutOfStock`.
 
 Para volver a vender cualquiera de ellos, borra su linea de la lista, quita
 `data-agotado="1"` de su pagina (y devuelve badge/aviso/schema a como estaban)
@@ -73,28 +72,10 @@ Aprovecha el mismo momento para anadir el resto de marcas:
 | Aviso rojo | Anadir en el bloque `delivery-info`: `<p style="color:#c0392b;"><strong>⛔ Agotado temporalmente:</strong> Ya no se puede comprar este producto. Estamos reponiendo stock; vuelve pronto.</p>` |
 | Google | `"availability": "https://schema.org/InStock"` -> `"availability": "https://schema.org/OutOfStock"` |
 
-Badges originales antes de marcarlos: Retail `En Stock`, OEM `Oferta Flash`.
+Badges originales antes de marcarlos como agotados: Retail `En Stock`,
+Pro OEM `Super Ventas`, Home OEM `Oferta Flash`.
 
 ### 3. Deploy y verificacion
-
-```
-npx --yes wrangler deploy --name nagokeysgithub
-```
-
-En la pagina del producto debe verse el badge rojo "Agotado" y el aviso gris
-en lugar del boton "Pagar con PayPal".
-
----
-
-## Nota: la lista tambien sirve para otros productos
-
-`PRODUCTOS_AGOTADOS` acepta cualquier clave de `PAYPAL_PRECIOS` (mismo texto
-exacto). Anadir un producto es escribir su nombre en la lista; para ponerlo a
-la venta de nuevo es borrar su linea y desplegar.
-
----
-
-## 3. Deploy y verificacion
 
 ```
 npx --yes wrangler deploy --name nagokeysgithub
